@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
 
 # Movement
 const MAX_SPEED: int = 800
@@ -40,3 +40,20 @@ func _physics_process(delta):
 			can_dash = true
 			
 	move_and_slide()
+
+const BALL = preload("res://scenes/Ball.tscn")
+
+func _process(delta: float) -> void:
+	look_at(get_global_mouse_position())
+	
+	rotation_degrees = wrap(rotation_degrees, 0, 360)
+	if rotation_degrees > 90 and rotation_degrees < 270:
+		scale.y = -1
+	else:
+		scale.y = 1
+		
+	if Input.is_action_just_pressed("hit"):
+		var ball_instance = BALL.instantiate()
+		get_tree().root.add_child(ball_instance)
+		ball_instance.global_position = global_position
+		ball_instance.rotation = rotation
