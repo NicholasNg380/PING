@@ -4,7 +4,7 @@ const MAX_SPEED: int = 800
 const ACCELERATION: int = 15
 const FRICTION: int = 13
 
-const DASH_SPEED: int = 2000
+const DASH_SPEED: int = 4000
 const DASH_TIME: float = 0.12
 var can_dash: bool = true
 var dash_timer: float = 0.0
@@ -20,14 +20,12 @@ func _physics_process(delta):
 		).normalized()
 	var lerp_weight = delta * (ACCELERATION if input else FRICTION)
 	
-	velocity = lerp(velocity, input * (MAX_SPEED), lerp_weight)
-	"""
 	if can_dash and Input.is_action_just_pressed("shift"):
 		can_dash = false
 		dash_timer = DASH_TIME
 		dash_reload_timer = DASH_RELOAD_COST
 				
-		velocity = lerp(velocity, input * (DASH_SPEED), lerp_weight)
+		velocity = input * DASH_SPEED
 	else:
 		velocity = lerp(velocity, input * (MAX_SPEED), lerp_weight)
 
@@ -38,6 +36,5 @@ func _physics_process(delta):
 			dash_reload_timer  -= delta
 		else:
 			can_dash = true
-			"""
 			
 	move_and_slide()
