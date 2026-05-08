@@ -11,9 +11,9 @@ config_version=5
 [application]
 
 config/name="Ping"
-run/main_scene="uid://bpbyjy6wsbxg3"
+run/main_scene="uid://bgl38ua186ky2"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://assets/sprites/icon.svg"
 
 [input]
 
