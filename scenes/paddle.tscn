@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://nu2gcom1lpeu"]
+
+[ext_resource type="Script" uid="uid://cu2l6b8qtgij8" path="res://scenes/paddle.gd" id="1_y7wee"]
+[ext_resource type="Texture2D" uid="uid://b68vj6s7fxrwm" path="res://assets/sprites/icon.svg" id="2_mo4dg"]
+
+[node name="Paddle" type="Node2D" unique_id=1252679974]
+script = ExtResource("1_y7wee")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1316736803]
+position = Vector2(81.00001, 1.9073486e-06)
+scale = Vector2(0.0859375, 1.078125)
+texture = ExtResource("2_mo4dg")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1047595819]
+position = Vector2(99.00001, 0)
+scale = Vector2(0.0859375, 1.078125)
