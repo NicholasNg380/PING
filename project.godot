@@ -15,6 +15,11 @@ run/main_scene="uid://bgl38ua186ky2"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://assets/sprites/icon.svg"
 
+[global_group]
+
+Enemy=""
+Player=""
+
 [input]
 
 up={
