@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://cyf2ff86arige"]
+
+[ext_resource type="Script" uid="uid://0h1hbytcgyri" path="res://main_menu.gd" id="1_eiy7p"]
+[ext_resource type="Script" uid="uid://ckq1m165wfsan" path="res://start_game_button.gd" id="2_h7a2f"]
+
+[node name="Control" type="Control" unique_id=1071619172]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 663.0
+script = ExtResource("1_eiy7p")
+
+[node name="start_game_button" type="Button" parent="." unique_id=1053721338]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -91.0
+offset_top = -37.5
+offset_right = 102.0
+offset_bottom = 44.5
+text = "Start"
+script = ExtResource("2_h7a2f")
+
+[connection signal="button_up" from="start_game_button" to="." method="_on_start_game_button_button_up"]
+[connection signal="button_up" from="start_game_button" to="start_game_button" method="_on_button_up"]
