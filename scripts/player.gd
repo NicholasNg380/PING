@@ -1,9 +1,11 @@
 extends CharacterBody2D
 
+# Movement
 const MAX_SPEED: int = 800
 const ACCELERATION: int = 15
 const FRICTION: int = 13
 
+# Dashing
 const DASH_SPEED: int = 4000
 const DASH_TIME: float = 0.12
 var can_dash: bool = true
