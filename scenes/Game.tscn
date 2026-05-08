@@ -22,6 +22,8 @@ color = Color(0.79607844, 0.6862745, 0.23529412, 1)
 position = Vector2(598, 314)
 
 [node name="Path2D" type="Path2D" parent="." unique_id=905543411]
+position = Vector2(-28.846603, 1.4053497)
+scale = Vector2(1.0224313, 1.0116144)
 curve = SubResource("Curve2D_qbsmt")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=569419452]

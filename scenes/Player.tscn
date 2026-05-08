@@ -7,6 +7,7 @@
 size = Vector2(126, 127)
 
 [node name="Player" type="CharacterBody2D" unique_id=250388077]
+platform_floor_layers = 0
 script = ExtResource("1_v6fml")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1325783248]
