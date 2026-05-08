@@ -1,0 +1,10 @@
+<<<<<<< Updated upstream
+res://start_game_button.gd
+res://main_menu.gd
+res://MainMenu.tscn
+=======
+res://Player.tscn
+res://character_body_2d.gd
+res://player.gd
+res://Game.tscn
+>>>>>>> Stashed changes
