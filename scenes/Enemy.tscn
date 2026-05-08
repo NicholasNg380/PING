@@ -3,9 +3,18 @@
 [ext_resource type="Script" uid="uid://87s44viknddd" path="res://scripts/enemy.gd" id="1_md0e3"]
 [ext_resource type="Texture2D" uid="uid://b68vj6s7fxrwm" path="res://assets/sprites/icon.svg" id="2_4ra3w"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_55jtl"]
+size = Vector2(107, 104)
+
 [node name="Enemy" type="CharacterBody2D" unique_id=1863187210]
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_md0e3")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=359324474]
 modulate = Color(1, 0.11372549, 0.34509805, 1)
 texture = ExtResource("2_4ra3w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2083497812]
+position = Vector2(1.5, 0)
+shape = SubResource("RectangleShape2D_55jtl")
