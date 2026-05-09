@@ -33,33 +33,31 @@ var RETURN_DAMAGE_MULTIPLIER: float
 var is_inactive = true
 
 func _ready() -> void:
-	catch_cooldown_bar.visible = false
+	player.update_stats.connect(_on_update_stats)
+    	catch_cooldown_bar.visible = false
 	SPEED = player.ball_speed
-	SPEED_MULTIPLIER = player.ball_return_speed_multi
+	SPEED_MULTIPLIER = player.ball_speed_multi
 	RETURN_SPEED = player.ball_return_speed
 	WALL_RETURN_SPEED = player.ball_return_wall_speed
 	RETURN_SPEED_MULTIPLIER = player.ball_return_speed_multi
 	DAMAGE = player.ball_damage
 	DAMAGE_MULTIPLIER = player.ball_damage_multi
 	RETURN_DAMAGE_MULTIPLIER = player.ball_return_damage_multi
-	
 	global_position = player.global_position
 	sprite = $BallSpin
 	set_as_top_level(true)
-	player.update_stats.connect(_on_update_stats)
 	pass
 	
 func _on_update_stats():
 	SPEED = player.ball_speed
-	SPEED_MULTIPLIER = player.ball_return_speed_multi
+	SPEED_MULTIPLIER = player.ball_speed_multi
 	RETURN_SPEED = player.ball_return_speed
 	WALL_RETURN_SPEED = player.ball_return_wall_speed
 	RETURN_SPEED_MULTIPLIER = player.ball_return_speed_multi
 	DAMAGE = player.ball_damage
 	DAMAGE_MULTIPLIER = player.ball_damage_multi
 	RETURN_DAMAGE_MULTIPLIER = player.ball_return_damage_multi
-	print("Ball:", SPEED, SPEED_MULTIPLIER, RETURN_SPEED, WALL_RETURN_SPEED, RETURN_SPEED_MULTIPLIER, DAMAGE, DAMAGE_MULTIPLIER, RETURN_DAMAGE_MULTIPLIER)
-
+	
 func _process(delta: float) -> void:
 	if serve_cooldown > 0.0:
 		catch_cooldown_bar.visible = true
@@ -96,8 +94,8 @@ func _on_ball_hit_box_body_entered(body: Node2D) -> void:
 		if body.is_in_group("Enemy"):
 			ball_state = State.HIT_ENEMY
 			update_score.emit(ENEMY_HIT_SCORE)
-			body.take_damage(DAMAGE * DAMAGE_MULTIPLIER)
-	if ball_state == State.HIT_ENEMY or ball_state == State.HIT_WALL:
+			body.take_damage(DAMAGE + DAMAGE_MULTIPLIER)
+	elif ball_state == State.HIT_ENEMY or ball_state == State.HIT_WALL:
 		if body.is_in_group("Enemy"):
 			body.take_damage(DAMAGE * RETURN_DAMAGE_MULTIPLIER)
 		if body.is_in_group("Player"):

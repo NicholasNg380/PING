@@ -37,12 +37,12 @@ var invulnerable: bool = false
 Ball Variables
 '''
 var ball_speed: float = 700.0
-var ball_speed_multi: float = 1
+var ball_speed_multi: float = 1.0
 var ball_return_speed: float = 850.0
 var ball_return_wall_speed: float = 1000.0
 var ball_return_speed_multi: float = 1.0
 var ball_damage: float = 1.0
-var ball_damage_multi: float = 1.0
+var ball_damage_multi: float = 0.0
 var ball_return_damage_multi: float = 0.5
 
 signal update_stats
@@ -152,13 +152,12 @@ func _on_upgrade_selected(upgrade_entry: Dictionary):
 		max_health += stat
 	if name == "Ball Speed":
 		ball_speed_multi += stat
-		print(ball_speed_multi)
 	if name == "Dash":
 		DASH_RELOAD_COST -= stat
 	if name == "Return Strength":
 		ball_return_damage_multi += stat
+	if name == "Return Speed":
 		ball_return_speed_multi += stat
-	update_stats.emit()	
 	update_stats.emit()
 
 
