@@ -1,21 +1,24 @@
 [gd_scene format=3 uid="uid://bahcf75l5vwy5"]
 
 [ext_resource type="FontFile" uid="uid://kunxlfww8xwl" path="res://assets/pixel_operator/PixelOperator8-Bold.ttf" id="1_3l542"]
+[ext_resource type="Script" uid="uid://clbygal1ou1yq" path="res://scenes/mainScenes/death_screen.gd" id="1_16ai1"]
 [ext_resource type="Texture2D" uid="uid://bqv3jmiwxhxbe" path="res://assets/sprites/ui/exit_button.png" id="2_hxhee"]
 [ext_resource type="Texture2D" uid="uid://drddi47y2i3l3" path="res://assets/sprites/ui/retry_button.png" id="3_r4yk6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hxhee"]
-bg_color = Color(0, 0, 0, 0.5176471)
+bg_color = Color(0, 0, 0, 0.76862746)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_16ai1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d651b"]
 
 [node name="DeathScreen" type="Control" unique_id=663415795]
+process_mode = 2
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1928.0
+offset_bottom = 1079.0
+script = ExtResource("1_16ai1")
 
 [node name="Panel" type="Panel" parent="." unique_id=117695567]
 layout_mode = 0
@@ -33,7 +36,7 @@ theme_override_fonts/font = ExtResource("1_3l542")
 theme_override_font_sizes/font_size = 64
 text = "You Died! 
 
-Your High Score was: "
+Your Score was: "
 horizontal_alignment = 1
 
 [node name="TextureButton" type="TextureButton" parent="." unique_id=1262078062]
@@ -50,18 +53,22 @@ stretch_mode = 0
 layout_mode = 0
 offset_left = 668.0
 offset_top = 751.0
-offset_right = 1267.0
+offset_right = 1181.0
 offset_bottom = 947.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_16ai1")
 icon = ExtResource("2_hxhee")
 expand_icon = true
 
-[node name="ExitButton2" type="Button" parent="." unique_id=884954599]
+[node name="RetryButton" type="Button" parent="." unique_id=884954599]
 layout_mode = 0
 offset_left = 676.0
 offset_top = 451.0
-offset_right = 1275.0
+offset_right = 1187.0
 offset_bottom = 647.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_d651b")
 icon = ExtResource("3_r4yk6")
 expand_icon = true
+
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="button_up" from="RetryButton" to="." method="_on_retry_button_button_up"]
+[connection signal="pressed" from="RetryButton" to="." method="_on_retry_button_pressed"]

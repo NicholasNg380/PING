@@ -1,0 +1,20 @@
+extends Control
+signal restart
+
+func _ready() -> void:
+	self.visible = false
+	pass
+
+func be_visible():
+	self.visible = true
+
+func set_label(score):
+	$Label.text = "You Died!\n\nYour Score was: %s" % [(str(score))]
+
+func _on_exit_button_pressed() -> void:
+	#restart.emit()
+	pass
+
+func _on_retry_button_button_up() -> void:
+	print("d")
+	restart.emit()

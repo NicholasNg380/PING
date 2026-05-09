@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://b12hk70caua6a"]
+
+[ext_resource type="Script" uid="uid://c7ulfls4fqr01" path="res://scenes/mainScenes/win_game_screen.gd" id="1_wws0c"]
+[ext_resource type="Texture2D" uid="uid://b3wwp8vx4fawq" path="res://assets/sprites/penguin/penguin_hit_left.png" id="2_0tuva"]
+[ext_resource type="FontFile" uid="uid://csh3bhx0uknk5" path="res://assets/pixel_operator/PixelOperatorMonoHB8.ttf" id="3_yo202"]
+
+[node name="WinGameScreen" type="Control" unique_id=1968487832]
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 1.013
+offset_right = 6.0
+offset_bottom = -0.040039063
+script = ExtResource("1_wws0c")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1491123995]
+layout_mode = 0
+offset_right = 1960.0
+offset_bottom = 1098.0
+color = Color(0.58787256, 0.67319804, 0.9040259, 1)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=422116889]
+layout_mode = 0
+offset_left = -158.0
+offset_top = -6.0
+offset_right = 930.0
+offset_bottom = 1082.0
+texture = ExtResource("2_0tuva")
+expand_mode = 5
+flip_h = true
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=581537417]
+layout_mode = 0
+offset_left = 862.0
+offset_top = -6.0
+offset_right = 1950.0
+offset_bottom = 1082.0
+texture = ExtResource("2_0tuva")
+expand_mode = 5
+
+[node name="Label" type="Label" parent="." unique_id=528034922]
+layout_mode = 0
+offset_left = 534.0
+offset_top = 284.0
+offset_right = 1254.0
+offset_bottom = 551.0
+theme_override_fonts/font = ExtResource("3_yo202")
+theme_override_font_sizes/font_size = 40
+text = "You Won!!
+Congratulations!!!"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="." unique_id=43691578]
+layout_mode = 0
+offset_left = 578.0
+offset_top = 700.0
+offset_right = 1298.0
+offset_bottom = 967.0
+theme_override_fonts/font = ExtResource("3_yo202")
+theme_override_font_sizes/font_size = 40
+text = "Score:
+"
+horizontal_alignment = 1

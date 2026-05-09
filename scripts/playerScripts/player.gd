@@ -55,6 +55,7 @@ var explosive_dmg: float = 1.0
 signal update_stats
 signal dashed
 
+signal game_over
 signal update_score(score: int)
 signal reset_combo
 signal increase_combo
@@ -94,9 +95,15 @@ func _physics_process(delta):
 	if health <= 0:
 		pass
 
+func refersh_health():
+	health = max_health
+	health_bar.update_health(health)
+
 func take_player_damage():
 	health -= 1
 	health_bar.update_health(health)
+	if (health <= 0):
+		game_over.emit()
 	
 func _movement(delta: float) -> void:
 	var input = Vector2(
@@ -171,6 +178,7 @@ func _on_upgrade_selected(upgrade_entry: Dictionary):
 		ball_damage_multi += stat
 	if name == "Max Hp":
 		max_health += stat
+		health = max_health
 		health_bar.change_max(max_health)
 	if name == "Ball Speed":
 		ball_speed_multi += stat
