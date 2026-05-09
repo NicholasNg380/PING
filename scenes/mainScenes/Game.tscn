@@ -14,7 +14,27 @@ point_count = 5
 [node name="Game" type="Node2D" unique_id=591366547]
 script = ExtResource("1_cpr0p")
 
-[node name="Stage" parent="." unique_id=1157750663 instance=ExtResource("2_23i5p")]
+[node name="Tutorial" parent="." unique_id=1157750663 instance=ExtResource("2_23i5p")]
+
+[node name="Stage1" parent="." unique_id=1379227562 instance=ExtResource("2_23i5p")]
+
+[node name="Stage2" parent="." unique_id=14458720 instance=ExtResource("2_23i5p")]
+
+[node name="Stage3" parent="." unique_id=1208457301 instance=ExtResource("2_23i5p")]
+
+[node name="Stage4" parent="." unique_id=1805199411 instance=ExtResource("2_23i5p")]
+
+[node name="Stage5" parent="." unique_id=470042607 instance=ExtResource("2_23i5p")]
+
+[node name="Stage6" parent="." unique_id=713459420 instance=ExtResource("2_23i5p")]
+
+[node name="Stage7" parent="." unique_id=271682039 instance=ExtResource("2_23i5p")]
+
+[node name="Stage8" parent="." unique_id=801230769 instance=ExtResource("2_23i5p")]
+
+[node name="Stage9" parent="." unique_id=1470897582 instance=ExtResource("2_23i5p")]
+
+[node name="Stage10" parent="." unique_id=603878905 instance=ExtResource("2_23i5p")]
 
 [node name="Player" parent="." unique_id=250388077 instance=ExtResource("1_wbfu4")]
 collision_mask = 9

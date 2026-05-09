@@ -55,4 +55,3 @@ func _on_ball_hit_box_area_entered(area: Area2D) -> void:
 		can_parry.emit()
 	if area.get_parent().is_in_group("Wall"):
 		ball_state = State.HIT_WALL
-		
