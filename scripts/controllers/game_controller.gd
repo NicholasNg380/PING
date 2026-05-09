@@ -8,6 +8,8 @@ var spawn_interval = 1.5
 
 var wave_finished = false
 
+var current_level = 1
+
 enum GameState {
 	PLAYING,
 	UPGRADES
@@ -77,15 +79,14 @@ func load_level(path):
 	$CurrentLevel.add_child(level)
 
 func start_level(level_id):
+	current_level = level_id
 	var data = levels[level_id]
 	spawn_interval = max(0.4, 1.5 - level_id * 0.1)
 	spawn_wave(data["possum"], data["bird"])
 
-func start_next_level(level_id):
-	state = GameState.PLAYING
-	wave_finished = false
-	$UpgradeUI.turn_off()
-	start_level(level_id)
+func start_next_level():
+	current_level += 1
+	start_level(current_level)
 
 func get_alive_enemies():
 	return get_tree().get_nodes_in_group("enemies").size()
@@ -101,16 +102,26 @@ func show_upgrades():
 
 	print("UPGRADES SCREEN")
 	
-	$UpgradeUI._turn_on()
+	$UpgradeUI.turn_on()
+
+func _on_upgrade_selected(upgrade):
+	print("UPGRADE SELECTED:", upgrade)
+	state = GameState.PLAYING
+	wave_finished = false
+
+	$UpgradeUI.turn_off()
+	start_next_level()
 
 func _ready():
+	print("connecting upgrade signal")
+	$UpgradeUI.upgrade_selected.connect(_on_upgrade_selected)
 	start_level(1)
 
 func _process(delta):
 	if state != GameState.PLAYING:
 		return
 	
-	if is_wave_complete() and !wave_finished:
+	if state == GameState.PLAYING and is_wave_complete() and !wave_finished:
 		wave_finished = true
 		show_upgrades()
 
