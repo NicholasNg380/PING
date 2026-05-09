@@ -17,16 +17,16 @@ var direction
 func _ready() -> void:
 	player = get_parent()
 	global_position = player.global_position
-	sprite = $BallSprite
+	sprite = $BallSpin
 	set_as_top_level(true)
 	pass
 
 func _process(delta: float) -> void:
 	if ball_state == State.INACTIVE:
-		$BallSpin.hide()
+		sprite.hide()
 		global_position = player.global_position
 	elif ball_state == State.HIT_PADDLE:
-		$BallSpin.show()
+		sprite.show()
 		global_position += direction * SPEED * delta
 	elif ball_state == State.HIT_ENEMY:
 		direction = global_position.direction_to(player.global_position)
