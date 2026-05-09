@@ -44,7 +44,7 @@ const NEXT_STAGE_SCORE = 30
 func spawn_enemy(enemy_scene):
 	var new_enemy = enemy_scene.instantiate()
 	
-	new_enemy.speed_multiplyer = enemy_speed_multiplier
+	new_enemy.speed_multiplier = enemy_speed_multiplier
 	
 	%PathFollow2D.progress_ratio = randf()
 	new_enemy.global_position = %PathFollow2D.global_position
@@ -85,7 +85,7 @@ func start_level(level_id):
 	current_level = level_id
 	var data = levels[level_id]
 	
-	enemy_speed_multiplier = 1.0 + (level_id - 1) * 0.12
+	enemy_speed_multiplier = 1.0 + (level_id - 1) * 0.05
 	
 	spawn_interval = max(0.4, 1.5 - level_id * 0.1)
 	spawn_wave(data["possum"], data["bird"])
@@ -123,11 +123,11 @@ func _on_upgrade_selected(upgrade):
 	start_next_level()
 
 func _ready():
-	print("connecting upgrade signal")
 	$UpgradeUI.upgrade_selected.connect(_on_upgrade_selected)
 	start_level(1)
 
 func _process(delta):
+	print(enemy_speed_multiplier)
 	if state != GameState.PLAYING:
 		return
 	

@@ -2,10 +2,9 @@ extends CharacterBody2D
 
 @onready var player = get_node("/root/Game/Player")
 
-var speed_multiplyer: float = 1.0
+var speed_multiplier: float = 1.0
 var enemySpeed: float = 150.0
 var enemyHealth: float = 2.0
-
 
 const KNOCKBACK_POWER: int = 1200
 const KNOCKBACK_TIME: float = 0.06
@@ -13,7 +12,7 @@ const KNOCKBACK_TIME: float = 0.06
 func _physics_process(_delta):
 	var direction = global_position.direction_to(player.global_position)
 		
-	velocity = direction * enemySpeed * speed_multiplyer
+	velocity = direction * enemySpeed * speed_multiplier
 	move_and_slide()
 	if (enemyHealth <= 0):
 		queue_free()

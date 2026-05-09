@@ -6,7 +6,7 @@ class_name Player extends CharacterBody2D
 Player Variables
 '''
 # Movement
-var MAX_SPEED: int = 500
+var MAX_SPEED: float = 500.0
 const ACCELERATION: int = 15
 const FRICTION: int = 13
 
