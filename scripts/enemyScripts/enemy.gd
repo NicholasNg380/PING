@@ -11,6 +11,8 @@ var enemyHealth: float = 2.0
 const KNOCKBACK_POWER: int = 1200
 const KNOCKBACK_TIME: float = 0.06
 
+@onready var damage_sound = $TakeDamage
+
 func _physics_process(_delta):
 	var direction = global_position.direction_to(player.global_position)
 		
@@ -20,6 +22,7 @@ func _physics_process(_delta):
 
 func take_damage(damage: float):
 	enemyHealth -= damage
+	damage_sound.play()
 	if (enemyHealth <= 0):
 		died.emit()
 		queue_free()

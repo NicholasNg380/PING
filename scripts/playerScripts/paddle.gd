@@ -4,6 +4,8 @@ class_name paddle extends Node2D
 var hasBall: bool = true
 var canParry: bool = false
 @onready var ball = $"../Ball"
+@onready var hit = $HitBall
+@onready var whoosh = $Whoosh
 
 
 signal parried
@@ -35,6 +37,7 @@ func _process(_delta: float) -> void:
 		
 	if Input.is_action_just_pressed("hit") and ball.serve_cooldown <= 0.0:
 		if hasBall:
+			hit.play()
 			hasBall = false
 			canParry = false
 			ball.global_position = arrow.global_position
@@ -42,6 +45,7 @@ func _process(_delta: float) -> void:
 			ball.direction = arrow.global_position.direction_to(get_global_mouse_position())
 			ball.hit_paddle()
 		elif canParry:
+			hit.play()
 			print("parry")
 			parried.emit()
 			if (!ball.was_hit_off_wall()):
@@ -50,7 +54,8 @@ func _process(_delta: float) -> void:
 			ball.rotation = rotation
 			ball.direction = arrow.global_position.direction_to(get_global_mouse_position())
 			ball.hit_paddle()
-			
+		else:
+			whoosh.play()
 
 func _on_has_ball():
 	reset_combo.emit()
