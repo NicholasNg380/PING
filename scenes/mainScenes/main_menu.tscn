@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bea7vl0t0ho6d" path="res://assets/sprites/ui/start_button.png" id="3_7gdp2"]
 [ext_resource type="Texture2D" uid="uid://dnrstw6dxvdnl" path="res://assets/sprites/ping_logo-Sheet.png" id="3_f5aaq"]
 [ext_resource type="Texture2D" uid="uid://bqv3jmiwxhxbe" path="res://assets/sprites/ui/exit_button.png" id="4_f5aaq"]
-[ext_resource type="Texture2D" uid="uid://b68vj6s7fxrwm" path="res://assets/sprites/icon.svg" id="5_f5aaq"]
+[ext_resource type="Texture2D" uid="uid://18rdga18x7s0" path="res://assets/sprites/ui/tutorial_button.png" id="5_f5aaq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nl3u7"]
 atlas = ExtResource("3_f5aaq")
@@ -87,6 +87,8 @@ animations = [{
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nl3u7"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ud58m"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kabec"]
 
 [node name="MainMenu" type="Node2D" unique_id=1255990202]
@@ -118,10 +120,10 @@ offset_bottom = 40.0
 
 [node name="Start" type="Button" parent="ButtonManager" unique_id=2024065401]
 layout_mode = 0
-offset_left = 870.0
-offset_top = 664.0
-offset_right = 1120.0
-offset_bottom = 764.0
+offset_left = 871.0
+offset_top = 628.0
+offset_right = 1121.0
+offset_bottom = 728.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_nl3u7")
 icon = ExtResource("3_7gdp2")
 icon_alignment = 1
@@ -129,12 +131,13 @@ expand_icon = true
 
 [node name="Tutorial" type="Button" parent="ButtonManager" unique_id=1718411002]
 layout_mode = 0
-offset_left = 1274.0
-offset_top = 718.0
-offset_right = 1475.0
-offset_bottom = 854.0
-text = "Tutorial"
+offset_left = 872.0
+offset_top = 740.0
+offset_right = 1122.0
+offset_bottom = 837.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ud58m")
 icon = ExtResource("5_f5aaq")
+expand_icon = true
 
 [node name="Options" type="Button" parent="ButtonManager" unique_id=1258275797]
 visible = false
@@ -148,9 +151,9 @@ text = "Options"
 [node name="Quit" type="Button" parent="ButtonManager" unique_id=1999158445]
 layout_mode = 0
 offset_left = 872.0
-offset_top = 813.0
+offset_top = 862.0
 offset_right = 1123.0
-offset_bottom = 913.0
+offset_bottom = 962.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_kabec")
 icon = ExtResource("4_f5aaq")
 icon_alignment = 1

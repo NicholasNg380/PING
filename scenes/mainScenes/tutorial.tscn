@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cufenlfm85bbc" path="res://scenes/mainScenes/UpgradeScreen.tscn" id="3_q1uet"]
 [ext_resource type="Script" uid="uid://ki1jklkpi6yh" path="res://scripts/controllers/tutorial_controller.gd" id="4_hojdw"]
 [ext_resource type="Script" uid="uid://biidki5jk43ke" path="res://scripts/controllers/tutorial_ui.gd" id="4_xrgy0"]
+[ext_resource type="PackedScene" uid="uid://d0xnt1gn2xwc5" path="res://scenes/objects/health_bar.tscn" id="6_6wjur"]
 
 [node name="Tutorial" type="Node2D" unique_id=65658651]
 
@@ -48,5 +49,7 @@ offset_bottom = 40.0
 script = ExtResource("4_hojdw")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2125030019]
+
+[node name="HealthBar" parent="." unique_id=711747170 instance=ExtResource("6_6wjur")]
 
 [connection signal="dashed" from="Player" to="TutorialController" method="_on_player_dashed"]
