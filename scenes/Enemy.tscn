@@ -21,8 +21,6 @@ texture = ExtResource("2_4ra3w")
 
 [node name="Area2D" type="Area2D" parent="Sprite2D" unique_id=1268213906]
 scale = Vector2(5.5, 5.5)
-collision_layer = 8
-collision_mask = 10
 
 [node name="AreaCollision" type="CollisionShape2D" parent="Sprite2D/Area2D" unique_id=2083497812]
 shape = SubResource("RectangleShape2D_mpr68")
@@ -30,5 +28,3 @@ shape = SubResource("RectangleShape2D_mpr68")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1425238540]
 scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_55jtl")
-
-[connection signal="body_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_body_entered"]
