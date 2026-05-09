@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bcjbxss7sllsk"]
 
 [ext_resource type="Script" uid="uid://87s44viknddd" path="res://scripts/enemyScripts/enemy.gd" id="1_qpkod"]
+[ext_resource type="AudioStream" uid="uid://c0ts4d6n60iyr" path="res://assets/sound/damage.mp3" id="2_qpkod"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_55jtl"]
 size = Vector2(107, 104)
@@ -24,5 +25,8 @@ collision_mask = 10
 
 [node name="AreaCollision" type="CollisionShape2D" parent="Area2D" unique_id=2083497812]
 shape = SubResource("RectangleShape2D_mpr68")
+
+[node name="TakeDamage" type="AudioStreamPlayer" parent="." unique_id=1528852054]
+stream = ExtResource("2_qpkod")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

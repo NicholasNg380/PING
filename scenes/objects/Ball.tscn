@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dle8ce6i1hck2" path="res://scripts/playerScripts/ball.gd" id="1_ja1hk"]
 [ext_resource type="Texture2D" uid="uid://c5uumnw6m4yon" path="res://assets/sprites/ball-Sheet.png" id="2_l0g2x"]
+[ext_resource type="AudioStream" uid="uid://dv7is04qywgfs" path="res://assets/sound/hitwall.mp3" id="3_yuvwk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yuvwk"]
 atlas = ExtResource("2_l0g2x")
@@ -65,6 +66,9 @@ collision_mask = 27
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BallHitBox" unique_id=1012746043]
 shape = SubResource("CircleShape2D_ja1hk")
+
+[node name="BallHitWall" type="AudioStreamPlayer" parent="." unique_id=95699363]
+stream = ExtResource("3_yuvwk")
 
 [connection signal="area_entered" from="BallHitBox" to="." method="_on_ball_hit_box_area_entered"]
 [connection signal="body_entered" from="BallHitBox" to="." method="_on_ball_hit_box_body_entered"]

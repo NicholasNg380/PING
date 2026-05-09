@@ -43,6 +43,7 @@ var enemy_scenes = {"possum": preload("res://scenes/objects/Possum.tscn"),
 
 const NEXT_STAGE_SCORE = 30
 
+
 var combo = 1
 
 func spawn_enemy(enemy_scene):
@@ -111,11 +112,15 @@ func show_upgrades():
 	spawn_timer = 0.0
 	
 	$UpgradeUI.turn_on()
+	
+	get_tree().paused = true
 
 func _on_upgrade_selected(upgrade):
 	state = GameState.UPGRADES
 	
 	$UpgradeUI.turn_off()
+	
+	get_tree().paused = false
 	
 	await get_tree().process_frame
 
@@ -129,6 +134,7 @@ func _ready():
 	start_level(1)
 
 func _process(delta):
+	#print(enemy_speed_multiplier)
 	if state != GameState.PLAYING:
 		return
 	
@@ -174,7 +180,6 @@ func increase_score(score: int):
 
 func _on_player_update_score(score) -> void:
 	increase_score(score)
-
 
 func _on_player_reset_combo() -> void:
 	combo = 1
