@@ -2,7 +2,7 @@ extends Node2D
 
 var remaining_possums = 0
 var remaining_birds = 0
-
+@onready var death_screen = $DeathScreen
 var enemy_speed_multiplier: float = 1.0
 
 var spawn_timer = 0.0
@@ -87,6 +87,10 @@ func spawn_one_enemy():
 func start_level(level_id):
 	if (level_id != 1):
 		increase_score(NEXT_STAGE_SCORE)
+	elif (level_id > 10):
+		$WinGameScreen.visible = true
+		$WinGameScreen.change_score(current_score)
+		get_tree().paused = true
 	current_level = level_id
 	var data = levels[level_id]
 	
@@ -114,6 +118,21 @@ func show_upgrades():
 	$UpgradeUI.turn_on()
 	
 	get_tree().paused = true
+
+func _on_upgrade_ui_refresh_health() -> void:
+	$Player.refersh_health()
+	state = GameState.UPGRADES
+	
+	$UpgradeUI.turn_off()
+	
+	get_tree().paused = false
+	
+	await get_tree().process_frame
+
+	state = GameState.PLAYING
+	wave_finished = false
+
+	start_next_level()
 
 func _on_upgrade_selected(upgrade):
 	state = GameState.UPGRADES
@@ -177,6 +196,15 @@ func increase_score(score: int):
 	current_score += score * combo
 	scoreCard.text = "Score: %s" % [str(current_score)]
 
+func game_over():
+	death_screen.be_visible()
+	death_screen.set_label(current_score)
+	spawn_timer = 0.0
+	get_tree().paused = true
+
+func restart():
+	get_tree().paused = false
+	get_tree().reload_current_scene()
 
 func _on_player_update_score(score) -> void:
 	increase_score(score)
@@ -191,3 +219,11 @@ func _on_player_increase_combo() -> void:
 
 func update_combo_text():
 	comboCard.text = "COMBO: %sx" % [str(combo)]
+
+
+func _on_player_game_over() -> void:
+	game_over()
+
+
+func _on_death_screen_restart() -> void:
+	restart()

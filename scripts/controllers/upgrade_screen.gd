@@ -2,6 +2,7 @@ extends Control
 
 signal upgrade_selected(upgrade_entry: Dictionary)
 signal added_upgrade()
+signal refresh_health
 
 var player = preload("res://scripts/playerScripts/player.gd")
 
@@ -38,8 +39,6 @@ func turn_on() -> void:
 	button1.texture_normal = load(chosen[0]["asset_loc"])
 	button1.get_child(0).text = chosen[0]["description"]
 	
-	print("SEE: ")
-	print(chosen[1])
 	button2.texture_normal = load(chosen[1]["asset_loc"])
 	button2.get_child(0).text = chosen[1]["description"]
 
@@ -68,7 +67,6 @@ func _on_upgrade_3_button_up() -> void:
 	upgrade_selected.emit(chosen[2])
 	turn_off()
 
-func _on_confirm_pressed() -> void:
-	var random_upgrade = chosen.pick_random()
-	upgrade_selected.emit(random_upgrade)
+func _on_refresh_health_pressed() -> void:
+	refresh_health.emit()
 	turn_off()
