@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://nu2gcom1lpeu"]
 
-[ext_resource type="Script" uid="uid://cu2l6b8qtgij8" path="res://scenes/paddle.gd" id="1_y7wee"]
+[ext_resource type="Script" uid="uid://cu2l6b8qtgij8" path="res://scripts/paddle.gd" id="1_y7wee"]
 [ext_resource type="Texture2D" uid="uid://b68vj6s7fxrwm" path="res://assets/sprites/icon.svg" id="2_mo4dg"]
 
 [node name="Paddle" type="Node2D" unique_id=1252679974]

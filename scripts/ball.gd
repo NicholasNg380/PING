@@ -2,6 +2,7 @@ class_name Ball extends Node2D
 
 
 const SPEED: int = 1000
+const WALLRETURNSPEED: int = 2500
 enum State {INACTIVE, HIT_ENEMY, HIT_PADDLE, HIT_WALL}
 var ball_state = State.INACTIVE
 var player
@@ -31,7 +32,7 @@ func _process(delta: float) -> void:
 		global_position += direction * SPEED * delta
 	else:
 		direction = global_position.direction_to(player.global_position)
-		global_position += direction * SPEED * delta
+		global_position += direction * WALLRETURNSPEED * delta
 
 func hit_paddle():
 	ball_state = State.HIT_PADDLE
@@ -54,6 +55,6 @@ func _on_ball_hit_box_area_entered(area: Area2D) -> void:
 	print(area.get_parent())
 	print(area.get_parent().is_in_group("Wall"))
 	if area.get_parent().is_in_group("Wall"):
-		print("yeao?")
+		print("Hit Wall")
 		ball_state = State.HIT_WALL
 		
