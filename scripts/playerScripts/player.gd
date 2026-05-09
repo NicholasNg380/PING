@@ -164,11 +164,6 @@ func _on_upgrade_selected(upgrade_entry: Dictionary):
 		ball_return_speed_multi += stat
 	update_stats.emit()
 
-
-
-func _on_player_dashed() -> void:
-	pass # Replace with function body.
-
 func _on_paddle_update_score(score: int) -> void:
 	update_score.emit(score)
 	increase_combo.emit()
@@ -178,4 +173,3 @@ func _on_ball_update_score(score: int) -> void:
 
 func _on_paddle_reset_combo() -> void:
 	reset_combo.emit()
-
