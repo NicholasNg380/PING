@@ -28,12 +28,12 @@ curve = SubResource("Curve2D_qbsmt")
 unique_name_in_owner = true
 position = Vector2(-1060, -640)
 
-[node name="Timer" type="Timer" parent="." unique_id=1841884614]
-autostart = true
-
 [node name="GameController" parent="." unique_id=61529160 instance=ExtResource("3_cpr0p")]
 visible = false
 
+[node name="SpawnTimer" type="Timer" parent="GameController" unique_id=1841884614]
+autostart = true
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1918275279]
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="GameController/SpawnTimer" to="." method="_on_timer_timeout"]

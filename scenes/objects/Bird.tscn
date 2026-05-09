@@ -1,7 +1,33 @@
 [gd_scene format=3 uid="uid://covg2e50i7vm8"]
 
 [ext_resource type="PackedScene" uid="uid://bcjbxss7sllsk" path="res://scenes/objects/Enemy.tscn" id="1_hvhr7"]
+[ext_resource type="Texture2D" uid="uid://dfv50jpn45mi8" path="res://assets/sprites/enemies/bird_enemy-Sheet.png" id="2_jhdc3"]
 
-[node name="Bird" type="Node2D" unique_id=607505906]
+[sub_resource type="AtlasTexture" id="AtlasTexture_barf0"]
+atlas = ExtResource("2_jhdc3")
+region = Rect2(0, 0, 32, 32)
 
-[node name="Enemy" parent="." unique_id=1863187210 instance=ExtResource("1_hvhr7")]
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjls6"]
+atlas = ExtResource("2_jhdc3")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xqyxo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_barf0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jjls6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Enemy" unique_id=1863187210 instance=ExtResource("1_hvhr7")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2" unique_id=1086143794]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_xqyxo")
+autoplay = "default"
