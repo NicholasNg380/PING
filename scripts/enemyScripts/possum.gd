@@ -2,19 +2,22 @@ extends "res://scripts/enemyScripts/enemy.gd"
 @onready var anim = $PossumWalk
 
 func _ready():
+	super()
 	enemySpeed = 250.0
 	enemyHealth = 2
 	anim.play("default")
-	super()
 
 func _physics_process(_delta):
 	var direction = global_position.direction_to(player.global_position)
+	
+	velocity = direction * enemySpeed * speed_multiplier
+	move_and_slide()
+	
 	if direction.x > 0:
 		anim.flip_h = true
 	else:
 		anim.flip_h = false
-	velocity = direction * enemySpeed
-	move_and_slide()
+		
 	if (enemyHealth <= 0):
 		queue_free()
 

@@ -25,10 +25,11 @@ var charge_timer = 0.0
 var cooldown_timer = 0.0
 
 func _ready():
+	super()
 	enemyHealth = 5
 	anim.play("flap")
 	cooldown_timer = randf_range(min_dash_cooldown, max_dash_cooldown)
-	super()
+
 
 func _physics_process(delta):
 	match state: # basically switch: case
