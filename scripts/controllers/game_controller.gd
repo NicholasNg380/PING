@@ -10,6 +10,8 @@ var wave_finished = false
 
 var current_level = 1
 
+var current_score: int
+
 enum GameState {
 	PLAYING,
 	UPGRADES
@@ -158,3 +160,6 @@ func _input(event):
 				start_level(9)
 			KEY_0:
 				start_level(10)
+
+func increase_score(score: int):
+	current_score += score
