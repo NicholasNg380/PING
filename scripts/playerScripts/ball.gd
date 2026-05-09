@@ -35,7 +35,19 @@ func _ready() -> void:
 	global_position = player.global_position
 	sprite = $BallSpin
 	set_as_top_level(true)
+	player.update_stats.connect(_on_update_stats)
 	pass
+	
+func _on_update_stats():
+	SPEED = player.ball_speed
+	SPEED_MULTIPLIER = player.ball_return_speed_multi
+	RETURN_SPEED = player.ball_return_speed
+	WALL_RETURN_SPEED = player.ball_return_wall_speed
+	RETURN_SPEED_MULTIPLIER = player.ball_return_speed_multi
+	DAMAGE = player.ball_damage
+	DAMAGE_MULTIPLIER = player.ball_damage_multi
+	RETURN_DAMAGE_MULTIPLIER = player.ball_return_damage_multi
+	print("Ball:", SPEED, SPEED_MULTIPLIER, RETURN_SPEED, WALL_RETURN_SPEED, RETURN_SPEED_MULTIPLIER, DAMAGE, DAMAGE_MULTIPLIER, RETURN_DAMAGE_MULTIPLIER)
 
 func _process(delta: float) -> void:
 	if ball_state == State.INACTIVE:
