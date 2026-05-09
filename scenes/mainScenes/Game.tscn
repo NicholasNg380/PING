@@ -40,8 +40,6 @@ script = ExtResource("1_cpr0p")
 collision_mask = 9
 
 [node name="EnemySpawn" type="Path2D" parent="." unique_id=905543411]
-position = Vector2(-28.846603, 1.4053497)
-scale = Vector2(1.0224313, 1.0116144)
 curve = SubResource("Curve2D_qbsmt")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="EnemySpawn" unique_id=569419452]
