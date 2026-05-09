@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://b68vj6s7fxrwm" path="res://assets/sprites/icon.svg" id="2_ul5l2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ja1hk"]
-radius = 6.3245554
+radius = 30.016663
 
-[node name="Ball" type="Node2D" unique_id=305474800]
+[node name="Ball" type="Node2D" unique_id=1471496014]
 script = ExtResource("1_ja1hk")
 
 [node name="BallSprite" type="Sprite2D" parent="." unique_id=45031845]
@@ -15,11 +15,11 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_ul5l2")
 
 [node name="BallHitBox" type="Area2D" parent="." unique_id=1935173052]
-collision_mask = 5
+collision_layer = 4
+collision_mask = 27
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BallHitBox" unique_id=1012746043]
 shape = SubResource("CircleShape2D_ja1hk")
 
 [connection signal="area_entered" from="BallHitBox" to="." method="_on_ball_hit_box_area_entered"]
-[connection signal="area_shape_entered" from="BallHitBox" to="." method="_on_ball_hit_box_area_shape_entered"]
 [connection signal="body_entered" from="BallHitBox" to="." method="_on_ball_hit_box_body_entered"]

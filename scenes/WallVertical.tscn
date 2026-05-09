@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://n14j0m8na1yp"]
+[gd_scene format=3 uid="uid://bh5jdyr5uqqe5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t0g5x"]
 
@@ -7,9 +7,18 @@ offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(1, 15)
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1373177510]
-position = Vector2(20, 20)
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1834655667]
+collision_mask = 3
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1276267672]
+position = Vector2(20, 20.000006)
 scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_t0g5x")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1373177510]
+position = Vector2(20, 20.000004)
+scale = Vector2(2, 2)
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1535443634]
 shape = SubResource("RectangleShape2D_t0g5x")
