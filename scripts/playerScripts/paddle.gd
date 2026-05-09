@@ -23,7 +23,7 @@ func _process(_delta: float) -> void:
 	else:
 		scale.y = 1
 		
-	if Input.is_action_just_pressed("hit"):
+	if Input.is_action_just_pressed("hit") and ball.serve_cooldown <= 0.0:
 		if hasBall:
 			hasBall = false
 			canParry = false

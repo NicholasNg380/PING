@@ -11,6 +11,9 @@ signal cannot_parry
 var sprite
 var direction
 
+var serve_cooldown := 0.0
+const SERVE_DELAY := 0.5
+
 '''
 Player Hold Variables
 '''
@@ -32,12 +35,16 @@ func _ready() -> void:
 	DAMAGE = player.ball_damage
 	DAMAGE_MULTIPLIER = player.ball_damage_multi
 	RETURN_DAMAGE_MULTIPLIER = player.ball_return_damage_multi
+	
 	global_position = player.global_position
 	sprite = $BallSpin
 	set_as_top_level(true)
 	pass
 
 func _process(delta: float) -> void:
+	if serve_cooldown > 0.0:
+		serve_cooldown -= delta
+	
 	if ball_state == State.INACTIVE:
 		sprite.hide()
 		global_position = player.global_position
@@ -67,6 +74,7 @@ func _on_ball_hit_box_body_entered(body: Node2D) -> void:
 			ball_state = State.INACTIVE
 			has_ball.emit()
 			cannot_parry.emit()
+			serve_cooldown = SERVE_DELAY
 
 func _on_ball_hit_box_area_entered(area: Area2D) -> void:
 	if area.get_parent().is_in_group("Parry_Area"):
