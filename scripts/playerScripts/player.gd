@@ -44,10 +44,11 @@ func _physics_process(delta):
 	else:
 		_movement(delta)
 	move_and_slide()
-	
-"""func damaged(delta):
-	if not invulnerable:
-		health -= 1"""
+	if health <= 0:
+		pass
+
+func take_player_damage():
+	health -= 1
 	
 func _movement(delta: float) -> void:
 	var input = Vector2(
