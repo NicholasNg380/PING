@@ -1,8 +1,9 @@
 class_name Ball extends Node2D
 
 
-const SPEED: int = 1000
-const WALLRETURNSPEED: int = 2500
+const SPEED: int = 500
+const RETURN_SPEED: int = 750
+const WALL_RETURN_SPEED: int = 1000
 enum State {INACTIVE, HIT_ENEMY, HIT_PADDLE, HIT_WALL}
 var ball_state = State.INACTIVE
 var player
@@ -29,10 +30,10 @@ func _process(delta: float) -> void:
 		global_position += direction * SPEED * delta
 	elif ball_state == State.HIT_ENEMY:
 		direction = global_position.direction_to(player.global_position)
-		global_position += direction * SPEED * delta
+		global_position += direction * RETURN_SPEED * delta
 	else:
 		direction = global_position.direction_to(player.global_position)
-		global_position += direction * WALLRETURNSPEED * delta
+		global_position += direction * WALL_RETURN_SPEED * delta
 
 func hit_paddle():
 	ball_state = State.HIT_PADDLE
@@ -51,6 +52,7 @@ func _on_ball_hit_box_body_entered(body: Node2D) -> void:
 
 func _on_ball_hit_box_area_entered(area: Area2D) -> void:
 	if area.get_parent().is_in_group("Parry_Area"):
+		print("I can do stuff")
 		can_parry.emit()
 	#print(area.get_parent())
 	#print(area.get_parent().is_in_group("Wall"))

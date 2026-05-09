@@ -24,6 +24,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("hit"):
 		if hasBall:
 			hasBall = false
+			canParry = false
 			ball.global_position = arrow.global_position
 			ball.rotation = rotation
 			ball.direction = arrow.global_position.direction_to(get_global_mouse_position())
