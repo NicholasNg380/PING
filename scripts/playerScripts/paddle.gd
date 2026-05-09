@@ -7,6 +7,7 @@ var canParry: bool = false
 
 const PARRY_SCORE = 10
 
+signal reset_combo
 
 signal update_score(score: int)
 
@@ -47,6 +48,7 @@ func _process(_delta: float) -> void:
 			
 
 func _on_has_ball():
+	reset_combo.emit()
 	hasBall = true
 
 func _on_can_parry():

@@ -48,6 +48,8 @@ var ball_return_damage_multi: float = 0.5
 signal update_stats
 
 signal update_score(score: int)
+signal reset_combo
+signal increase_combo
 
 func _ready() -> void:
 	
@@ -163,7 +165,12 @@ func _on_upgrade_selected(upgrade_entry: Dictionary):
 
 func _on_paddle_update_score(score: int) -> void:
 	update_score.emit(score)
-
+	increase_combo.emit()
 
 func _on_ball_update_score(score: int) -> void:
 	update_score.emit(score)
+	
+
+
+func _on_paddle_reset_combo() -> void:
+	reset_combo.emit()
