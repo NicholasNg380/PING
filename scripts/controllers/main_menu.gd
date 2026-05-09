@@ -1,19 +1,25 @@
 extends Node2D
 
-func _ready() -> void:
-	pass # Replace with function body.
+var button_type = null
 
-func _process(_delta):
+func _ready() -> void:
 	pass
 
+func _process(_delta):
+	if button_type == "start":
+		get_tree().change_scene_to_file("res://scenes/mainScenes/Game.tscn")
+	
+	elif button_type == "quit":
+		print("quit game")
+
 func _on_start_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/mainScenes/Game.tscn")
+	button_type = "start"
 
 func _on_options_pressed() -> void:
-	pass # Replace with function body.
+	button_type = "options"
 
 func _on_quit_pressed() -> void:
-	pass # Replace with function body.
+	button_type = "quit"
 
 func _on_tutorial_pressed() -> void:
-	pass # Replace with function body.
+	button_type = "tutorial"
