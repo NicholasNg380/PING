@@ -54,20 +54,17 @@ func turn_off():
 
 func _on_upgrade_1_button_up() -> void:
 	upgrade_selected.emit(chosen[0])
-	upgrades.erase(chosen[0])
 	turn_off()
 
 
 func _on_upgrade_2_button_up() -> void:
 	print(chosen[1])
 	upgrade_selected.emit(chosen[1])
-	upgrades.erase(chosen[1])
 	turn_off()
 
 
 func _on_upgrade_3_button_up() -> void:
 	upgrade_selected.emit(chosen[2])
-	upgrades.erase(chosen[2])
 	turn_off()
 
 func _on_confirm_pressed() -> void:
