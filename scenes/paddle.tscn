@@ -2,12 +2,45 @@
 
 [ext_resource type="Script" uid="uid://cu2l6b8qtgij8" path="res://scripts/paddle.gd" id="1_y7wee"]
 [ext_resource type="Texture2D" uid="uid://bche763bgeego" path="res://assets/sprites/pointer.png" id="2_y7wee"]
+[ext_resource type="Texture2D" uid="uid://bgyq3as1lgbdj" path="res://assets/sprites/hit_animation-Sheet.png" id="3_mo4dg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nk5r3"]
+atlas = ExtResource("3_mo4dg")
+region = Rect2(20, 0, 10, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pacq5"]
+atlas = ExtResource("3_mo4dg")
+region = Rect2(0, 0, 10, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvcsl"]
+atlas = ExtResource("3_mo4dg")
+region = Rect2(10, 0, 10, 25)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qjacl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nk5r3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pacq5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kvcsl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nk5r3")
+}],
+"loop": false,
+"name": &"swing",
+"speed": 12.0
+}]
 
 [node name="Paddle" type="Node2D" unique_id=1252679974]
 scale = Vector2(1.1, 1.221)
 script = ExtResource("1_y7wee")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1316736803]
+[node name="PaddleReticle" type="Sprite2D" parent="." unique_id=1316736803]
 position = Vector2(52.751038, 1.0728836e-06)
 rotation = 1.5707964
 scale = Vector2(3, 3.33)
@@ -26,3 +59,14 @@ collision_mask = 4
 position = Vector2(3.8146973e-06, 0)
 scale = Vector2(1.1, 1.221)
 polygon = PackedVector2Array(-49.468773, 0, -23.936506, -37.376545, 175.80765, -75.26163, 178.81291, 63.725178, -25.532272, 34.501427)
+
+[node name="SwingAnimation" type="AnimatedSprite2D" parent="." unique_id=1870444288]
+position = Vector2(40, 0)
+rotation = 3.1415927
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_qjacl")
+animation = &"swing"
+frame = 3
+frame_progress = 1.0
+
+[connection signal="animation_finished" from="SwingAnimation" to="." method="_on_swing_animation_animation_finished"]

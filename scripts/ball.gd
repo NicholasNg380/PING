@@ -1,8 +1,8 @@
 class_name Ball extends Node2D
 
 
-const SPEED: int = 500
-const RETURN_SPEED: int = 750
+const SPEED: int = 700
+const RETURN_SPEED: int = 850
 const WALL_RETURN_SPEED: int = 1000
 enum State {INACTIVE, HIT_ENEMY, HIT_PADDLE, HIT_WALL}
 var ball_state = State.INACTIVE

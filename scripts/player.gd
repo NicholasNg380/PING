@@ -1,7 +1,7 @@
 class_name Player extends CharacterBody2D
 
 # Movement
-const MAX_SPEED: int = 800
+const MAX_SPEED: int = 500
 const ACCELERATION: int = 15
 const FRICTION: int = 13
 

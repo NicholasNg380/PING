@@ -13,6 +13,8 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
+	_animations()
+	
 	look_at(get_global_mouse_position())
 	
 	rotation_degrees = wrap(rotation_degrees, 0, 360)
@@ -35,8 +37,7 @@ func _process(_delta: float) -> void:
 			ball.rotation = rotation
 			ball.direction = ball.global_position.direction_to(get_global_mouse_position())
 			ball.hit_paddle()
-			
-			
+
 func _on_has_ball():
 	hasBall = true
 
@@ -45,3 +46,11 @@ func _on_can_parry():
 
 func _on_cannot_parry():
 	canParry = false
+	
+func _animations():
+	if Input.is_action_just_pressed("hit"):
+		$PaddleReticle.hide()
+		$SwingAnimation.play("swing")
+
+func _on_swing_animation_animation_finished() -> void:
+	$PaddleReticle.show()
