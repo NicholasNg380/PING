@@ -1,5 +1,82 @@
 [gd_scene format=3 uid="uid://bqesdtg62tq4b"]
 
 [ext_resource type="PackedScene" uid="uid://bcjbxss7sllsk" path="res://scenes/objects/Enemy.tscn" id="1_78klo"]
+[ext_resource type="Texture2D" uid="uid://djvbdfg6g2nj5" path="res://assets/sprites/enemies/possum_enemy-Sheet.png" id="2_ed2sc"]
 
-[node name="Enemy" unique_id=1863187210 instance=ExtResource("1_78klo")]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ed2sc"]
+atlas = ExtResource("2_ed2sc")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1rsi2"]
+atlas = ExtResource("2_ed2sc")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d71vr"]
+atlas = ExtResource("2_ed2sc")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0mdua"]
+atlas = ExtResource("2_ed2sc")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jarru"]
+atlas = ExtResource("2_ed2sc")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqg46"]
+atlas = ExtResource("2_ed2sc")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xyg1o"]
+atlas = ExtResource("2_ed2sc")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ua54i"]
+atlas = ExtResource("2_ed2sc")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uk5eg"]
+atlas = ExtResource("2_ed2sc")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v7uwk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ed2sc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1rsi2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d71vr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0mdua")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jarru")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eqg46")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xyg1o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ua54i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uk5eg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Possum" unique_id=1863187210 instance=ExtResource("1_78klo")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2" unique_id=2029666151]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_v7uwk")
+autoplay = "default"
