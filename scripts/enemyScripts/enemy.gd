@@ -8,6 +8,8 @@ var speed_multiplier: float = 1.0
 var enemySpeed: float = 150.0
 var enemyHealth: float = 2.0
 
+var can_damage_player: bool = true
+
 const KNOCKBACK_POWER: int = 1200
 const KNOCKBACK_TIME: float = 0.06
 
@@ -32,7 +34,7 @@ func _ready():
 
 	
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if not player.invulnerable and body.is_in_group("Player"):
+	if can_damage_player and not player.invulnerable and body.is_in_group("Player"):
 		body.take_player_damage()
 		var knockback_direction = (body.global_position - global_position).normalized()
 		body.apply_knockback(knockback_direction, KNOCKBACK_POWER, KNOCKBACK_TIME)
