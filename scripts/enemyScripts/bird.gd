@@ -1,11 +1,19 @@
 extends "res://scripts/enemyScripts/enemy.gd"
 @onready var anim = $BirdFlap
 
+
 enum State {
 	CHASE,
 	CHARGING,
 	DASHING
 }
+
+func _ready():
+	enemySpeed = 100.0
+	enemyHealth = 5.0
+	anim.play("default")
+	super()
+
 
 var taking_hit = false
 

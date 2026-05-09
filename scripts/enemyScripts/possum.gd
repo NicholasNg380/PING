@@ -4,7 +4,7 @@ extends "res://scripts/enemyScripts/enemy.gd"
 func _ready():
 	super()
 	enemySpeed = 250.0
-	enemyHealth = 2
+	enemyHealth = 2.0
 	anim.play("default")
 
 func _physics_process(_delta):
