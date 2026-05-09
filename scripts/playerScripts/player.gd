@@ -44,6 +44,8 @@ var ball_return_speed_multi: float = 1.0
 var ball_damage: float = 1.0
 var ball_damage_multi: float = 0.0
 var ball_return_damage_multi: float = 0.5
+var ball_scale_x: float = 0.5
+var ball_scale_y: float = 0.5
 
 signal update_stats
 signal dashed
@@ -167,6 +169,9 @@ func _on_upgrade_selected(upgrade_entry: Dictionary):
 		ball_return_damage_multi += stat
 	if name == "Return Speed":
 		ball_return_speed_multi += stat
+	if name == "Ball Size":
+		ball_scale_x += stat
+		ball_scale_y += stat
 	update_stats.emit()
 
 func _on_paddle_update_score(score: int) -> void:

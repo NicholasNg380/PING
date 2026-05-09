@@ -11,7 +11,8 @@ var upgrades = [{"name": "Speed", "asset_loc": "res://assets/sprites/upgrades/sp
 				{"name": "Ball Speed", "asset_loc": "res://assets/sprites/upgrades/move_speed_upgrade.png", "description": "Increase ball speed", "stat": 0.5},
 				{"name": "Dash", "asset_loc": "res://assets/sprites/icon.svg", "description": "Lower the dash cooldown", "stat": 0.15},
 				{"name": "Return Damage", "asset_loc": "res://assets/sprites/upgrades/return_damage_upgrade.png", "description": "Do more on return damage", "stat": 0.5},
-				{"name": "Return Speed", "asset_loc": "res://assets/sprites/upgrades/return_speed.png", "description": "Increase ball speed on return", "stat": 0.5}]
+				{"name": "Return Speed", "asset_loc": "res://assets/sprites/upgrades/return_speed.png", "description": "Increase ball speed on return", "stat": 0.5},
+				{"name": "Ball Size", "asset_loc": "res://assets/sprites/upgrades/bigger_ball_upgrade.png", "description": "Increase ball size", "stat": 0.1}]
 var used_upgrades = []
 var rng = RandomNumberGenerator.new()
 var chosen

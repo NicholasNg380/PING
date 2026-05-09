@@ -28,6 +28,8 @@ var RETURN_SPEED_MULTIPLIER: float
 var DAMAGE: float
 var DAMAGE_MULTIPLIER: float
 var RETURN_DAMAGE_MULTIPLIER: float
+var SCALE_X: float
+var SCALE_Y: float
 
 @onready var catch_cooldown_bar = $"../TextureProgressBar"
 var is_inactive = true
@@ -43,6 +45,9 @@ func _ready() -> void:
 	DAMAGE = player.ball_damage
 	DAMAGE_MULTIPLIER = player.ball_damage_multi
 	RETURN_DAMAGE_MULTIPLIER = player.ball_return_damage_multi
+	SCALE_X = player.ball_scale_x
+	SCALE_Y = player.ball_scale_y
+	scale = Vector2(SCALE_X, SCALE_Y)
 	global_position = player.global_position
 	sprite = $BallSpin
 	set_as_top_level(true)
@@ -57,6 +62,9 @@ func _on_update_stats():
 	DAMAGE = player.ball_damage
 	DAMAGE_MULTIPLIER = player.ball_damage_multi
 	RETURN_DAMAGE_MULTIPLIER = player.ball_return_damage_multi
+	SCALE_X = player.ball_scale_x
+	SCALE_Y = player.ball_scale_y
+	scale = Vector2(SCALE_X, SCALE_Y)
 	
 func _process(delta: float) -> void:
 	if serve_cooldown > 0.0:
