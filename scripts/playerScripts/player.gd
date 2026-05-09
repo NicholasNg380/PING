@@ -23,22 +23,12 @@ var health: int = 3
 var knockback: Vector2 = Vector2.ZERO
 var knockback_timer: float = 0.0
 
-const I_FRAME_TIME: float = 0.12
+const I_FRAME_TIME: float = 0.75
 var i_frame_timer: float = 0.0
 var invulnerable: bool = false 
 
-func _physics_process(delta):	
-	if knockback_timer > 0.0:
-		invulnerable = true
-		set_collision_layer_value(2, false)
-		set_collision_layer_value(6, true)
-		set_collision_mask_value(4, false)
-		velocity = knockback
-		knockback_timer -= delta
-		if knockback_timer <= 0.0:
-			knockback = Vector2.ZERO
-			i_frame_timer = I_FRAME_TIME
-	elif i_frame_timer > 0.0:
+func _physics_process(delta):
+	if i_frame_timer > 0.0:
 		i_frame_timer -= delta
 		if i_frame_timer <= 0.0:
 			i_frame_timer = 0.0
@@ -46,6 +36,12 @@ func _physics_process(delta):
 			set_collision_layer_value(2, true)
 			set_collision_layer_value(6, false)
 			set_collision_mask_value(4, true)
+	
+	if knockback_timer > 0.0:
+		velocity = knockback
+		knockback_timer -= delta
+		if knockback_timer <= 0.0:
+			knockback = Vector2.ZERO
 	else:
 		_movement(delta)
 	move_and_slide()
@@ -112,3 +108,8 @@ func _on_animated_sprite_2d_animation_finished():
 func apply_knockback(direction: Vector2, force: float, knockback_duration: float) -> void:
 	knockback = direction * force
 	knockback_timer = knockback_duration
+	i_frame_timer = I_FRAME_TIME
+	invulnerable = true
+	set_collision_layer_value(2, false)			
+	set_collision_layer_value(6, true)
+	set_collision_mask_value(4, false)

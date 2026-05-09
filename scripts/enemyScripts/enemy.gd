@@ -5,6 +5,9 @@ extends CharacterBody2D
 var enemySpeed = 150.0
 var enemyHealth = 2
 
+const KNOCKBACK_POWER: int = 1200
+const KNOCKBACK_TIME: float = 0.06
+
 func _physics_process(_delta):
 	var direction = global_position.direction_to(player.global_position)
 	velocity = direction * enemySpeed
@@ -16,7 +19,7 @@ func take_damage():
 	enemyHealth -= 1
 	
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Player") and not body.invulnerable:
+	if not player.invulnerable and body.is_in_group("Player"):
 		body.take_player_damage()
 		var knockback_direction = (body.global_position - global_position).normalized()
-		body.apply_knockback(knockback_direction, 1200, 0.12)
+		body.apply_knockback(knockback_direction, KNOCKBACK_POWER, KNOCKBACK_TIME)
