@@ -26,6 +26,8 @@ var DAMAGE: float
 var DAMAGE_MULTIPLIER: float
 var RETURN_DAMAGE_MULTIPLIER: float
 
+var is_inactive = true
+
 func _ready() -> void:
 	SPEED = player.ball_speed
 	SPEED_MULTIPLIER = player.ball_return_speed_multi
@@ -44,12 +46,17 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if serve_cooldown > 0.0:
 		serve_cooldown -= delta
+	if player.global_position.distance_to(global_position) <= 40 and !is_inactive:
+		ball_state = State.INACTIVE
+		is_inactive = true
+		has_ball.emit()
 	
 	if ball_state == State.INACTIVE:
 		sprite.hide()
 		global_position = player.global_position
 	elif ball_state == State.HIT_PADDLE:
 		sprite.show()
+		is_inactive = false
 		global_position += direction * SPEED * SPEED_MULTIPLIER * delta
 	elif ball_state == State.HIT_ENEMY:
 		direction = global_position.direction_to(player.global_position)
@@ -59,6 +66,7 @@ func _process(delta: float) -> void:
 		global_position += direction * WALL_RETURN_SPEED * RETURN_SPEED_MULTIPLIER * delta
 
 func hit_paddle():
+	is_inactive = false
 	ball_state = State.HIT_PADDLE
 	pass
 
