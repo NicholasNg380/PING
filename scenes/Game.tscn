@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dy5t37f1cgmdo" path="res://scripts/game_controller.gd" id="1_cpr0p"]
 [ext_resource type="PackedScene" uid="uid://bpbyjy6wsbxg3" path="res://scenes/Player.tscn" id="1_wbfu4"]
 [ext_resource type="PackedScene" path="res://scenes/UpgradeScreen.tscn" id="3_cpr0p"]
-[ext_resource type="PackedScene" uid="uid://n14j0m8na1yp" path="res://scenes/WallVertical.tscn" id="4_78awf"]
+[ext_resource type="PackedScene" uid="uid://bh5jdyr5uqqe5" path="res://scenes/WallVertical.tscn" id="4_78awf"]
 
 [sub_resource type="Curve2D" id="Curve2D_qbsmt"]
 _data = {
@@ -29,6 +29,8 @@ grow_vertical = 2
 color = Color(0.79607844, 0.6862745, 0.23529412, 1)
 
 [node name="Player" parent="." unique_id=250388077 instance=ExtResource("1_wbfu4")]
+collision_layer = 1
+collision_mask = 1
 
 [node name="EnemySpawn" type="Path2D" parent="." unique_id=905543411]
 position = Vector2(-28.846603, 1.4053497)

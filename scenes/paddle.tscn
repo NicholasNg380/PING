@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://nu2gcom1lpeu"]
 
-[ext_resource type="Script" path="res://scripts/paddle.gd" id="1_y7wee"]
+[ext_resource type="Script" uid="uid://cu2l6b8qtgij8" path="res://scripts/paddle.gd" id="1_y7wee"]
 [ext_resource type="Texture2D" uid="uid://bche763bgeego" path="res://assets/sprites/pointer.png" id="2_y7wee"]
 
 [node name="Paddle" type="Node2D" unique_id=1252679974]
@@ -25,4 +25,4 @@ collision_mask = 4
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=62495852]
 position = Vector2(3.8146973e-06, 0)
 scale = Vector2(1.1, 1.221)
-polygon = PackedVector2Array(-49.468773, 0, -23.936506, -37.376545, 73.40526, -50.31458, 71.809494, 46.0019, -25.532272, 34.501427)
+polygon = PackedVector2Array(-49.468773, 0, -23.936506, -37.376545, 175.80765, -75.26163, 178.81291, 63.725178, -25.532272, 34.501427)
