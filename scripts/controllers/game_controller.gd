@@ -84,7 +84,7 @@ func start_level(level_id):
 func start_next_level(level_id):
 	state = GameState.PLAYING
 	wave_finished = false
-	$UpgradeUI.hide()
+	$UpgradeUI.turn_off()
 	start_level(level_id)
 
 func get_alive_enemies():
@@ -101,7 +101,7 @@ func show_upgrades():
 
 	print("UPGRADES SCREEN")
 	
-	$UpgradeUI.show()
+	$UpgradeUI._turn_on()
 
 func _ready():
 	start_level(1)
