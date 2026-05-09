@@ -25,6 +25,10 @@ shape = SubResource("RectangleShape2D_55jtl")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1268213906]
 scale = Vector2(4.125, 4.125)
+collision_layer = 8
+collision_mask = 10
 
 [node name="AreaCollision" type="CollisionShape2D" parent="Area2D" unique_id=2083497812]
 shape = SubResource("RectangleShape2D_mpr68")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
