@@ -56,6 +56,11 @@ func _ready() -> void:
 	add_to_group("Player")
 	upgrade.upgrade_selected.connect(_on_upgrade_selected)
 	
+func _process(delta: float) -> void:
+	if get_global_mouse_position().x < global_position.x:
+		facing_right = false
+	else:
+		facing_right = true
 
 func _physics_process(delta):
 	if i_frame_timer > 0.0:
