@@ -7,24 +7,27 @@ enum State {
 	DASHING
 }
 
+var taking_hit = false
+
 var chase_speed = 100.0
 
 var state = State.CHASE
 
 #Dash
-var dash_speed := 1200.0
-var charge_time := 0.7
-var dash_time := 0.25
-var dash_cooldown := 2.5
-var dash_direction := Vector2.ZERO
-
-var charge_timer := 0.0
-var dash_timer := 0.0
-var cooldown_timer := 0.0
+var dash_speed = 1200.0
+var charge_time = 0.7
+var min_dash_cooldown = 2
+var max_dash_cooldown = 5
+var dash_direction = Vector2.ZERO
+var dash_target = Vector2.ZERO
+var dash_distance = 500.0
+var charge_timer = 0.0
+var cooldown_timer = 0.0
 
 func _ready():
 	enemyHealth = 5
-	anim.play("default")
+	anim.play("flap")
+	cooldown_timer = randf_range(min_dash_cooldown, max_dash_cooldown)
 	super()
 
 func _physics_process(delta):
@@ -38,7 +41,7 @@ func _physics_process(delta):
 				start_charge()
 		
 		State.CHARGING:
-			velocity = Vector2.ZERO
+			velocity = velocity.lerp(Vector2.ZERO, 0.15)
 			move_and_slide()
 			
 			charge_timer -= delta
@@ -47,22 +50,13 @@ func _physics_process(delta):
 				start_dash()
 		
 		State.DASHING:
-			velocity = dash_direction * dash_speed
+			var direction_to_target = global_position.direction_to(dash_target)
+			velocity = direction_to_target * dash_speed
 			move_and_slide()
 			
-			dash_timer -= delta
-			
-			if dash_timer <= 0:
+			if global_position.distance_to(dash_target) < 20: 
 				end_dash()
-	"""
-	var direction = global_position.direction_to(player.global_position)
-	if direction.x > 0:
-		anim.flip_h = true
-	else:
-		anim.flip_h = false
-	velocity = direction * enemySpeed
-	move_and_slide()
-	"""
+	
 	if (enemyHealth <= 0):
 		queue_free()
 
@@ -84,24 +78,46 @@ func start_charge():
 	
 	# Save player's CURRENT position
 	dash_direction = global_position.direction_to(player.global_position)
+	dash_target = global_position + dash_direction * dash_distance
 	
 	anim.play("charge")
 
 func start_dash():
 	state = State.DASHING
-	dash_timer = dash_time
+	
+	# Disable enemy collision
+	set_collision_mask_value(4, false)
 	
 	anim.play("dive")
 
 func end_dash():
 	state = State.CHASE
-	cooldown_timer = dash_cooldown
-
+	
+	# Dnable enemy collision
+	set_collision_mask_value(4, true)
+	
+	cooldown_timer = randf_range(min_dash_cooldown, max_dash_cooldown)
 	anim.play("flap")
 
 func take_damage(damage: float):
 	enemyHealth -= damage
+	
+	if taking_hit:
+		return
+	
+	taking_hit = true
+	
 	anim.play("hit")
 
-func _on_bird_flap_animation_looped() -> void:
-	anim.play("default")
+
+func _on_bird_flap_animation_finished():
+	if anim.animation == "hit":
+		taking_hit = false
+		
+		match state:
+			State.CHASE:
+				anim.play("flap")
+			State.CHARGING:
+				anim.play("charge")
+			State.DASHING:
+				anim.play("dive")

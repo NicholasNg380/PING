@@ -58,7 +58,7 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_xqyxo")
 }, {
 "duration": 1.0,
@@ -92,7 +92,7 @@ animations = [{
 "duration": 0.65,
 "texture": SubResource("AtlasTexture_jd8vr")
 }],
-"loop": true,
+"loop": false,
 "name": &"hit",
 "speed": 5.0
 }]
@@ -103,7 +103,10 @@ script = ExtResource("2_barf0")
 [node name="BirdFlap" type="AnimatedSprite2D" parent="." index="2" unique_id=1086143794]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_xqyxo")
-animation = &"charge"
+animation = &"dive"
 autoplay = "flap"
+frame = 4
+frame_progress = 1.0
 
+[connection signal="animation_finished" from="BirdFlap" to="." method="_on_bird_flap_animation_finished"]
 [connection signal="animation_looped" from="BirdFlap" to="." method="_on_bird_flap_animation_looped"]
