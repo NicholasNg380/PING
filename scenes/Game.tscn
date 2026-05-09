@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://bgl38ua186ky2"]
 
-[ext_resource type="Script" uid="uid://dy5t37f1cgmdo" path="res://scripts/game_controller.gd" id="1_cpr0p"]
+[ext_resource type="Script" path="res://scripts/game_controller.gd" id="1_cpr0p"]
 [ext_resource type="PackedScene" uid="uid://bpbyjy6wsbxg3" path="res://scenes/Player.tscn" id="1_wbfu4"]
-[ext_resource type="PackedScene" uid="uid://cufenlfm85bbc" path="res://scenes/UpgradeScreen.tscn" id="3_cpr0p"]
-[ext_resource type="PackedScene" uid="uid://ha834vdek41d" path="res://scenes/WallVertical.tscn" id="4_78awf"]
+[ext_resource type="PackedScene" path="res://scenes/UpgradeScreen.tscn" id="3_cpr0p"]
+[ext_resource type="PackedScene" path="res://scenes/WallVertical.tscn" id="4_78awf"]
 
 [sub_resource type="Curve2D" id="Curve2D_qbsmt"]
 _data = {
@@ -18,9 +18,17 @@ size = Vector2(8.981789, 291.67197)
 script = ExtResource("1_cpr0p")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1536385194]
-offset_top = -4.0
-offset_right = 1150.0
-offset_bottom = 646.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -964.0
+offset_top = -541.0
+offset_right = 956.0
+offset_bottom = 539.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0.79607844, 0.6862745, 0.23529412, 1)
 
 [node name="Player" parent="." unique_id=250388077 instance=ExtResource("1_wbfu4")]
@@ -43,12 +51,16 @@ autostart = true
 visible = false
 
 [node name="WallVertical" parent="." unique_id=1463864088 groups=["Wall"] instance=ExtResource("4_78awf")]
+offset_left = 2037.0002
+offset_top = -105.000015
+offset_right = 2077.0002
+offset_bottom = -65.000015
 
 [node name="WallVertical2" parent="." unique_id=312588216 groups=["Wall"] instance=ExtResource("4_78awf")]
-offset_left = 1123.0
-offset_top = -10.0
-offset_right = 1163.0
-offset_bottom = 30.0
+offset_left = 2285.0
+offset_top = -458.00006
+offset_right = 2325.0
+offset_bottom = -418.00006
 
 [node name="Wall3" type="ColorRect" parent="." unique_id=1254227582 groups=["Wall"]]
 offset_right = 40.0
@@ -81,5 +93,7 @@ position = Vector2(-3.7756138, 15.146311)
 rotation = 3.1415925
 scale = Vector2(4.539937, -0.13826564)
 shape = SubResource("RectangleShape2D_cpr0p")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1918275279]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
