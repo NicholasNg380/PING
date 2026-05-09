@@ -5,7 +5,7 @@ extends CharacterBody2D
 var enemySpeed = 150.0
 var enemyHealth = 2
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var direction = global_position.direction_to(player.global_position)
 	velocity = direction * enemySpeed
 	move_and_slide()

@@ -16,3 +16,8 @@ func _on_timer_timeout() -> void:
 func _ready():
 	for i in range(ENEMY_NUM):
 		spawn_enemy()
+
+func _process(_delta):
+	if Input.is_action_just_pressed("spawnEnemy"):
+		print("Q pressed")
+		spawn_enemy()
