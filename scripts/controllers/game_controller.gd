@@ -99,17 +99,21 @@ func show_upgrades():
 
 	# stop spawning completely
 	spawn_timer = 0.0
-
-	print("UPGRADES SCREEN")
 	
 	$UpgradeUI.turn_on()
 
 func _on_upgrade_selected(upgrade):
+	state = GameState.UPGRADES
+	
+	$UpgradeUI.turn_off()
+	
 	print("UPGRADE SELECTED:", upgrade)
+	
+	await get_tree().process_frame
+
 	state = GameState.PLAYING
 	wave_finished = false
 
-	$UpgradeUI.turn_off()
 	start_next_level()
 
 func _ready():

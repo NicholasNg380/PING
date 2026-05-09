@@ -20,13 +20,16 @@ var chosen
 @onready var button3 = $Upgrade3
 @onready var bg = $Panel
 
-var turned_off: bool = true
-
 func _ready() -> void:
 	self.visible = false
 
 func turn_on() -> void:
 	self.visible = true
+	
+	button1.mouse_filter = Control.MOUSE_FILTER_STOP
+	button2.mouse_filter = Control.MOUSE_FILTER_STOP
+	button3.mouse_filter = Control.MOUSE_FILTER_STOP
+	
 	upgrades.shuffle()
 	chosen = upgrades.slice(0, 3)
 	
@@ -41,6 +44,10 @@ func turn_on() -> void:
 	
 func turn_off():
 	self.visible = false
+
+	button1.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	button2.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	button3.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 func _on_upgrade_1_button_up() -> void:
 	upgrade_selected.emit(chosen[0])
@@ -60,5 +67,6 @@ func _on_upgrade_3_button_up() -> void:
 	turn_off()
 
 func _on_confirm_pressed() -> void:
-	upgrade_selected.emit(chosen[0]) #confirm picks first one
+	var random_upgrade = chosen.pick_random()
+	upgrade_selected.emit(random_upgrade)
 	turn_off()
