@@ -3,6 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://bcjbxss7sllsk" path="res://scenes/objects/Enemy.tscn" id="1_hvhr7"]
 [ext_resource type="Script" uid="uid://bvdn4qsovwmp4" path="res://scripts/enemyScripts/bird.gd" id="2_barf0"]
 [ext_resource type="Texture2D" uid="uid://dfv50jpn45mi8" path="res://assets/sprites/enemies/bird_enemy-Sheet.png" id="2_jhdc3"]
+[ext_resource type="AudioStream" uid="uid://5wfjr0n2stqr" path="res://assets/sound/cackoo.wav" id="4_xqyxo"]
+[ext_resource type="AudioStream" uid="uid://pcywptwbnun7" path="res://assets/sound/whoosh.wav" id="5_dlkxs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t8kov"]
 atlas = ExtResource("2_jhdc3")
@@ -107,6 +109,13 @@ animation = &"dive"
 autoplay = "flap"
 frame = 4
 frame_progress = 1.0
+
+[node name="Charge" type="AudioStreamPlayer" parent="." index="4" unique_id=1206302634]
+stream = ExtResource("4_xqyxo")
+volume_db = -20.0
+
+[node name="Dash" type="AudioStreamPlayer" parent="." index="5" unique_id=1145914619]
+stream = ExtResource("5_dlkxs")
 
 [connection signal="animation_finished" from="BirdFlap" to="." method="_on_bird_flap_animation_finished"]
 [connection signal="animation_looped" from="BirdFlap" to="." method="_on_bird_flap_animation_looped"]
