@@ -1,10 +1,12 @@
 class_name Player extends CharacterBody2D
 
+@onready var upgrade = $"../UpgradeUI"
+
 '''
 Player Variables
 '''
 # Movement
-const MAX_SPEED: int = 500
+var MAX_SPEED: int = 500
 const ACCELERATION: int = 15
 const FRICTION: int = 13
 
@@ -14,13 +16,14 @@ const DASH_TIME: float = 0.12
 var can_dash: bool = true
 var dash_timer: float = 0.0
 var dash_dir: Vector2 = Vector2.ZERO
-const DASH_RELOAD_COST: float = 0.5
+var DASH_RELOAD_COST: float = 0.5
 var dash_reload_timer: float = 0.0
 
 # Animation
 var facing_right: bool = true
 var swinging: bool = false
 
+var max_health: float = 3
 var health: int = 3
 
 var knockback: Vector2 = Vector2.ZERO
@@ -33,14 +36,20 @@ var invulnerable: bool = false
 '''
 Ball Variables
 '''
-var ball_speed: int = 700
+var ball_speed: float = 700.0
 var ball_speed_multi: float = 1
-var ball_return_speed: int = 850
-var ball_return_wall_speed: int = 1000
+var ball_return_speed: float = 850.0
+var ball_return_wall_speed: float = 1000.0
 var ball_return_speed_multi: float = 1.0
 var ball_damage: float = 1.0
 var ball_damage_multi: float = 1.0
 var ball_return_damage_multi: float = 0.5
+
+signal update_stats
+
+func _ready() -> void:
+	upgrade.upgrade_selected.connect(_on_upgrade_selected)
+	
 
 func _physics_process(delta):
 	if i_frame_timer > 0.0:
@@ -128,3 +137,25 @@ func apply_knockback(direction: Vector2, force: float, knockback_duration: float
 	set_collision_layer_value(2, false)			
 	set_collision_layer_value(6, true)
 	set_collision_mask_value(4, false)
+	
+func _on_upgrade_selected(upgrade_entry: Dictionary):
+	var name = upgrade_entry["name"]
+	var stat = upgrade_entry["stat"]
+	if name == "Speed":
+		MAX_SPEED *= stat
+	if name == "Strength":
+		ball_damage_multi += stat
+	if name == "Max Hp":
+		max_health += stat
+	if name == "Ball Speed":
+		ball_speed_multi += stat
+	if name == "Dash":
+		DASH_RELOAD_COST -= stat
+	if name == "Return Strength":
+		ball_return_damage_multi += stat
+	if name == "Return Speed":
+		ball_return_speed_multi *= stat
+	update_stats.emit()
+	print("Player:", MAX_SPEED, ball_damage_multi, max_health, ball_speed_multi, DASH_RELOAD_COST, ball_return_speed_multi, ball_return_speed_multi)
+	
+	
