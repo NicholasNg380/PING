@@ -15,6 +15,9 @@ func _physics_process(_delta):
 	if (enemyHealth <= 0):
 		queue_free()
 
+func _ready():
+	add_to_group("enemies")
+
 func take_damage():
 	enemyHealth -= 1
 	

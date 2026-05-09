@@ -6,6 +6,15 @@ var remaining_birds = 0
 var spawn_timer = 0.0
 var spawn_interval = 1.5
 
+var wave_finished = false
+
+enum GameState {
+	PLAYING,
+	UPGRADES
+}
+
+var state = GameState.PLAYING
+
 var levels = {
 	1: {"possum": 3, "bird": 0},
 	2: {"possum": 7, "bird": 0},
@@ -43,19 +52,19 @@ func spawn_wave(possum_num, bird_num):
 	spawn_timer = 0.0
 
 func spawn_one_enemy():
-	var pool = []
+	if remaining_possums > 0 and remaining_birds > 0:
+		if randf() < 0.7:
+			spawn_enemy(enemy_scenes["possum"])
+			remaining_possums -= 1
+		else:
+			spawn_enemy(enemy_scenes["bird"])
+			remaining_birds -= 1
 
-	if remaining_possums > 0:
-		pool.append("possum")
-	if remaining_birds > 0:
-		pool.append("bird")
-
-	var choice = pool.pick_random()
-
-	if choice == "possum":
+	elif remaining_possums > 0:
 		spawn_enemy(enemy_scenes["possum"])
 		remaining_possums -= 1
-	else:
+
+	elif remaining_birds > 0:
 		spawn_enemy(enemy_scenes["bird"])
 		remaining_birds -= 1
 
@@ -69,23 +78,47 @@ func load_level(path):
 
 func start_level(level_id):
 	var data = levels[level_id]
+	spawn_interval = max(0.4, 1.5 - level_id * 0.1)
 	spawn_wave(data["possum"], data["bird"])
 
+func start_next_level(level_id):
+	state = GameState.PLAYING
+	wave_finished = false
+	$UpgradeUI.hide()
+	start_level(level_id)
+
+func get_alive_enemies():
+	return get_tree().get_nodes_in_group("enemies").size()
+
+func is_wave_complete():
+	return remaining_possums <= 0 and remaining_birds <= 0 and get_alive_enemies() == 0
+
+func show_upgrades():
+	state = GameState.UPGRADES
+
+	# stop spawning completely
+	spawn_timer = 0.0
+
+	print("UPGRADES SCREEN")
+	
+	$UpgradeUI.show()
+
 func _ready():
-	pass
+	start_level(1)
 
 func _process(delta):
-	if remaining_possums <= 0 and remaining_birds <= 0:
-		return 
+	if state != GameState.PLAYING:
+		return
+	
+	if is_wave_complete() and !wave_finished:
+		wave_finished = true
+		show_upgrades()
 
 	spawn_timer -= delta
 
 	if spawn_timer <= 0:
 		spawn_timer = spawn_interval
 		spawn_one_enemy()
-	
-	if Input.is_action_just_pressed("spawnEnemy"):
-		spawn_wave(1,1)
 
 func _input(event):
 	if event is InputEventKey and event.pressed:
