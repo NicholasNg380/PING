@@ -54,8 +54,6 @@ func _process(_delta: float) -> void:
 			ball.rotation = rotation
 			ball.direction = arrow.global_position.direction_to(get_global_mouse_position())
 			ball.hit_paddle()
-		else:
-			whoosh.play()
 
 func _on_has_ball():
 	reset_combo.emit()

@@ -10,10 +10,6 @@ enum Step {
 
 var current_step = Step.MOVE
 
-var parry_done = false
-var dash_done = false
-
-var parry_enemy_alive = false
 var parry_attempted = false
 var parry_enemy_exists = false
 
@@ -33,8 +29,11 @@ var enemy_scenes = {
 func _ready():
 	upgrade_ui.hide()
 	
-	paddle.parried.connect(_on_player_parried)
-	player.dashed.connect(_on_player_dashed)
+	if not paddle.parried.is_connected(_on_player_parried):
+		paddle.parried.connect(_on_player_parried)
+		
+	if not player.dashed.is_connected(_on_player_dashed):
+		player.dashed.connect(_on_player_dashed)
 	
 	start_step(Step.MOVE)
 	
@@ -55,7 +54,6 @@ func start_step(step):
 			ui.show_text("Parry the ball back")
 			spawn_dummy_enemy()
 			
-			parry_enemy_alive = true
 			parry_attempted = false
 		
 		Step.DASH:
