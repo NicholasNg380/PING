@@ -3,7 +3,7 @@ extends "res://scripts/enemyScripts/enemy.gd"
 
 func _ready():
 	enemySpeed = 100.0
-	enemyHealth = 5
+	enemyHealth = 5.0
 	anim.play("default")
 	super()
 

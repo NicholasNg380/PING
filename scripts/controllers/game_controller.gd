@@ -108,8 +108,6 @@ func _on_upgrade_selected(upgrade):
 	
 	$UpgradeUI.turn_off()
 	
-	print("UPGRADE SELECTED:", upgrade)
-	
 	await get_tree().process_frame
 
 	state = GameState.PLAYING
