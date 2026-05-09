@@ -15,8 +15,13 @@ func _physics_process(_delta):
 	if (enemyHealth <= 0):
 		queue_free()
 
+
 func take_damage(damage: float):
 	enemyHealth -= damage
+
+func _ready():
+	add_to_group("enemies")
+
 	
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if not player.invulnerable and body.is_in_group("Player"):

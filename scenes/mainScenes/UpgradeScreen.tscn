@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://cfd6kl7taeyrm" path="res://scripts/controllers/upgrade_screen.gd" id="1_nlo6w"]
 
-[node name="Control" type="Control" unique_id=61529160]
+[node name="UpgradeUI" type="Control" unique_id=61529160]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 1153.0
-offset_bottom = 648.0
+offset_right = 1920.0
+offset_bottom = 1080.0
 script = ExtResource("1_nlo6w")
 
 [node name="Panel" type="Panel" parent="." unique_id=1200668007]
@@ -15,92 +15,31 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.998
 anchor_bottom = 1.0
-offset_right = 769.306
-offset_bottom = 432.0
-
-[node name="Upgrade1" type="Button" parent="." unique_id=622524950]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.095000006
-anchor_top = 0.27600002
-anchor_right = 0.34600002
-anchor_bottom = 0.69600004
-offset_left = 153.465
-offset_top = 21.151978
-offset_right = 154.06198
-offset_bottom = 19.991974
-icon_alignment = 1
-
-[node name="Label" type="Label" parent="Upgrade1" unique_id=159170537]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.092
-offset_left = -4.0
-offset_top = 1.0
-offset_bottom = 6.067993
-text = "Upgrade 1"
-horizontal_alignment = 1
-
-[node name="Upgrade2" type="Button" parent="." unique_id=1003025227]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.384
-anchor_top = 0.26900002
-anchor_right = 0.63600004
-anchor_bottom = 0.68700004
-offset_left = 332.248
-offset_top = 28.687988
-offset_right = 331.69196
-offset_bottom = 28.823975
-icon_alignment = 1
-
-[node name="Label" type="Label" parent="Upgrade2" unique_id=612185432]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.092
-offset_left = -4.0
-offset_top = 1.0
-offset_bottom = 6.067993
-text = "Upgrade 2"
-horizontal_alignment = 1
-
-[node name="Upgrade3" type="Button" parent="." unique_id=464965106]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.69000006
-anchor_top = 0.275
-anchor_right = 0.94100004
-anchor_bottom = 0.69600004
-offset_left = 568.42993
-offset_top = 21.800003
-offset_right = 569.027
-offset_bottom = 19.991974
-icon_alignment = 1
-
-[node name="Label" type="Label" parent="Upgrade3" unique_id=963724095]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.092
-offset_left = -4.0
-offset_top = 1.0
-offset_bottom = 6.067993
-text = "Upgrade 3"
-horizontal_alignment = 1
+offset_right = 3.8399658
+pivot_offset = Vector2(2045, 301)
 
 [node name="Confirm" type="Button" parent="." unique_id=971335383]
 layout_mode = 0
-offset_left = 696.0
-offset_top = 665.0
-offset_right = 1169.0
-offset_bottom = 785.0
+offset_left = 760.0
+offset_top = 700.0
+offset_right = 1160.0
+offset_bottom = 800.0
 text = "Confirm"
 
-[connection signal="button_up" from="Upgrade1" to="." method="_on_upgrade_1_button_up"]
-[connection signal="button_up" from="Upgrade2" to="." method="_on_upgrade_2_button_up"]
-[connection signal="button_up" from="Upgrade3" to="." method="_on_upgrade_3_button_up"]
+[node name="Upgrade1" type="Button" parent="." unique_id=1660926584]
+layout_mode = 0
+offset_left = 325.0
+offset_top = 154.0
+offset_right = 751.0
+offset_bottom = 511.0
+
+[node name="Label" type="Label" parent="Upgrade1" unique_id=1087024444]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 356.0
+offset_right = 426.0
+offset_bottom = 384.0
+text = "Upgrade 1"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Confirm" to="." method="_on_confirm_pressed"]

@@ -16,8 +16,6 @@ var rng = RandomNumberGenerator.new()
 var chosen
 
 @onready var button1 = $Upgrade1
-@onready var button2 = $Upgrade2
-@onready var button3 = $Upgrade3
 @onready var bg = $Panel
 var turned_off: bool = true
 
@@ -29,12 +27,6 @@ func _turn_on() -> void:
 	chosen = upgrades.slice(0, 3)
 	button1.icon = load(chosen[0]["asset_loc"])
 	button1.get_child(0).text = chosen[0]["description"]
-	
-	button2.icon = load(chosen[1]["asset_loc"])
-	button2.get_child(0).text = chosen[1]["description"]
-	
-	button3.icon = load(chosen[2]["asset_loc"])
-	button3.get_child(0).text = chosen[2]["description"]
 	inverse_visibilities()
 
 func inverse_visibilities():
@@ -59,3 +51,7 @@ func _on_upgrade_3_button_up() -> void:
 	upgrade_selected.emit(chosen[2])
 	upgrades.erase(chosen[2])
 	turn_off()
+
+func _on_confirm_pressed() -> void:
+	upgrade_selected.emit()
+	$Upgrade1.hide()
