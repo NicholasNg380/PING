@@ -37,6 +37,9 @@ var levels = {
 @onready var scoreCard = $Score
 @onready var comboCard = $Combo
 
+@onready var music_bus = AudioServer.get_bus_index("Music")
+@onready var lowpass = AudioServer.get_bus_effect(music_bus, 0)
+@onready var music_player = $BackgroundMusic
 
 var enemy_scenes = {"possum": preload("res://scenes/objects/Possum.tscn"),
 	"bird": preload("res://scenes/objects/Bird.tscn")}
@@ -117,6 +120,12 @@ func show_upgrades():
 	
 	$UpgradeUI.turn_on()
 	
+	# dampen music
+	lowpass.cutoff_hz = 800
+	
+	#slow down music
+	music_player.pitch_scale = 0.8
+	
 	get_tree().paused = true
 
 func _on_upgrade_ui_refresh_health() -> void:
@@ -139,6 +148,10 @@ func _on_upgrade_selected(upgrade):
 	
 	$UpgradeUI.turn_off()
 	
+	# restore music
+	lowpass.cutoff_hz = 5000
+	music_player.pitch_scale = 1.0
+	
 	get_tree().paused = false
 	
 	await get_tree().process_frame
@@ -149,6 +162,8 @@ func _on_upgrade_selected(upgrade):
 	start_next_level()
 
 func _ready():
+	lowpass.cutoff_hz = 5000
+	music_player.pitch_scale = 1.0
 	$UpgradeUI.upgrade_selected.connect(_on_upgrade_selected)
 	start_level(1)
 

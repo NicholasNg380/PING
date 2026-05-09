@@ -9,6 +9,7 @@ signal has_ball
 signal can_parry
 signal cannot_parry
 signal update_score(score: int)
+signal hit_target
 
 const ENEMY_HIT_SCORE = 5
 

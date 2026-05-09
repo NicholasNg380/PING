@@ -8,6 +8,8 @@ var speed_multiplier: float = 1.0
 var enemySpeed: float = 150.0
 var enemyHealth: float = 2.0
 
+var can_damage_player: bool = true
+
 const KNOCKBACK_POWER: int = 1200
 const KNOCKBACK_TIME: float = 0.06
 
@@ -21,10 +23,20 @@ func _physics_process(_delta):
 
 
 func take_damage(damage: float):
-	enemyHealth -= damage
 	damage_sound.play()
+	enemyHealth -= damage
+	
 	if (enemyHealth <= 0):
 		died.emit()
+		
+		# hide enemy so it looks dead
+		visible = false
+		set_physics_process(false)
+		$CollisionShape2D.disabled = true
+		
+		# wait for sound to finish
+		await damage_sound.finished
+		
 		queue_free()
 
 func _ready():
@@ -32,7 +44,11 @@ func _ready():
 
 	
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if not player.invulnerable and body.is_in_group("Player"):
+	if can_damage_player and not player.invulnerable and body.is_in_group("Player"):
 		body.take_player_damage()
 		var knockback_direction = (body.global_position - global_position).normalized()
 		body.apply_knockback(knockback_direction, KNOCKBACK_POWER, KNOCKBACK_TIME)
+	if player.explosion and body.is_in_group("Ball"):
+		var explode = explosion.instatiate()
+		explosions.poeision = 
+		

@@ -47,6 +47,9 @@ var ball_return_damage_multi: float = 0.5
 var ball_scale_x: float = 0.5
 var ball_scale_y: float = 0.5
 
+var explosion: bool = false
+var explosive_dmg: float = 1.0
+
 @onready var health_bar = $"../HealthBar"
 
 signal update_stats

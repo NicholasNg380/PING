@@ -37,6 +37,7 @@ func _process(_delta: float) -> void:
 		
 	if Input.is_action_just_pressed("hit") and ball.serve_cooldown <= 0.0:
 		if hasBall:
+			hit.pitch_scale = randf_range(0.8, 1.3)
 			hit.play()
 			hasBall = false
 			canParry = false
@@ -45,6 +46,7 @@ func _process(_delta: float) -> void:
 			ball.direction = arrow.global_position.direction_to(get_global_mouse_position())
 			ball.hit_paddle()
 		elif canParry:
+			hit.pitch_scale = randf_range(0.8, 1.3)
 			hit.play()
 			print("parry")
 			parried.emit()
@@ -54,8 +56,6 @@ func _process(_delta: float) -> void:
 			ball.rotation = rotation
 			ball.direction = arrow.global_position.direction_to(get_global_mouse_position())
 			ball.hit_paddle()
-		else:
-			whoosh.play()
 
 func _on_has_ball():
 	reset_combo.emit()

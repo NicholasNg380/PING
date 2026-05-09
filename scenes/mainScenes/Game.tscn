@@ -5,8 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://biyi27mohykob" path="res://scenes/Stages/stage_1.tscn" id="2_23i5p"]
 [ext_resource type="PackedScene" uid="uid://cufenlfm85bbc" path="res://scenes/mainScenes/UpgradeScreen.tscn" id="3_cpr0p"]
 [ext_resource type="FontFile" uid="uid://bffxar07whxsc" path="res://assets/pixel_operator/PixelOperator-Bold.ttf" id="5_ekv5x"]
-[ext_resource type="PackedScene" uid="uid://d0xnt1gn2xwc5" path="res://scenes/objects/health_bar.tscn" id="6_83o3o"]
-[ext_resource type="PackedScene" uid="uid://bahcf75l5vwy5" path="res://scenes/mainScenes/death_screen.tscn" id="7_1mgfw"]
+[ext_resource type="PackedScene" path="res://scenes/objects/health_bar.tscn" id="6_83o3o"]
+[ext_resource type="PackedScene" path="res://scenes/mainScenes/death_screen.tscn" id="7_1mgfw"]
+[ext_resource type="AudioStream" uid="uid://bok8pq8hpsoxv" path="res://assets/sound/backmusic.mp3" id="8_amdau"]
 [ext_resource type="PackedScene" uid="uid://b12hk70caua6a" path="res://scenes/mainScenes/win_game_screen.tscn" id="8_amdau"]
 
 [sub_resource type="Curve2D" id="Curve2D_qbsmt"]
@@ -86,14 +87,14 @@ offset_right = 970.0
 offset_bottom = 523.0
 metadata/_edit_use_anchors_ = true
 
-[node name="WinGameScreen" parent="." unique_id=1968487832 instance=ExtResource("8_amdau")]
-z_index = 2
-offset_left = -964.0
-offset_top = -546.0
-offset_right = -958.0
-offset_bottom = -546.0
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=147986032]
+process_mode = 3
+stream = ExtResource("8_amdau")
+volume_db = -10.0
+autoplay = true
+bus = &"Music"
+parameters/looping = true
 
-[connection signal="game_over" from="Player" to="." method="_on_player_game_over"]
 [connection signal="increase_combo" from="Player" to="." method="_on_player_increase_combo"]
 [connection signal="reset_combo" from="Player" to="." method="_on_player_reset_combo"]
 [connection signal="update_score" from="Player" to="." method="_on_player_update_score"]

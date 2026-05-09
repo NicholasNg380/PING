@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://06h6gulrqm8n"]
+
+[ext_resource type="Script" uid="uid://eiv65uyy22nx" path="res://scripts/playerScripts/explosion.gd" id="1_nt0bx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2rj2a"]
+
+[node name="Explosion" type="Node2D" unique_id=1425355697]
+scale = Vector2(10, 10)
+script = ExtResource("1_nt0bx")
+
+[node name="Explosion" type="AnimatedSprite2D" parent="." unique_id=1961061387]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1078163190]
+collision_layer = 64
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=813903351]
+shape = SubResource("CircleShape2D_2rj2a")
