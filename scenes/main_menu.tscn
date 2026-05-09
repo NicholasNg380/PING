@@ -13,9 +13,9 @@ offset_bottom = 40.0
 
 [node name="Start" type="Button" parent="ButtonManager" unique_id=2024065401]
 layout_mode = 0
-offset_left = 764.0
+offset_left = 850.0
 offset_top = 367.0
-offset_right = 1064.0
+offset_right = 1150.0
 offset_bottom = 467.0
 text = "Start"
 
@@ -26,17 +26,17 @@ offset_bottom = 8.0
 
 [node name="Options" type="Button" parent="ButtonManager" unique_id=1258275797]
 layout_mode = 0
-offset_left = 764.0
+offset_left = 850.0
 offset_top = 518.0
-offset_right = 1064.0
+offset_right = 1150.0
 offset_bottom = 618.0
 text = "Options"
 
 [node name="Quit" type="Button" parent="ButtonManager" unique_id=1999158445]
 layout_mode = 0
-offset_left = 760.0
+offset_left = 850.0
 offset_top = 672.0
-offset_right = 1060.0
+offset_right = 1150.0
 offset_bottom = 772.0
 text = "Quit"
 

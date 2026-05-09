@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://87s44viknddd" path="res://scripts/enemy.gd" id="1_md0e3"]
 [ext_resource type="Texture2D" uid="uid://b68vj6s7fxrwm" path="res://assets/sprites/icon.svg" id="2_4ra3w"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mpr68"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_55jtl"]
 size = Vector2(107, 104)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mpr68"]
 
 [node name="Enemy" type="CharacterBody2D" unique_id=1863187210 groups=["Enemy"]]
 collision_layer = 8
@@ -19,12 +19,12 @@ modulate = Color(1, 0.11372549, 0.34509805, 1)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("2_4ra3w")
 
-[node name="Area2D" type="Area2D" parent="Sprite2D" unique_id=1268213906]
-scale = Vector2(5.5, 5.5)
-
-[node name="AreaCollision" type="CollisionShape2D" parent="Sprite2D/Area2D" unique_id=2083497812]
-shape = SubResource("RectangleShape2D_mpr68")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1425238540]
 scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_55jtl")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1268213906]
+scale = Vector2(4.125, 4.125)
+
+[node name="AreaCollision" type="CollisionShape2D" parent="Area2D" unique_id=2083497812]
+shape = SubResource("RectangleShape2D_mpr68")
