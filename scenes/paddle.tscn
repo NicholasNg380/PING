@@ -14,3 +14,8 @@ texture = ExtResource("2_mo4dg")
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1047595819]
 position = Vector2(99.00001, 0)
 scale = Vector2(0.0859375, 1.078125)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=244241064]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=62495852]
+polygon = PackedVector2Array(-110, -2, -98, -78, 104, -99, 216, -96, 213, 81, 76, 79, -94, 76)

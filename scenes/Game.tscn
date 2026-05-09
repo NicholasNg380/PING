@@ -2,12 +2,17 @@
 
 [ext_resource type="Script" uid="uid://dy5t37f1cgmdo" path="res://scripts/game_controller.gd" id="1_cpr0p"]
 [ext_resource type="PackedScene" uid="uid://bpbyjy6wsbxg3" path="res://scenes/Player.tscn" id="1_wbfu4"]
+[ext_resource type="PackedScene" uid="uid://cufenlfm85bbc" path="res://scenes/UpgradeScreen.tscn" id="3_cpr0p"]
+[ext_resource type="PackedScene" uid="uid://ha834vdek41d" path="res://scenes/WallVertical.tscn" id="4_78awf"]
 
 [sub_resource type="Curve2D" id="Curve2D_qbsmt"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -96, -121, 0, 0, 0, 0, 1277, -114, 0, 0, 0, 0, 1286, 740, 0, 0, 0, 0, -95, 738, 0, 0, 0, 0, -96, -121)
 }
 point_count = 5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cpr0p"]
+size = Vector2(8.981789, 291.67197)
 
 [node name="Game" type="Node2D" unique_id=591366547]
 script = ExtResource("1_cpr0p")
@@ -19,7 +24,7 @@ offset_bottom = 646.0
 color = Color(0.79607844, 0.6862745, 0.23529412, 1)
 
 [node name="Player" parent="." unique_id=250388077 instance=ExtResource("1_wbfu4")]
-position = Vector2(598, 314)
+position = Vector2(730, 388)
 
 [node name="Path2D" type="Path2D" parent="." unique_id=905543411]
 position = Vector2(-28.846603, 1.4053497)
@@ -33,5 +38,48 @@ rotation = 0.0050982805
 
 [node name="Timer" type="Timer" parent="." unique_id=1841884614]
 autostart = true
+
+[node name="Control" parent="." unique_id=61529160 instance=ExtResource("3_cpr0p")]
+visible = false
+
+[node name="WallVertical" parent="." unique_id=1463864088 groups=["Wall"] instance=ExtResource("4_78awf")]
+
+[node name="WallVertical2" parent="." unique_id=312588216 groups=["Wall"] instance=ExtResource("4_78awf")]
+offset_left = 1123.0
+offset_top = -10.0
+offset_right = 1163.0
+offset_bottom = 30.0
+
+[node name="Wall3" type="ColorRect" parent="." unique_id=1254227582 groups=["Wall"]]
+offset_right = 40.0
+offset_bottom = 40.0
+rotation = -1.5707964
+scale = Vector2(0.662142, 28.702545)
+
+[node name="Area2D" type="Area2D" parent="Wall3" unique_id=142550450]
+position = Vector2(22.65375, 4.831952)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall3/Area2D" unique_id=641788806]
+position = Vector2(-3.7756138, 15.146311)
+rotation = 3.1415925
+scale = Vector2(4.539937, -0.13826564)
+shape = SubResource("RectangleShape2D_cpr0p")
+
+[node name="Wall4" type="ColorRect" parent="." unique_id=710032720 groups=["Wall"]]
+offset_left = 0.9999999
+offset_top = 649.0
+offset_right = 41.0
+offset_bottom = 689.0
+rotation = -1.5707964
+scale = Vector2(0.662142, 28.702545)
+
+[node name="Area2D" type="Area2D" parent="Wall4" unique_id=1425859848]
+position = Vector2(22.65375, 4.831952)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall4/Area2D" unique_id=1483151600]
+position = Vector2(-3.7756138, 15.146311)
+rotation = 3.1415925
+scale = Vector2(4.539937, -0.13826564)
+shape = SubResource("RectangleShape2D_cpr0p")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

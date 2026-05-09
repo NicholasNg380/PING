@@ -1,11 +1,16 @@
 class_name paddle extends Node2D
 
-const BALL = preload("res://scenes/Ball.tscn")
-
-var ball = null
-
 @onready var arrow: Marker2D = $Marker2D
 var hasBall: bool = true
+var canParry: bool = false
+@onready var ball = $"../Ball"
+
+func _ready() -> void:
+	ball.global_position = get_parent().global_position
+	ball.has_ball.connect(_on_has_ball)
+	ball.can_parry.connect(_on_can_parry)
+	ball.cannot_parry.connect(_on_cannot_parry)
+
 
 func _process(delta: float) -> void:
 	look_at(get_global_mouse_position())
@@ -19,16 +24,22 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("hit"):
 		if hasBall:
 			hasBall = false
-			if ball == null:
-				var ball_instance = BALL.instantiate()
-				get_parent().add_child(ball_instance)
-				ball = ball_instance
-			ball.has_ball.connect(_on_has_ball)
 			ball.global_position = arrow.global_position
 			ball.rotation = rotation
 			ball.direction = arrow.global_position.direction_to(get_global_mouse_position())
 			ball.hit_paddle()
+		elif canParry:
+			canParry = false
+			ball.rotation = rotation
+			ball.direction = ball.global_position.direction_to(get_global_mouse_position())
+			ball.hit_paddle()
+			
 			
 func _on_has_ball():
 	hasBall = true
-	pass
+
+func _on_can_parry():
+	canParry = true
+
+func _on_cannot_parry():
+	canParry = false

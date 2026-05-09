@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://cufenlfm85bbc"]
+
+[ext_resource type="Script" uid="uid://cfd6kl7taeyrm" path="res://scripts/upgrade_screen.gd" id="1_nlo6w"]
+
+[node name="Control" type="Control" unique_id=61529160]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1153.0
+offset_bottom = 648.0
+script = ExtResource("1_nlo6w")
+
+[node name="Panel" type="Panel" parent="." unique_id=1200668007]
+modulate = Color(0.30588236, 0.17254902, 0.007843138, 0.3137255)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.998
+anchor_bottom = 1.0
+offset_right = 0.30603027
+offset_bottom = 5.0
+
+[node name="Upgrade1" type="Button" parent="." unique_id=622524950]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.095000006
+anchor_top = 0.27600002
+anchor_right = 0.34600002
+anchor_bottom = 0.69600004
+offset_left = -0.53500366
+offset_top = 0.15197754
+offset_right = 0.0619812
+offset_bottom = -1.0080261
+icon_alignment = 1
+
+[node name="Label" type="Label" parent="Upgrade1" unique_id=159170537]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.092
+offset_left = -4.0
+offset_top = 1.0
+offset_bottom = 6.067993
+horizontal_alignment = 1
+
+[node name="Upgrade2" type="Button" parent="." unique_id=1003025227]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.384
+anchor_top = 0.26900002
+anchor_right = 0.63600004
+anchor_bottom = 0.68700004
+offset_left = 14.247986
+offset_top = 4.6879883
+offset_right = 13.691956
+offset_bottom = 4.8239746
+icon_alignment = 1
+
+[node name="Label" type="Label" parent="Upgrade2" unique_id=612185432]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.092
+offset_left = -4.0
+offset_top = 1.0
+offset_bottom = 6.067993
+horizontal_alignment = 1
+
+[node name="Upgrade3" type="Button" parent="." unique_id=464965106]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.69000006
+anchor_top = 0.275
+anchor_right = 0.94100004
+anchor_bottom = 0.69600004
+offset_left = -0.57006836
+offset_top = 0.80000305
+offset_right = 0.026977539
+offset_bottom = -1.0080261
+icon_alignment = 1
+
+[node name="Label" type="Label" parent="Upgrade3" unique_id=963724095]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.092
+offset_left = -4.0
+offset_top = 1.0
+offset_bottom = 6.067993
+horizontal_alignment = 1
+
+[connection signal="button_up" from="Upgrade1" to="." method="_on_upgrade_1_button_up"]
+[connection signal="button_up" from="Upgrade2" to="." method="_on_upgrade_2_button_up"]
+[connection signal="button_up" from="Upgrade3" to="." method="_on_upgrade_3_button_up"]

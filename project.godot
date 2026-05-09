@@ -19,6 +19,8 @@ config/icon="res://assets/sprites/icon.svg"
 
 Enemy=""
 Player=""
+Parry_Area=""
+Wall=""
 
 [input]
 
