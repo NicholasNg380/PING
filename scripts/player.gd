@@ -16,8 +16,7 @@ var dash_reload_timer: float = 0.0
 
 # Animation
 var facing_right: bool = true
-
-
+var swinging: bool = false
 
 func _physics_process(delta):
 	var input = Vector2(
@@ -49,7 +48,16 @@ func _physics_process(delta):
 
 #Animation
 func _animations():
-	print(velocity.x)
+	if Input.is_action_just_pressed("hit") and !swinging:
+		swinging = true
+		if facing_right:
+			$AnimatedSprite2D.play("SwingRight")
+		else:
+			$AnimatedSprite2D.play("SwingLeft")
+			
+	if swinging:
+		return
+		
 	if velocity.x > MAX_SPEED/4:
 		$AnimatedSprite2D.play("WalkRight")
 		facing_right = true
@@ -61,3 +69,7 @@ func _animations():
 			$AnimatedSprite2D.play("IdleRight")
 		else:
 			$AnimatedSprite2D.play("IdleLeft")
+
+func _on_animated_sprite_2d_animation_finished():
+	if $AnimatedSprite2D.animation == "SwingRight" or $AnimatedSprite2D.animation == "SwingLeft":
+		swinging = false

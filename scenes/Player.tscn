@@ -4,8 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://nhieb4msgii8" path="res://assets/sprites/penguin_idle_left-Sheet.png" id="2_qu4a1"]
 [ext_resource type="PackedScene" uid="uid://nu2gcom1lpeu" path="res://scenes/paddle.tscn" id="3_3li8b"]
 [ext_resource type="Texture2D" uid="uid://cma7w3qh3x1yr" path="res://assets/sprites/penguin_idle_right-Sheet.png" id="3_70d11"]
+[ext_resource type="Texture2D" uid="uid://b3wwp8vx4fawq" path="res://assets/sprites/penguin_hit_left.png" id="4_bruh7"]
 [ext_resource type="Texture2D" uid="uid://dnx1rs13bnjdd" path="res://assets/sprites/penguin_walk_left-Sheet.png" id="4_cw2d6"]
 [ext_resource type="PackedScene" uid="uid://b1q5gmvk43iyp" path="res://scenes/Ball.tscn" id="4_mdl7e"]
+[ext_resource type="Texture2D" uid="uid://cqkhk4qxppu83" path="res://assets/sprites/penguin_hit_right.png" id="5_6eyey"]
 [ext_resource type="Texture2D" uid="uid://52f0ybdg32ui" path="res://assets/sprites/penguin_walk_right-Sheet.png" id="5_khinc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cw2d6"]
@@ -47,6 +49,14 @@ region = Rect2(96, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_srp4u"]
 atlas = ExtResource("3_70d11")
 region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_agngo"]
+atlas = ExtResource("4_bruh7")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qrixf"]
+atlas = ExtResource("5_6eyey")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jfpux"]
 atlas = ExtResource("4_cw2d6")
@@ -156,6 +166,22 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_agngo")
+}],
+"loop": false,
+"name": &"SwingLeft",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qrixf")
+}],
+"loop": false,
+"name": &"SwingRight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_jfpux")
 }, {
 "duration": 1.0,
@@ -223,8 +249,7 @@ script = ExtResource("1_v6fml")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1849093006]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_jfpux")
-animation = &"WalkRight"
-frame_progress = 0.032234624
+animation = &"SwingRight"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=435689060]
 shape = SubResource("RectangleShape2D_xhfnw")
@@ -238,3 +263,5 @@ position = Vector2(1.7881393e-07, 0)
 shape = SubResource("RectangleShape2D_xhfnw")
 
 [node name="Ball" parent="." unique_id=305474800 instance=ExtResource("4_mdl7e")]
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

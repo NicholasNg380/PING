@@ -52,8 +52,8 @@ func _on_ball_hit_box_body_entered(body: Node2D) -> void:
 func _on_ball_hit_box_area_entered(area: Area2D) -> void:
 	if area.get_parent().is_in_group("Parry_Area"):
 		can_parry.emit()
-	print(area.get_parent())
-	print(area.get_parent().is_in_group("Wall"))
+	#print(area.get_parent())
+	#print(area.get_parent().is_in_group("Wall"))
 	if area.get_parent().is_in_group("Wall"):
 		print("Hit Wall")
 		ball_state = State.HIT_WALL
