@@ -12,6 +12,30 @@ region = Rect2(0, 0, 32, 32)
 atlas = ExtResource("2_jhdc3")
 region = Rect2(32, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_xqyxo"]
+atlas = ExtResource("2_jhdc3")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dlkxs"]
+atlas = ExtResource("2_jhdc3")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcp7u"]
+atlas = ExtResource("2_jhdc3")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxb1g"]
+atlas = ExtResource("2_jhdc3")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_54pm1"]
+atlas = ExtResource("2_jhdc3")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jd8vr"]
+atlas = ExtResource("2_jhdc3")
+region = Rect2(64, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_xqyxo"]
 animations = [{
 "frames": [{
@@ -24,6 +48,34 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xqyxo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dlkxs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xcp7u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxb1g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_54pm1")
+}],
+"loop": false,
+"name": &"dive",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.65,
+"texture": SubResource("AtlasTexture_jd8vr")
+}],
+"loop": true,
+"name": &"hit",
+"speed": 5.0
 }]
 
 [node name="Bird" unique_id=1863187210 instance=ExtResource("1_hvhr7")]
@@ -32,4 +84,7 @@ script = ExtResource("2_barf0")
 [node name="BirdFlap" type="AnimatedSprite2D" parent="." index="2" unique_id=1086143794]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_xqyxo")
+animation = &"hit"
 autoplay = "default"
+
+[connection signal="animation_looped" from="BirdFlap" to="." method="_on_bird_flap_animation_looped"]
