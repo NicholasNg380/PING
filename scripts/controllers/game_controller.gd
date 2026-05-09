@@ -112,11 +112,15 @@ func show_upgrades():
 	spawn_timer = 0.0
 	
 	$UpgradeUI.turn_on()
+	
+	get_tree().paused = true
 
 func _on_upgrade_selected(upgrade):
 	state = GameState.UPGRADES
 	
 	$UpgradeUI.turn_off()
+	
+	get_tree().paused = false
 	
 	await get_tree().process_frame
 

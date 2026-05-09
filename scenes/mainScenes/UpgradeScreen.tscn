@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cfd6kl7taeyrm" path="res://scripts/controllers/upgrade_screen.gd" id="1_nlo6w"]
 
 [node name="UpgradeUI" type="Control" unique_id=61529160]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1920.0
