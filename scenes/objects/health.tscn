@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://brupn0i4ekn06"]
+
+[ext_resource type="Texture2D" uid="uid://cyl820iamh2t1" path="res://assets/sprites/ui/health/fish_health.png" id="1_2i7yw"]
+
+[node name="TextureRect" type="TextureRect" unique_id=830483582]
+texture = ExtResource("1_2i7yw")
+expand_mode = 2

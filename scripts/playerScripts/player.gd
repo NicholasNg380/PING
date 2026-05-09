@@ -29,7 +29,7 @@ var health: int = 3
 var knockback: Vector2 = Vector2.ZERO
 var knockback_timer: float = 0.0
 
-const I_FRAME_TIME: float = 0.75
+const I_FRAME_TIME: float = 1.25
 var i_frame_timer: float = 0.0
 var invulnerable: bool = false 
 
@@ -45,6 +45,8 @@ var ball_damage: float = 1.0
 var ball_damage_multi: float = 0.0
 var ball_return_damage_multi: float = 0.5
 
+@onready var health_bar = $"../HealthBar"
+
 signal update_stats
 signal dashed
 
@@ -53,16 +55,20 @@ signal reset_combo
 signal increase_combo
 
 func _ready() -> void:
+	health_bar.set_max_health(max_health)
 	add_to_group("Player")
 	upgrade.upgrade_selected.connect(_on_upgrade_selected)
 	
 
 func _physics_process(delta):
 	if i_frame_timer > 0.0:
+		$AnimationPlayer.play("flash")
 		i_frame_timer -= delta
 		if i_frame_timer <= 0.0:
 			i_frame_timer = 0.0
 			invulnerable = false
+			$AnimationPlayer.stop()
+			modulate.a = 1.0
 			set_collision_layer_value(2, true)
 			set_collision_layer_value(6, false)
 			set_collision_mask_value(4, true)
@@ -80,6 +86,7 @@ func _physics_process(delta):
 
 func take_player_damage():
 	health -= 1
+	health_bar.update_health(health)
 	
 func _movement(delta: float) -> void:
 	var input = Vector2(
@@ -154,6 +161,7 @@ func _on_upgrade_selected(upgrade_entry: Dictionary):
 		ball_damage_multi += stat
 	if name == "Max Hp":
 		max_health += stat
+		health_bar.change_max(max_health)
 	if name == "Ball Speed":
 		ball_speed_multi += stat
 	if name == "Dash":
