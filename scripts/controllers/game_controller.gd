@@ -10,9 +10,7 @@ var spawn_timer = 0.0
 var spawn_interval = 1.5
 
 var wave_finished = false
-
 var current_level = 1
-
 var current_score: int
 
 enum GameState {
@@ -41,6 +39,7 @@ var levels = {
 @onready var music_bus = AudioServer.get_bus_index("Music")
 @onready var lowpass = AudioServer.get_bus_effect(music_bus, 0)
 @onready var music_player = $BackgroundMusic
+@onready var combo_sound = $ComboSound
 
 var enemy_scenes = {"possum": preload("res://scenes/objects/Possum.tscn"),
 	"bird": preload("res://scenes/objects/Bird.tscn")}
@@ -49,6 +48,7 @@ const NEXT_STAGE_SCORE = 30
 
 
 var combo = 1
+var combo_pitch: float = 1.0
 
 func spawn_enemy(enemy_scene):
 	var new_enemy = enemy_scene.instantiate()
@@ -171,7 +171,6 @@ func _ready():
 	start_level(1)
 
 func _process(delta):
-	#print(enemy_speed_multiplier)
 	if state != GameState.PLAYING:
 		return
 	
@@ -229,12 +228,20 @@ func _on_player_update_score(score) -> void:
 
 func _on_player_reset_combo() -> void:
 	combo = 1
+	combo_pitch = 1.0
+	combo_sound.pitch_scale = 1.0
 	update_combo_text()
 
 func _on_player_increase_combo() -> void:
 	$AnimationPlayer.play("Combo")
 	combo += 1
+	
 	update_combo_text()
+	
+	combo_pitch = pow(1.1, combo)
+	
+	combo_sound.pitch_scale = combo_pitch
+	combo_sound.play()
 
 func update_combo_text():
 	
