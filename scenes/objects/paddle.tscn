@@ -60,7 +60,7 @@ collision_mask = 4
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ParryHitbox" unique_id=62495852]
 position = Vector2(3.8146973e-06, 0)
 scale = Vector2(1.1, 1.221)
-polygon = PackedVector2Array(-63.86176, -0.549355, -38.317055, -44.497753, 127.72351, -66.471954, 128.47482, 54.386143, -42.824944, 35.708073)
+polygon = PackedVector2Array(-63.86176, -0.549355, -38.317055, -44.497753, 177.31029, -75.81099, 176.55898, 65.373245, -42.824944, 35.708073)
 
 [node name="SwingAnimation" type="AnimatedSprite2D" parent="." unique_id=1870444288]
 position = Vector2(40, 0)

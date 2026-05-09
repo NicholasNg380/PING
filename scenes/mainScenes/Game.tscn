@@ -7,12 +7,97 @@
 [ext_resource type="FontFile" uid="uid://bffxar07whxsc" path="res://assets/pixel_operator/PixelOperator-Bold.ttf" id="5_ekv5x"]
 [ext_resource type="PackedScene" uid="uid://d0xnt1gn2xwc5" path="res://scenes/objects/health_bar.tscn" id="6_83o3o"]
 [ext_resource type="PackedScene" uid="uid://bahcf75l5vwy5" path="res://scenes/mainScenes/death_screen.tscn" id="7_1mgfw"]
+[ext_resource type="PackedScene" uid="uid://b12hk70caua6a" path="res://scenes/mainScenes/win_game_screen.tscn" id="8_amdau"]
 
 [sub_resource type="Curve2D" id="Curve2D_qbsmt"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -1060, -640, 0, 0, 0, 0, 1060, -640, 0, 0, 0, 0, 1060, 640, 0, 0, 0, 0, -1060, 640, 0, 0, 0, 0, -1060, -640)
 }
 point_count = 5
+
+[sub_resource type="Animation" id="Animation_1mgfw"]
+resource_name = "Combo"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Combo:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.11, 0.15, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-151, -514), Vector2(-154, -476), Vector2(-168.99998, -566.99994), Vector2(-168, -468), Vector2(-151, -514)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Combo:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.11, 0.15, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.19373155, 0.3211406, -0.26703537, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Combo:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.11, 0.15, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.16, 1.16), Vector2(1.27, 1.27), Vector2(1.06, 1.06), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_amdau"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Combo:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-151, -514)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Combo:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Combo:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_awoay"]
+_data = {
+&"Combo": SubResource("Animation_1mgfw"),
+&"RESET": SubResource("Animation_amdau")
+}
 
 [node name="Game" type="Node2D" unique_id=591366547]
 script = ExtResource("1_cpr0p")
@@ -40,6 +125,7 @@ autostart = true
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1918275279]
 
 [node name="UpgradeUI" parent="." unique_id=2110234102 instance=ExtResource("3_cpr0p")]
+visible = false
 z_index = 2
 anchors_preset = 8
 anchor_left = 0.5
@@ -78,6 +164,7 @@ z_index = 1
 offset_bottom = -418.0
 
 [node name="DeathScreen" parent="." unique_id=663415795 instance=ExtResource("7_1mgfw")]
+visible = false
 z_index = 2
 offset_left = -958.0
 offset_top = -556.0
@@ -85,11 +172,16 @@ offset_right = 970.0
 offset_bottom = 523.0
 metadata/_edit_use_anchors_ = true
 
+[node name="WinGameScreen" parent="." unique_id=1968487832 instance=ExtResource("8_amdau")]
+
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=147986032]
 process_mode = 3
 volume_db = -10.0
 autoplay = true
 bus = &"Music"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=820482349]
+libraries/ = SubResource("AnimationLibrary_awoay")
 
 [connection signal="game_over" from="Player" to="." method="_on_player_game_over"]
 [connection signal="increase_combo" from="Player" to="." method="_on_player_increase_combo"]

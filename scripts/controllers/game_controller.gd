@@ -230,9 +230,11 @@ func _on_player_reset_combo() -> void:
 
 func _on_player_increase_combo() -> void:
 	combo += 1
+	$AnimationPlayer.play("Combo")
 	update_combo_text()
 
 func update_combo_text():
+	
 	comboCard.text = "COMBO: %sx" % [str(combo)]
 
 
