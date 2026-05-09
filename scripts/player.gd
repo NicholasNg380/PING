@@ -20,11 +20,26 @@ var swinging: bool = false
 
 var health: int = 3
 
-func _physics_process(delta):
+var knockback: Vector2 = Vector2.ZERO
+var knockback_timer: float = 0.0
+
+func _physics_process(delta):	
+	if knockback_timer > 0.0:
+		velocity = knockback
+		knockback_timer -= delta
+		if knockback_timer <= 0.0:
+			knockback = Vector2.ZERO
+	else:
+		_movement(delta)
+	move_and_slide()
+	
+	
+func _movement(delta: float) -> void:
 	var input = Vector2(
-			Input.get_action_strength("right") - Input.get_action_strength("left"),
-			Input.get_action_strength("down") - Input.get_action_strength("up")
-		).normalized()
+		Input.get_action_strength("right") - Input.get_action_strength("left"),
+		Input.get_action_strength("down") - Input.get_action_strength("up")
+	).normalized()
+	
 	var lerp_weight = delta * (ACCELERATION if input else FRICTION)
 	
 	if can_dash and Input.is_action_just_pressed("shift"):
@@ -43,9 +58,6 @@ func _physics_process(delta):
 			dash_reload_timer  -= delta
 		else:
 			can_dash = true
-			
-	move_and_slide()
-	
 	_animations()
 
 #Animation
@@ -75,3 +87,7 @@ func _animations():
 func _on_animated_sprite_2d_animation_finished():
 	if $AnimatedSprite2D.animation == "SwingRight" or $AnimatedSprite2D.animation == "SwingLeft":
 		swinging = false
+		
+func apply_knockback(direction: Vector2, force: float, knockback_duration: float) -> void:
+	knockback = direction * force
+	knockback_timer = knockback_duration
