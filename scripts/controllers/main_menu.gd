@@ -3,6 +3,7 @@ extends Node2D
 var button_type = null
 @onready var ping_animation = $PingAnimation
 @onready var click_sound = $ClickSound
+@onready var hover_sound = $HoverSound
 
 func _ready() -> void:
 	ping_animation.play("idle")
@@ -32,12 +33,12 @@ func _on_tutorial_pressed() -> void:
 
 
 func _on_start_mouse_entered() -> void:
-	pass # Replace with function body.
+	hover_sound.play()
 
 
 func _on_tutorial_mouse_entered() -> void:
-	pass # Replace with function body.
+	hover_sound.play()
 
 
 func _on_quit_mouse_entered() -> void:
-	pass # Replace with function body.
+	hover_sound.play()
