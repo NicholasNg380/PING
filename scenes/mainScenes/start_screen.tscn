@@ -8,18 +8,20 @@ script = ExtResource("1_2187v")
 [node name="Logo" type="Sprite2D" parent="." unique_id=948999381]
 
 [node name="LogoStandin" type="Label" parent="." unique_id=1524730888]
-offset_left = 846.99994
-offset_top = 313.0
-offset_right = 903.99994
-offset_bottom = 336.0
+offset_left = 860.0
+offset_top = 350.0
+offset_right = 917.0
+offset_bottom = 373.0
 scale = Vector2(5, 5)
+pivot_offset = Vector2(19, 16.5)
 text = "P.I.N.G."
 
 [node name="AnyKeyToPlay" type="Label" parent="." unique_id=26920320]
-offset_left = 556.0
-offset_top = 604.0
-offset_right = 736.0
-offset_bottom = 627.0
+offset_left = 860.0
+offset_top = 675.0
+offset_right = 1040.0
+offset_bottom = 698.0
 scale = Vector2(5, 5)
+pivot_offset = Vector2(90, 16.5)
 text = "Press any key to start..."
 horizontal_alignment = 1
