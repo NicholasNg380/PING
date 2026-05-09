@@ -48,7 +48,3 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		body.take_player_damage()
 		var knockback_direction = (body.global_position - global_position).normalized()
 		body.apply_knockback(knockback_direction, KNOCKBACK_POWER, KNOCKBACK_TIME)
-	if player.explosion and body.is_in_group("Ball"):
-		var explode = explosion.instatiate()
-		explosions.poeision = 
-		

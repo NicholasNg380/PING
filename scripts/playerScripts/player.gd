@@ -48,7 +48,9 @@ var ball_scale_x: float = 0.5
 var ball_scale_y: float = 0.5
 
 var explosion: bool = false
-var explosive_dmg: float = 1.0
+var explosive_dmg: float = 0.0
+var explo_scale_x: float = 10.0
+var explo_scale_y: float = 10.0
 
 @onready var health_bar = $"../HealthBar"
 
@@ -183,6 +185,11 @@ func _on_upgrade_selected(upgrade_entry: Dictionary):
 	if name == "Ball Size":
 		ball_scale_x += stat
 		ball_scale_y += stat
+	if name == "Explosion":
+		explosion = true
+		explosive_dmg += stat
+		explo_scale_x += (stat * 5)
+		explo_scale_y += (stat * 5)
 	update_stats.emit()
 
 func _on_paddle_update_score(score: int) -> void:
@@ -191,6 +198,8 @@ func _on_paddle_update_score(score: int) -> void:
 
 func _on_ball_update_score(score: int) -> void:
 	update_score.emit(score)
+	
+
 
 func _on_paddle_reset_combo() -> void:
 	reset_combo.emit()

@@ -28,7 +28,8 @@ Enemy=""
 Player=""
 Parry_Area=""
 Wall=""
-Explosive=""
+Ball=""
+Game=""
 
 [input]
 
