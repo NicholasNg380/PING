@@ -60,5 +60,15 @@ theme_override_font_sizes/font_size = 38
 text = "Score: 0000"
 vertical_alignment = 1
 
+[node name="Combo" type="Label" parent="." unique_id=323696222]
+offset_left = -151.0
+offset_top = -514.0
+offset_right = 154.0
+offset_bottom = -437.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_ekv5x")
+theme_override_font_sizes/font_size = 73
+text = "COMBO: 1x"
+
 [connection signal="update_score" from="Player" to="." method="_on_player_update_score"]
 [connection signal="timeout" from="GameController/SpawnTimer" to="." method="_on_timer_timeout"]

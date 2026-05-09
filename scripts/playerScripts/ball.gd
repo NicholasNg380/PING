@@ -29,9 +29,11 @@ var DAMAGE: float
 var DAMAGE_MULTIPLIER: float
 var RETURN_DAMAGE_MULTIPLIER: float
 
+@onready var catch_cooldown_bar = $"../TextureProgressBar"
 var is_inactive = true
 
 func _ready() -> void:
+	catch_cooldown_bar.visible = false
 	SPEED = player.ball_speed
 	SPEED_MULTIPLIER = player.ball_return_speed_multi
 	RETURN_SPEED = player.ball_return_speed
@@ -60,7 +62,11 @@ func _on_update_stats():
 
 func _process(delta: float) -> void:
 	if serve_cooldown > 0.0:
+		catch_cooldown_bar.visible = true
 		serve_cooldown -= delta
+		catch_cooldown_bar.value = 100*(1-(serve_cooldown/SERVE_DELAY))
+	else:
+		catch_cooldown_bar.visible = false
 	if player.global_position.distance_to(global_position) <= 40 and !is_inactive:
 		ball_state = State.INACTIVE
 		is_inactive = true

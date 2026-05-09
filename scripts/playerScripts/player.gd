@@ -50,6 +50,7 @@ signal update_stats
 signal update_score(score: int)
 
 func _ready() -> void:
+	
 	upgrade.upgrade_selected.connect(_on_upgrade_selected)
 	
 
