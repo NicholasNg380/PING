@@ -84,7 +84,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_srp4u")
 }],
-"loop": false,
+"loop": true,
 "name": &"IdleRight",
 "speed": 5.0
 }]
@@ -100,8 +100,7 @@ script = ExtResource("1_v6fml")
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_jfpux")
 animation = &"IdleRight"
-frame = 4
-frame_progress = 1.0
+autoplay = "IdleRight"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=435689060]
 shape = SubResource("RectangleShape2D_xhfnw")
