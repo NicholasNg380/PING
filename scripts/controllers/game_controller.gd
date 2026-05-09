@@ -1,6 +1,6 @@
 extends Node2D
 
-const ENEMY_NUM = 5
+const ENEMY_NUM = 1
 
 func spawn_enemy():
 	var new_enemy = preload("res://scenes/objects/Enemy.tscn").instantiate()
