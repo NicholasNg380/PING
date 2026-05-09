@@ -18,6 +18,8 @@ var dash_reload_timer: float = 0.0
 var facing_right: bool = true
 var swinging: bool = false
 
+var health: int = 3
+
 func _physics_process(delta):
 	var input = Vector2(
 			Input.get_action_strength("right") - Input.get_action_strength("left"),
