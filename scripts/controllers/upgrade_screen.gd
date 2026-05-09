@@ -1,6 +1,7 @@
 extends Control
 
 signal upgrade_selected(upgrade)
+var player = preload("res://scripts/playerScripts/player.gd")
 
 var upgrades = [{"name": "Speed", "asset_loc": "res://assets/sprites/icon.svg", "description": "Move faster"},
 				{"name": "Strength", "asset_loc": "res://assets/sprites/icon.svg", "description": "Do more damage"},
