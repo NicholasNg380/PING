@@ -20,19 +20,21 @@ const SERVE_DELAY := 0.25
 '''
 Player Hold Variables
 '''
-var SPEED: float
-var SPEED_MULTIPLIER: float
-var RETURN_SPEED: float
-var WALL_RETURN_SPEED: float
+var SPEED: int 
+var SPEED_MULTIPLIER: int
+var RETURN_SPEED: int
+var WALL_RETURN_SPEED: int
 var RETURN_SPEED_MULTIPLIER: float
 var DAMAGE: float
 var DAMAGE_MULTIPLIER: float
 var RETURN_DAMAGE_MULTIPLIER: float
 
+@onready var catch_cooldown_bar = $"../TextureProgressBar"
 var is_inactive = true
 
 func _ready() -> void:
 	player.update_stats.connect(_on_update_stats)
+	catch_cooldown_bar.visible = false
 	SPEED = player.ball_speed
 	SPEED_MULTIPLIER = player.ball_speed_multi
 	RETURN_SPEED = player.ball_return_speed
@@ -58,7 +60,11 @@ func _on_update_stats():
 	
 func _process(delta: float) -> void:
 	if serve_cooldown > 0.0:
+		catch_cooldown_bar.visible = true
 		serve_cooldown -= delta
+		catch_cooldown_bar.value = 100*(1-(serve_cooldown/SERVE_DELAY))
+	else:
+		catch_cooldown_bar.visible = false
 	if player.global_position.distance_to(global_position) <= 40 and !is_inactive:
 		ball_state = State.INACTIVE
 		is_inactive = true
