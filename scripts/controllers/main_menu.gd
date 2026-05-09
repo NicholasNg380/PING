@@ -1,8 +1,10 @@
 extends Node2D
 
 var button_type = null
+@onready var ping_animation = $PingAnimation
 
 func _ready() -> void:
+	ping_animation.play("idle")
 	pass
 
 func _process(_delta):

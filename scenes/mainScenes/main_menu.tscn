@@ -1,9 +1,113 @@
 [gd_scene format=3 uid="uid://dl2ndk68vnym"]
 
 [ext_resource type="Script" uid="uid://0h1hbytcgyri" path="res://scripts/controllers/main_menu.gd" id="1_6a276"]
+[ext_resource type="Texture2D" uid="uid://dlp3ap4a62hwc" path="res://assets/sprites/floor.png" id="2_kgt8p"]
+[ext_resource type="Texture2D" uid="uid://bea7vl0t0ho6d" path="res://assets/sprites/ui/start_button.png" id="3_7gdp2"]
+[ext_resource type="Texture2D" uid="uid://dnrstw6dxvdnl" path="res://assets/sprites/ping_logo-Sheet.png" id="3_f5aaq"]
+[ext_resource type="Texture2D" uid="uid://bqv3jmiwxhxbe" path="res://assets/sprites/ui/exit_button.png" id="4_f5aaq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nl3u7"]
+atlas = ExtResource("3_f5aaq")
+region = Rect2(0, 0, 351, 148)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kabec"]
+atlas = ExtResource("3_f5aaq")
+region = Rect2(351, 0, 351, 148)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ud58m"]
+atlas = ExtResource("3_f5aaq")
+region = Rect2(702, 0, 351, 148)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8vr6y"]
+atlas = ExtResource("3_f5aaq")
+region = Rect2(1053, 0, 351, 148)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vpuql"]
+atlas = ExtResource("3_f5aaq")
+region = Rect2(1404, 0, 351, 148)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycan8"]
+atlas = ExtResource("3_f5aaq")
+region = Rect2(1755, 0, 351, 148)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gx18m"]
+atlas = ExtResource("3_f5aaq")
+region = Rect2(2106, 0, 351, 148)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_omd4k"]
+atlas = ExtResource("3_f5aaq")
+region = Rect2(2457, 0, 351, 148)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3vnv"]
+atlas = ExtResource("3_f5aaq")
+region = Rect2(2808, 0, 351, 148)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p53c8"]
+atlas = ExtResource("3_f5aaq")
+region = Rect2(3159, 0, 351, 148)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_woau4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nl3u7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kabec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ud58m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8vr6y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vpuql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ycan8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gx18m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_omd4k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3vnv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p53c8")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 9.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nl3u7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kabec"]
 
 [node name="MainMenu" type="Node2D" unique_id=1255990202]
 script = ExtResource("1_6a276")
+
+[node name="Floor" type="Sprite2D" parent="." unique_id=1143896269]
+position = Vector2(960, 540)
+scale = Vector2(3.9999998, 3.9999998)
+texture = ExtResource("2_kgt8p")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1765251400]
+offset_left = -110.0
+offset_top = -88.0
+offset_right = 1977.0
+offset_bottom = 1104.0
+color = Color(0, 0, 0, 0.4862745)
+
+[node name="PingAnimation" type="AnimatedSprite2D" parent="." unique_id=469212139]
+position = Vector2(964, 290)
+scale = Vector2(3.8648648, 3.8648648)
+sprite_frames = SubResource("SpriteFrames_woau4")
+animation = &"idle"
 
 [node name="ButtonManager" type="Control" parent="." unique_id=1496500379]
 layout_mode = 3
@@ -13,35 +117,43 @@ offset_bottom = 40.0
 
 [node name="Start" type="Button" parent="ButtonManager" unique_id=2024065401]
 layout_mode = 0
-offset_left = 850.0
-offset_top = 367.0
-offset_right = 1150.0
-offset_bottom = 467.0
-text = "Start"
+offset_left = 870.0
+offset_top = 664.0
+offset_right = 1120.0
+offset_bottom = 764.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_nl3u7")
+icon = ExtResource("3_7gdp2")
+icon_alignment = 1
+expand_icon = true
 
 [node name="Tutorial" type="Button" parent="ButtonManager" unique_id=1718411002]
+visible = false
 layout_mode = 0
-offset_left = 850.0
-offset_top = 518.0
-offset_right = 1150.0
-offset_bottom = 618.0
+offset_left = 452.0
+offset_top = 546.0
+offset_right = 752.0
+offset_bottom = 646.0
 text = "Tutorial"
 
 [node name="Options" type="Button" parent="ButtonManager" unique_id=1258275797]
+visible = false
 layout_mode = 0
-offset_left = 850.0
-offset_top = 672.0
-offset_right = 1150.0
-offset_bottom = 772.0
+offset_left = 475.0
+offset_top = 735.0
+offset_right = 775.0
+offset_bottom = 835.0
 text = "Options"
 
 [node name="Quit" type="Button" parent="ButtonManager" unique_id=1999158445]
 layout_mode = 0
-offset_left = 850.0
-offset_top = 818.0
-offset_right = 1150.0
-offset_bottom = 918.0
-text = "Quit"
+offset_left = 872.0
+offset_top = 813.0
+offset_right = 1123.0
+offset_bottom = 913.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_kabec")
+icon = ExtResource("4_f5aaq")
+icon_alignment = 1
+expand_icon = true
 
 [connection signal="pressed" from="ButtonManager/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="ButtonManager/Tutorial" to="." method="_on_tutorial_pressed"]
