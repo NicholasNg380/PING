@@ -10,6 +10,7 @@ const KNOCKBACK_TIME: float = 0.06
 
 func _physics_process(_delta):
 	var direction = global_position.direction_to(player.global_position)
+		
 	velocity = direction * enemySpeed
 	move_and_slide()
 	if (enemyHealth <= 0):

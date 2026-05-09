@@ -40,6 +40,10 @@ region = Rect2(224, 0, 32, 32)
 atlas = ExtResource("2_ed2sc")
 region = Rect2(256, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7uwk"]
+atlas = ExtResource("2_ed2sc")
+region = Rect2(288, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_v7uwk"]
 animations = [{
 "frames": [{
@@ -73,6 +77,14 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 0.65,
+"texture": SubResource("AtlasTexture_v7uwk")
+}],
+"loop": true,
+"name": &"hit",
+"speed": 5.0
 }]
 
 [node name="Possum" unique_id=1863187210 instance=ExtResource("1_78klo")]
@@ -81,4 +93,8 @@ script = ExtResource("2_1rsi2")
 [node name="PossumWalk" type="AnimatedSprite2D" parent="." index="2" unique_id=2029666151]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_v7uwk")
+animation = &"hit"
 autoplay = "default"
+
+[connection signal="animation_finished" from="PossumWalk" to="." method="_on_possum_walk_animation_finished"]
+[connection signal="animation_looped" from="PossumWalk" to="." method="_on_possum_walk_animation_looped"]
