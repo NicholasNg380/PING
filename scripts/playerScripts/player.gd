@@ -46,7 +46,6 @@ var ball_damage_multi: float = 1.0
 var ball_return_damage_multi: float = 0.5
 
 signal update_stats
-signal update_score
 
 func _ready() -> void:
 	upgrade.upgrade_selected.connect(_on_upgrade_selected)
@@ -144,20 +143,17 @@ func _on_upgrade_selected(upgrade_entry: Dictionary):
 	var stat = upgrade_entry["stat"]
 	if name == "Speed":
 		MAX_SPEED *= stat
-	if name == "Strength":
+	if name == "Damage":
 		ball_damage_multi += stat
 	if name == "Max Hp":
 		max_health += stat
 	if name == "Ball Speed":
 		ball_speed_multi += stat
+		print(ball_speed_multi)
 	if name == "Dash":
 		DASH_RELOAD_COST -= stat
 	if name == "Return Strength":
 		ball_return_damage_multi += stat
-	if name == "Return Speed":
-		ball_return_speed_multi *= stat
+		ball_return_speed_multi += stat
+	update_stats.emit()	
 	update_stats.emit()
-	print("Player:", MAX_SPEED, ball_damage_multi, max_health, ball_speed_multi, DASH_RELOAD_COST, ball_return_speed_multi, ball_return_speed_multi)
-
-
-	

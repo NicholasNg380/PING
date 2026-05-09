@@ -12,7 +12,7 @@ var sprite
 var direction
 
 var serve_cooldown := 0.0
-const SERVE_DELAY := 0.5
+const SERVE_DELAY := 0.25
 
 '''
 Player Hold Variables

@@ -6,9 +6,9 @@ signal added_upgrade()
 var player = preload("res://scripts/playerScripts/player.gd")
 
 var upgrades = [{"name": "Speed", "asset_loc": "res://assets/sprites/icon.svg", "description": "Move faster", "stat": 1.5},
-				{"name": "Strength", "asset_loc": "res://assets/sprites/icon.svg", "description": "Do more damage", "stat": 1.0},
+				{"name": "Damage", "asset_loc": "res://assets/sprites/icon.svg", "description": "Do more damage", "stat": 1.0},
 				{"name": "Max Hp", "asset_loc": "res://assets/sprites/icon.svg", "description": "Increase Max Hp", "stat": 1.0},
-				{"name": "Ball Speed", "asset_loc": "res://assets/sprites/icon.svg", "description": "Icrease Ball Speed", "stat": 0.5},
+				{"name": "Ball Speed", "asset_loc": "res://assets/sprites/icon.svg", "description": "Increase Ball Speed", "stat": 0.5},
 				{"name": "Dash", "asset_loc": "res://assets/sprites/icon.svg", "description": "Lower the dash cooldown", "stat": 0.15},
 				{"name": "Return Strength", "asset_loc": "res://assets/sprites/icon.svg", "description": "Do more on return damage", "stat": 0.5},
 				{"name": "Return Speed", "asset_loc": "res://assets/sprites/icon.svg", "description": "Do more damage", "stat": 0.5}]
