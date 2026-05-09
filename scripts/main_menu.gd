@@ -1,11 +1,19 @@
-extends Control
+extends Node2D
 
-
-signal start_game
 func _ready() -> void:
 	pass # Replace with function body.
 
-func _on_start_game_button_button_up() -> void:
-	start_game.emit()
-	print("works")
+func _process(_delta):
+	pass
+
+func _on_start_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/Game.tscn")
+
+func _on_options_pressed() -> void:
+	pass # Replace with function body.
+
+func _on_quit_pressed() -> void:
+	pass # Replace with function body.
+
+func _on_tutorial_pressed() -> void:
 	pass # Replace with function body.
