@@ -1,7 +1,15 @@
-[gd_scene format=3 uid="uid://cyf2ff86arige"]
+[gd_scene format=3 uid="uid://dbensp8jvmx8q"]
 
-[ext_resource type="Script" uid="uid://0h1hbytcgyri" path="res://main_menu.gd" id="1_eiy7p"]
-[ext_resource type="Script" uid="uid://ckq1m165wfsan" path="res://start_game_button.gd" id="2_h7a2f"]
+[ext_resource type="Script" uid="uid://0h1hbytcgyri" path="res://scripts/main_menu.gd" id="1_eiy7p"]
+
+[sub_resource type="GDScript" id="GDScript_yqorp"]
+script/source = "extends Button
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+"
 
 [node name="Control" type="Control" unique_id=1071619172]
 layout_mode = 3
@@ -22,7 +30,7 @@ offset_top = -37.5
 offset_right = 102.0
 offset_bottom = 44.5
 text = "Start"
-script = ExtResource("2_h7a2f")
+script = SubResource("GDScript_yqorp")
 
 [connection signal="button_up" from="start_game_button" to="." method="_on_start_game_button_button_up"]
 [connection signal="button_up" from="start_game_button" to="start_game_button" method="_on_button_up"]

@@ -56,10 +56,10 @@ func _animations():
 			$AnimatedSprite2D.play("SwingRight")
 		else:
 			$AnimatedSprite2D.play("SwingLeft")
-			
+	
 	if swinging:
 		return
-		
+	
 	if velocity.x > MAX_SPEED/4:
 		$AnimatedSprite2D.play("WalkRight")
 		facing_right = true

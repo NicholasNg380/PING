@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://6sgprx4vwf7o"]
+
+[ext_resource type="Script" uid="uid://ceamboyr7i8hl" path="res://scripts/start_screen.gd" id="1_tx5wa"]
+
+[node name="StartScreen" type="Node2D" unique_id=982245132]
+script = ExtResource("1_tx5wa")
+
+[node name="Logo" type="Sprite2D" parent="." unique_id=948999381]
+
+[node name="LogoStandin" type="Label" parent="." unique_id=1524730888]
+offset_left = 846.99994
+offset_top = 313.0
+offset_right = 903.99994
+offset_bottom = 336.0
+scale = Vector2(5, 5)
+text = "P.I.N.G."
+
+[node name="AnyKeyToPlay" type="Label" parent="." unique_id=26920320]
+offset_left = 556.0
+offset_top = 604.0
+offset_right = 736.0
+offset_bottom = 627.0
+scale = Vector2(5, 5)
+text = "Press any key to start..."
+horizontal_alignment = 1

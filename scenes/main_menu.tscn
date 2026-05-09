@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://dl2ndk68vnym"]
+
+[ext_resource type="Script" uid="uid://0h1hbytcgyri" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+
+[node name="MainMenu" type="Node2D" unique_id=1255990202]
+script = ExtResource("1_l6cm7")
+
+[node name="ButtonManager" type="Control" parent="." unique_id=1496500379]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Start" type="Button" parent="ButtonManager" unique_id=2024065401]
+layout_mode = 0
+offset_left = 850.0
+offset_top = 367.0
+offset_right = 1150.0
+offset_bottom = 467.0
+text = "Start"
+
+[node name="Tutorial" type="Button" parent="ButtonManager" unique_id=1718411002]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Options" type="Button" parent="ButtonManager" unique_id=1258275797]
+layout_mode = 0
+offset_left = 850.0
+offset_top = 518.0
+offset_right = 1150.0
+offset_bottom = 618.0
+text = "Options"
+
+[node name="Quit" type="Button" parent="ButtonManager" unique_id=1999158445]
+layout_mode = 0
+offset_left = 850.0
+offset_top = 672.0
+offset_right = 1150.0
+offset_bottom = 772.0
+text = "Quit"
+
+[connection signal="pressed" from="ButtonManager/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="ButtonManager/Tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="pressed" from="ButtonManager/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="ButtonManager/Quit" to="." method="_on_quit_pressed"]
