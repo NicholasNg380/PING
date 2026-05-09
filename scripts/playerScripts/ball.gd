@@ -34,7 +34,7 @@ var is_inactive = true
 
 func _ready() -> void:
 	player.update_stats.connect(_on_update_stats)
-    	catch_cooldown_bar.visible = false
+	catch_cooldown_bar.visible = false
 	SPEED = player.ball_speed
 	SPEED_MULTIPLIER = player.ball_speed_multi
 	RETURN_SPEED = player.ball_return_speed
