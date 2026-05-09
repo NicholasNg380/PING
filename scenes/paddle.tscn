@@ -1,21 +1,26 @@
 [gd_scene format=3 uid="uid://nu2gcom1lpeu"]
 
 [ext_resource type="Script" uid="uid://cu2l6b8qtgij8" path="res://scripts/paddle.gd" id="1_y7wee"]
-[ext_resource type="Texture2D" uid="uid://b68vj6s7fxrwm" path="res://assets/sprites/icon.svg" id="2_mo4dg"]
+[ext_resource type="Texture2D" uid="uid://bche763bgeego" path="res://assets/sprites/pointer.png" id="2_y7wee"]
 
 [node name="Paddle" type="Node2D" unique_id=1252679974]
+scale = Vector2(1.1, 1.221)
 script = ExtResource("1_y7wee")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1316736803]
-position = Vector2(81.00001, 1.9073486e-06)
-scale = Vector2(0.0859375, 1.078125)
-texture = ExtResource("2_mo4dg")
+position = Vector2(52.751038, 1.0728836e-06)
+rotation = 1.5707964
+scale = Vector2(3, 3.33)
+texture = ExtResource("2_y7wee")
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1047595819]
-position = Vector2(99.00001, 0)
-scale = Vector2(0.0859375, 1.078125)
+position = Vector2(67.818, 0)
+scale = Vector2(1.1, 1.221)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=244241064]
+scale = Vector2(1.1, 1.221)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=62495852]
-polygon = PackedVector2Array(-110, -2, -98, -78, 104, -99, 216, -96, 213, 81, 76, 79, -94, 76)
+position = Vector2(3.8146973e-06, 0)
+scale = Vector2(1.1, 1.221)
+polygon = PackedVector2Array(-49.468773, 0, -23.936506, -37.376545, 73.40526, -50.31458, 71.809494, 46.0019, -25.532272, 34.501427)

@@ -1,30 +1,117 @@
 [gd_scene format=3 uid="uid://bpbyjy6wsbxg3"]
 
 [ext_resource type="Script" uid="uid://4g7r8ubgawo3" path="res://scripts/player.gd" id="1_v6fml"]
-[ext_resource type="Texture2D" uid="uid://b68vj6s7fxrwm" path="res://assets/sprites/icon.svg" id="2_kne1u"]
+[ext_resource type="Texture2D" uid="uid://nhieb4msgii8" path="res://assets/sprites/penguin_idle_left-Sheet.png" id="2_qu4a1"]
 [ext_resource type="PackedScene" uid="uid://nu2gcom1lpeu" path="res://scenes/paddle.tscn" id="3_3li8b"]
+[ext_resource type="Texture2D" uid="uid://cma7w3qh3x1yr" path="res://assets/sprites/penguin_idle_right-Sheet.png" id="3_70d11"]
 [ext_resource type="PackedScene" uid="uid://b1q5gmvk43iyp" path="res://scenes/Ball.tscn" id="4_mdl7e"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_cw2d6"]
+atlas = ExtResource("2_qu4a1")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khinc"]
+atlas = ExtResource("2_qu4a1")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bruh7"]
+atlas = ExtResource("2_qu4a1")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6eyey"]
+atlas = ExtResource("2_qu4a1")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3wef"]
+atlas = ExtResource("2_qu4a1")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o4126"]
+atlas = ExtResource("3_70d11")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lkdrv"]
+atlas = ExtResource("3_70d11")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7iby"]
+atlas = ExtResource("3_70d11")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0rnld"]
+atlas = ExtResource("3_70d11")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_srp4u"]
+atlas = ExtResource("3_70d11")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jfpux"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cw2d6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khinc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bruh7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6eyey")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d3wef")
+}],
+"loop": true,
+"name": &"IdleLeft",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o4126")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lkdrv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7iby")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0rnld")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_srp4u")
+}],
+"loop": false,
+"name": &"IdleRight",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xhfnw"]
-size = Vector2(126, 127)
+size = Vector2(82.5, 100.75)
 
 [node name="Player" type="CharacterBody2D" unique_id=250388077 groups=["Player"]]
 platform_floor_layers = 0
 script = ExtResource("1_v6fml")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1325783248]
-texture = ExtResource("2_kne1u")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1849093006]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_jfpux")
+animation = &"IdleRight"
+frame = 4
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=435689060]
-position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_xhfnw")
 
 [node name="Paddle" parent="." unique_id=1252679974 groups=["Parry_Area"] instance=ExtResource("3_3li8b")]
+position = Vector2(1.7881393e-07, 0)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1066302195]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1760170888]
-position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_xhfnw")
 
 [node name="Ball" parent="." unique_id=305474800 instance=ExtResource("4_mdl7e")]

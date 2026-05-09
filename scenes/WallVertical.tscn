@@ -1,18 +1,15 @@
-[gd_scene format=3 uid="uid://ha834vdek41d"]
+[gd_scene format=3 uid="uid://n14j0m8na1yp"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cpr0p"]
-size = Vector2(8.981789, 291.67197)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t0g5x"]
 
 [node name="WallVertical" type="ColorRect" unique_id=1463864088]
 offset_right = 40.0
 offset_bottom = 40.0
-scale = Vector2(0.662142, 16.142546)
+scale = Vector2(1, 15)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1373177510]
-position = Vector2(22.65375, 4.831952)
+position = Vector2(20, 20)
+scale = Vector2(2, 2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1535443634]
-position = Vector2(-3.7756138, 15.146311)
-rotation = 3.1415925
-scale = Vector2(4.539937, -0.13826564)
-shape = SubResource("RectangleShape2D_cpr0p")
+shape = SubResource("RectangleShape2D_t0g5x")
