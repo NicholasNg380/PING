@@ -1,6 +1,8 @@
 class_name Ball extends Node2D
 
 @onready var player = get_tree().get_first_node_in_group("Player")
+@onready var ball_hit_wall = $BallHitWall
+@onready var ball_hit_enemy = $BallHitEnemy
 
 enum State {INACTIVE, HIT_ENEMY, HIT_PADDLE, HIT_WALL}
 var ball_state = State.INACTIVE
@@ -108,6 +110,7 @@ func _on_ball_hit_box_area_entered(area: Area2D) -> void:
 	if area.get_parent().is_in_group("Parry_Area"):
 		can_parry.emit()
 	if area.get_parent().is_in_group("Wall"):
+		ball_hit_wall.play()
 		ball_state = State.HIT_WALL
 
 func was_hit_off_wall():
