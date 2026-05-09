@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://d0xnt1gn2xwc5" path="res://scenes/objects/health_bar.tscn" id="6_83o3o"]
 [ext_resource type="PackedScene" uid="uid://bahcf75l5vwy5" path="res://scenes/mainScenes/death_screen.tscn" id="7_1mgfw"]
 [ext_resource type="AudioStream" uid="uid://dqj2pmxlkf6si" path="res://assets/sound/backmusic.ogg" id="8_amdau"]
-[ext_resource type="PackedScene" uid="uid://b12hk70caua6a" path="res://scenes/mainScenes/win_game_screen.tscn" id="8_awoay"]
+[ext_resource type="PackedScene" path="res://scenes/mainScenes/win_game_screen.tscn" id="8_awoay"]
 
 [sub_resource type="Curve2D" id="Curve2D_qbsmt"]
 _data = {
@@ -100,7 +100,7 @@ _data = {
 &"RESET": SubResource("Animation_amdau")
 }
 
-[node name="Game" type="Node2D" unique_id=591366547]
+[node name="Game" type="Node2D" unique_id=591366547 groups=["Game"]]
 script = ExtResource("1_cpr0p")
 
 [node name="CurrentLevel" type="Node2D" parent="." unique_id=232713459]
@@ -185,7 +185,6 @@ process_mode = 3
 stream = ExtResource("8_amdau")
 volume_db = -10.0
 autoplay = true
-bus = &"Music"
 parameters/looping = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=820482349]
