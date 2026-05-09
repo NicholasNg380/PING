@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://6sgprx4vwf7o"]
 
-[ext_resource type="Script" uid="uid://ceamboyr7i8hl" path="res://scripts/start_screen.gd" id="1_tx5wa"]
+[ext_resource type="Script" uid="uid://ceamboyr7i8hl" path="res://scripts/controllers/start_screen.gd" id="1_2187v"]
 
 [node name="StartScreen" type="Node2D" unique_id=982245132]
-script = ExtResource("1_tx5wa")
+script = ExtResource("1_2187v")
 
 [node name="Logo" type="Sprite2D" parent="." unique_id=948999381]
 

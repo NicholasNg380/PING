@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://nu2gcom1lpeu"]
 
-[ext_resource type="Script" uid="uid://cu2l6b8qtgij8" path="res://scripts/paddle.gd" id="1_y7wee"]
-[ext_resource type="Texture2D" uid="uid://bche763bgeego" path="res://assets/sprites/pointer.png" id="2_y7wee"]
-[ext_resource type="Texture2D" uid="uid://bgyq3as1lgbdj" path="res://assets/sprites/hit_animation-Sheet.png" id="3_mo4dg"]
+[ext_resource type="Script" uid="uid://cu2l6b8qtgij8" path="res://scripts/playerScripts/paddle.gd" id="1_y7wee"]
+[ext_resource type="Texture2D" uid="uid://bche763bgeego" path="res://assets/sprites/penguin/pointer.png" id="2_y7wee"]
+[ext_resource type="Texture2D" uid="uid://bgyq3as1lgbdj" path="res://assets/sprites/penguin/hit_animation-Sheet.png" id="3_mo4dg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nk5r3"]
 atlas = ExtResource("3_mo4dg")

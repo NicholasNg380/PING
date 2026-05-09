@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqkhk4qxppu83"
-path="res://.godot/imported/penguin_hit_right.png-134f6c6e2bce3e266ea475b7badae067.ctex"
+uid="uid://bol6iktv10ytx"
+path="res://.godot/imported/dead_fish_no_health.png-d51814786f373ef64d8440171df27fd4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/penguin_hit_right.png"
-dest_files=["res://.godot/imported/penguin_hit_right.png-134f6c6e2bce3e266ea475b7badae067.ctex"]
+source_file="res://assets/sprites/ui/health/dead_fish_no_health.png"
+dest_files=["res://.godot/imported/dead_fish_no_health.png-d51814786f373ef64d8440171df27fd4.ctex"]
 
 [params]
 

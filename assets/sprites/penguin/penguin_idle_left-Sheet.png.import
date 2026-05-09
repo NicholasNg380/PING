@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bche763bgeego"
-path="res://.godot/imported/pointer.png-9c542ac81d514f3514d7afb1378171d5.ctex"
+uid="uid://nhieb4msgii8"
+path="res://.godot/imported/penguin_idle_left-Sheet.png-76a2d3698d6e1279168d42c1bc25dab7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/pointer.png"
-dest_files=["res://.godot/imported/pointer.png-9c542ac81d514f3514d7afb1378171d5.ctex"]
+source_file="res://assets/sprites/penguin/penguin_idle_left-Sheet.png"
+dest_files=["res://.godot/imported/penguin_idle_left-Sheet.png-76a2d3698d6e1279168d42c1bc25dab7.ctex"]
 
 [params]
 

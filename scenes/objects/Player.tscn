@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://bpbyjy6wsbxg3"]
 
-[ext_resource type="Script" uid="uid://4g7r8ubgawo3" path="res://scripts/player.gd" id="1_v6fml"]
-[ext_resource type="Texture2D" uid="uid://nhieb4msgii8" path="res://assets/sprites/penguin_idle_left-Sheet.png" id="2_qu4a1"]
-[ext_resource type="PackedScene" uid="uid://nu2gcom1lpeu" path="res://scenes/paddle.tscn" id="3_3li8b"]
-[ext_resource type="Texture2D" uid="uid://cma7w3qh3x1yr" path="res://assets/sprites/penguin_idle_right-Sheet.png" id="3_70d11"]
-[ext_resource type="Texture2D" uid="uid://b3wwp8vx4fawq" path="res://assets/sprites/penguin_hit_left.png" id="4_bruh7"]
-[ext_resource type="Texture2D" uid="uid://dnx1rs13bnjdd" path="res://assets/sprites/penguin_walk_left-Sheet.png" id="4_cw2d6"]
-[ext_resource type="PackedScene" uid="uid://b1q5gmvk43iyp" path="res://scenes/Ball.tscn" id="4_mdl7e"]
-[ext_resource type="Texture2D" uid="uid://cqkhk4qxppu83" path="res://assets/sprites/penguin_hit_right.png" id="5_6eyey"]
-[ext_resource type="Texture2D" uid="uid://52f0ybdg32ui" path="res://assets/sprites/penguin_walk_right-Sheet.png" id="5_khinc"]
+[ext_resource type="Script" uid="uid://4g7r8ubgawo3" path="res://scripts/playerScripts/player.gd" id="1_v6fml"]
+[ext_resource type="Texture2D" uid="uid://nhieb4msgii8" path="res://assets/sprites/penguin/penguin_idle_left-Sheet.png" id="2_qu4a1"]
+[ext_resource type="PackedScene" uid="uid://nu2gcom1lpeu" path="res://scenes/objects/paddle.tscn" id="3_3li8b"]
+[ext_resource type="Texture2D" uid="uid://cma7w3qh3x1yr" path="res://assets/sprites/penguin/penguin_idle_right-Sheet.png" id="3_70d11"]
+[ext_resource type="Texture2D" uid="uid://b3wwp8vx4fawq" path="res://assets/sprites/penguin/penguin_hit_left.png" id="4_bruh7"]
+[ext_resource type="Texture2D" uid="uid://dnx1rs13bnjdd" path="res://assets/sprites/penguin/penguin_walk_left-Sheet.png" id="4_cw2d6"]
+[ext_resource type="PackedScene" uid="uid://b1q5gmvk43iyp" path="res://scenes/objects/Ball.tscn" id="4_mdl7e"]
+[ext_resource type="Texture2D" uid="uid://cqkhk4qxppu83" path="res://assets/sprites/penguin/penguin_hit_right.png" id="5_6eyey"]
+[ext_resource type="Texture2D" uid="uid://52f0ybdg32ui" path="res://assets/sprites/penguin/penguin_walk_right-Sheet.png" id="5_khinc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cw2d6"]
 atlas = ExtResource("2_qu4a1")

@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://bgl38ua186ky2"]
 
-[ext_resource type="Script" uid="uid://dy5t37f1cgmdo" path="res://scripts/game_controller.gd" id="1_cpr0p"]
-[ext_resource type="PackedScene" uid="uid://bpbyjy6wsbxg3" path="res://scenes/Player.tscn" id="1_wbfu4"]
-[ext_resource type="PackedScene" path="res://scenes/UpgradeScreen.tscn" id="3_cpr0p"]
-[ext_resource type="PackedScene" uid="uid://bh5jdyr5uqqe5" path="res://scenes/WallVertical.tscn" id="4_78awf"]
+[ext_resource type="Script" uid="uid://dy5t37f1cgmdo" path="res://scripts/controllers/game_controller.gd" id="1_cpr0p"]
+[ext_resource type="PackedScene" uid="uid://bpbyjy6wsbxg3" path="res://scenes/objects/Player.tscn" id="1_wbfu4"]
+[ext_resource type="PackedScene" uid="uid://cufenlfm85bbc" path="res://scenes/mainScenes/UpgradeScreen.tscn" id="3_cpr0p"]
+[ext_resource type="PackedScene" uid="uid://bh5jdyr5uqqe5" path="res://scenes/objects/WallVertical.tscn" id="4_78awf"]
 
 [sub_resource type="Curve2D" id="Curve2D_qbsmt"]
 _data = {

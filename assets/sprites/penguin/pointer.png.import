@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://52f0ybdg32ui"
-path="res://.godot/imported/penguin_walk_right-Sheet.png-5e6a9f4a653889458add4b4868239018.ctex"
+uid="uid://bche763bgeego"
+path="res://.godot/imported/pointer.png-984c75bcde56a47c9dca764947aa7baa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/penguin_walk_right-Sheet.png"
-dest_files=["res://.godot/imported/penguin_walk_right-Sheet.png-5e6a9f4a653889458add4b4868239018.ctex"]
+source_file="res://assets/sprites/penguin/pointer.png"
+dest_files=["res://.godot/imported/pointer.png-984c75bcde56a47c9dca764947aa7baa.ctex"]
 
 [params]
 

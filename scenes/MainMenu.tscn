@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dbensp8jvmx8q"]
 
-[ext_resource type="Script" uid="uid://0h1hbytcgyri" path="res://scripts/main_menu.gd" id="1_eiy7p"]
+[ext_resource type="Script" uid="uid://0h1hbytcgyri" path="res://scripts/controllers/main_menu.gd" id="1_yqorp"]
 
 [sub_resource type="GDScript" id="GDScript_yqorp"]
 script/source = "extends Button
@@ -16,7 +16,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 663.0
-script = ExtResource("1_eiy7p")
+script = ExtResource("1_yqorp")
 
 [node name="start_game_button" type="Button" parent="." unique_id=1053721338]
 layout_mode = 1

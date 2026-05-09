@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cyl820iamh2t1"
-path="res://.godot/imported/fish_health.png-1476f0e37cf02dc1a24e60792e844a2b.ctex"
+uid="uid://cqkhk4qxppu83"
+path="res://.godot/imported/penguin_hit_right.png-f9a6c1abf478e8264d95c9211a47b1d2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/fish_health.png"
-dest_files=["res://.godot/imported/fish_health.png-1476f0e37cf02dc1a24e60792e844a2b.ctex"]
+source_file="res://assets/sprites/penguin/penguin_hit_right.png"
+dest_files=["res://.godot/imported/penguin_hit_right.png-f9a6c1abf478e8264d95c9211a47b1d2.ctex"]
 
 [params]
 

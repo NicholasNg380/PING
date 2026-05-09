@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgyq3as1lgbdj"
-path="res://.godot/imported/hit_animation-Sheet.png-6ca0c695bab284f2e5fcbba8d70cd174.ctex"
+uid="uid://cma7w3qh3x1yr"
+path="res://.godot/imported/penguin_idle_right-Sheet.png-8604b87edb9f454144714f92f6f21413.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/hit_animation-Sheet.png"
-dest_files=["res://.godot/imported/hit_animation-Sheet.png-6ca0c695bab284f2e5fcbba8d70cd174.ctex"]
+source_file="res://assets/sprites/penguin/penguin_idle_right-Sheet.png"
+dest_files=["res://.godot/imported/penguin_idle_right-Sheet.png-8604b87edb9f454144714f92f6f21413.ctex"]
 
 [params]
 

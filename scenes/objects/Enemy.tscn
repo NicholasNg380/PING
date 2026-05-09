@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bcjbxss7sllsk"]
 
-[ext_resource type="Script" uid="uid://87s44viknddd" path="res://scripts/enemy.gd" id="1_md0e3"]
-[ext_resource type="Texture2D" uid="uid://b68vj6s7fxrwm" path="res://assets/sprites/icon.svg" id="2_4ra3w"]
+[ext_resource type="Script" uid="uid://87s44viknddd" path="res://scripts/enemyScripts/enemy.gd" id="1_qpkod"]
+[ext_resource type="Texture2D" uid="uid://b68vj6s7fxrwm" path="res://assets/sprites/icon.svg" id="2_hmq82"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_55jtl"]
 size = Vector2(107, 104)
@@ -12,12 +12,12 @@ size = Vector2(107, 104)
 collision_layer = 8
 collision_mask = 14
 platform_floor_layers = 0
-script = ExtResource("1_md0e3")
+script = ExtResource("1_qpkod")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=359324474]
 modulate = Color(1, 0.11372549, 0.34509805, 1)
 scale = Vector2(0.75, 0.75)
-texture = ExtResource("2_4ra3w")
+texture = ExtResource("2_hmq82")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1425238540]
 scale = Vector2(0.5, 0.5)
