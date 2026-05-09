@@ -25,6 +25,9 @@ var dash_distance = 500.0
 var charge_timer = 0.0
 var cooldown_timer = 0.0
 
+@onready var charge_sound = $Charge
+@onready var dash_sound = $Dash
+
 func _ready():
 	super()
 	enemyHealth = 5
@@ -79,6 +82,9 @@ func start_charge():
 	dash_direction = global_position.direction_to(player.global_position)
 	dash_target = global_position + dash_direction * dash_distance
 	
+	charge_sound.pitch_scale = randf_range(0.95, 1.05)
+	charge_sound.play()
+	
 	anim.play("charge")
 
 func start_dash():
@@ -86,6 +92,9 @@ func start_dash():
 	
 	# Disable enemy collision
 	set_collision_mask_value(4, false)
+	
+	dash_sound.pitch_scale = randf_range(0.9, 1.1)
+	dash_sound.play()
 	
 	anim.play("dive")
 

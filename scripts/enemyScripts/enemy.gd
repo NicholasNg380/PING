@@ -5,8 +5,10 @@ extends CharacterBody2D
 signal died
 
 var speed_multiplier: float = 1.0
+var hp_multiplier: float = 1.0
 var enemySpeed: float = 150.0
 var enemyHealth: float = 2.0
+var max_health: float = 2.0
 
 var can_damage_player: bool = true
 
@@ -39,9 +41,12 @@ func take_damage(damage: float):
 		
 		queue_free()
 
+func apply_scaling():
+	enemyHealth = max_health * hp_multiplier
+
 func _ready():
 	add_to_group("enemies")
-
+	apply_scaling()
 	
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if can_damage_player and not player.invulnerable and body.is_in_group("Player"):

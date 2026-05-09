@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://dnrstw6dxvdnl" path="res://assets/sprites/ping_logo-Sheet.png" id="3_f5aaq"]
 [ext_resource type="Texture2D" uid="uid://bqv3jmiwxhxbe" path="res://assets/sprites/ui/exit_button.png" id="4_f5aaq"]
 [ext_resource type="Texture2D" uid="uid://18rdga18x7s0" path="res://assets/sprites/ui/tutorial_button.png" id="5_f5aaq"]
+[ext_resource type="AudioStream" uid="uid://b4ahjebm6wl5w" path="res://assets/sound/MenuClick.wav" id="7_nl3u7"]
+[ext_resource type="AudioStream" uid="uid://cq16wik0e57o0" path="res://assets/sound/click.wav" id="8_kabec"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nl3u7"]
 atlas = ExtResource("3_f5aaq")
@@ -139,15 +141,6 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_ud58m")
 icon = ExtResource("5_f5aaq")
 expand_icon = true
 
-[node name="Options" type="Button" parent="ButtonManager" unique_id=1258275797]
-visible = false
-layout_mode = 0
-offset_left = 475.0
-offset_top = 735.0
-offset_right = 775.0
-offset_bottom = 835.0
-text = "Options"
-
 [node name="Quit" type="Button" parent="ButtonManager" unique_id=1999158445]
 layout_mode = 0
 offset_left = 872.0
@@ -159,7 +152,15 @@ icon = ExtResource("4_f5aaq")
 icon_alignment = 1
 expand_icon = true
 
+[node name="ClickSound" type="AudioStreamPlayer" parent="." unique_id=689936871]
+stream = ExtResource("7_nl3u7")
+
+[node name="HoverSound" type="AudioStreamPlayer" parent="." unique_id=939355745]
+stream = ExtResource("8_kabec")
+
+[connection signal="mouse_entered" from="ButtonManager/Start" to="." method="_on_start_mouse_entered"]
 [connection signal="pressed" from="ButtonManager/Start" to="." method="_on_start_pressed"]
+[connection signal="mouse_entered" from="ButtonManager/Tutorial" to="." method="_on_tutorial_mouse_entered"]
 [connection signal="pressed" from="ButtonManager/Tutorial" to="." method="_on_tutorial_pressed"]
-[connection signal="pressed" from="ButtonManager/Options" to="." method="_on_options_pressed"]
+[connection signal="mouse_entered" from="ButtonManager/Quit" to="." method="_on_quit_mouse_entered"]
 [connection signal="pressed" from="ButtonManager/Quit" to="." method="_on_quit_pressed"]

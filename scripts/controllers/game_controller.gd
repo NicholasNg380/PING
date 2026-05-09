@@ -4,6 +4,7 @@ var remaining_possums = 0
 var remaining_birds = 0
 @onready var death_screen = $DeathScreen
 var enemy_speed_multiplier: float = 1.0
+var enemy_hp_multiplier: float = 1.0
 
 var spawn_timer = 0.0
 var spawn_interval = 1.5
@@ -53,6 +54,7 @@ func spawn_enemy(enemy_scene):
 	var new_enemy = enemy_scene.instantiate()
 	
 	new_enemy.speed_multiplier = enemy_speed_multiplier
+	new_enemy.hp_multiplier = enemy_hp_multiplier
 	
 	%PathFollow2D.progress_ratio = randf()
 	new_enemy.global_position = %PathFollow2D.global_position
@@ -97,6 +99,7 @@ func start_level(level_id):
 	current_level = level_id
 	var data = levels[level_id]
 	
+	enemy_hp_multiplier = 1.0 + (level_id - 1) * 0.2
 	enemy_speed_multiplier = 1.0 + (level_id - 1) * 0.05
 	
 	spawn_interval = max(0.4, 1.5 - level_id * 0.1)
