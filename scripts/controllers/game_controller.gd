@@ -125,7 +125,6 @@ func _ready():
 	start_level(1)
 
 func _process(delta):
-	print(enemy_speed_multiplier)
 	if state != GameState.PLAYING:
 		return
 	

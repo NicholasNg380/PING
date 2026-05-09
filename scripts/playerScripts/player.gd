@@ -153,7 +153,7 @@ func _on_upgrade_selected(upgrade_entry: Dictionary):
 		ball_speed_multi += stat
 	if name == "Dash":
 		DASH_RELOAD_COST -= stat
-	if name == "Return Strength":
+	if name == "Return Damage":
 		ball_return_damage_multi += stat
 	if name == "Return Speed":
 		ball_return_speed_multi += stat
