@@ -58,9 +58,6 @@ func _physics_process(delta):
 			
 			if global_position.distance_to(dash_target) < 20: 
 				end_dash()
-	
-	if (enemyHealth <= 0):
-		queue_free()
 
 func chase_player(_delta):
 	var direction = global_position.direction_to(player.global_position)
@@ -102,7 +99,7 @@ func end_dash():
 	anim.play("flap")
 
 func take_damage(damage: float):
-	enemyHealth -= damage
+	super(damage)
 	
 	if taking_hit:
 		return

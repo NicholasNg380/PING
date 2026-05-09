@@ -138,6 +138,7 @@ func _process(delta):
 		spawn_timer = spawn_interval
 		spawn_one_enemy()
 
+#DEBUG
 func _input(event):
 	if event is InputEventKey and event.pressed:
 		match event.keycode:

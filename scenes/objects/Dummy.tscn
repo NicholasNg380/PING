@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://bx3cj8e0imqcq"]
+
+[ext_resource type="PackedScene" uid="uid://bqesdtg62tq4b" path="res://scenes/objects/Possum.tscn" id="1_j2ubk"]
+
+[node name="Dummy" unique_id=1863187210 instance=ExtResource("1_j2ubk")]
