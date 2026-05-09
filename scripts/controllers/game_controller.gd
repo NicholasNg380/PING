@@ -14,5 +14,4 @@ func _ready():
 
 func _process(_delta):
 	if Input.is_action_just_pressed("spawnEnemy"):
-		print("Q pressed")
 		spawn_enemy()
