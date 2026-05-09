@@ -269,4 +269,5 @@ shape = SubResource("RectangleShape2D_xhfnw")
 
 [node name="Ball" parent="." unique_id=305474800 instance=ExtResource("4_mdl7e")]
 
+[connection signal="dashed" from="." to="." method="_on_player_dashed"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

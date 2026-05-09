@@ -122,7 +122,6 @@ func _ready():
 	start_level(1)
 
 func _process(delta):
-	print(enemy_speed_multiplier)
 	if state != GameState.PLAYING:
 		return
 	
@@ -136,6 +135,7 @@ func _process(delta):
 		spawn_timer = spawn_interval
 		spawn_one_enemy()
 
+#DEBUG
 func _input(event):
 	if event is InputEventKey and event.pressed:
 		match event.keycode:

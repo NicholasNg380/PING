@@ -1,6 +1,6 @@
 class_name Ball extends Node2D
 
-@onready var player = get_node("/root/Game/Player")
+@onready var player = get_tree().get_first_node_in_group("Player")
 
 enum State {INACTIVE, HIT_ENEMY, HIT_PADDLE, HIT_WALL}
 var ball_state = State.INACTIVE

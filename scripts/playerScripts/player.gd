@@ -46,8 +46,10 @@ var ball_damage_multi: float = 1.0
 var ball_return_damage_multi: float = 0.5
 
 signal update_stats
+signal dashed
 
 func _ready() -> void:
+	add_to_group("Player")
 	upgrade.upgrade_selected.connect(_on_upgrade_selected)
 	
 
@@ -84,6 +86,7 @@ func _movement(delta: float) -> void:
 	var lerp_weight = delta * (ACCELERATION if input else FRICTION)
 	
 	if can_dash and Input.is_action_just_pressed("shift"):
+		dashed.emit()
 		can_dash = false
 		dash_timer = DASH_TIME
 		dash_reload_timer = DASH_RELOAD_COST
@@ -157,3 +160,7 @@ func _on_upgrade_selected(upgrade_entry: Dictionary):
 		ball_return_speed_multi += stat
 	update_stats.emit()	
 	update_stats.emit()
+
+
+func _on_player_dashed() -> void:
+	pass # Replace with function body.

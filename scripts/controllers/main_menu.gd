@@ -11,6 +11,9 @@ func _process(_delta):
 	if button_type == "start":
 		get_tree().change_scene_to_file("res://scenes/mainScenes/Game.tscn")
 	
+	elif button_type == "tutorial":
+		get_tree().change_scene_to_file("res://scenes/mainScenes/tutorial.tscn")
+	
 	elif button_type == "quit":
 		print("quit game")
 

@@ -4,7 +4,6 @@ extends "res://scripts/enemyScripts/enemy.gd"
 func _ready():
 	super()
 	enemySpeed = 250.0
-	enemyHealth = 2
 	anim.play("default")
 
 func _physics_process(_delta):
@@ -13,16 +12,10 @@ func _physics_process(_delta):
 	velocity = direction * enemySpeed * speed_multiplier
 	move_and_slide()
 	
-	if direction.x > 0:
-		anim.flip_h = true
-	else:
-		anim.flip_h = false
-		
-	if (enemyHealth <= 0):
-		queue_free()
+	anim.flip_h = direction.x > 0
 
 func take_damage(damage: float):
-	enemyHealth -= damage
+	super(damage)
 	anim.play("hit")
 
 func _on_possum_walk_animation_looped() -> void:

@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
-@onready var player = get_node("/root/Game/Player")
+@onready var player = get_tree().get_first_node_in_group("Player")
+
+signal died
 
 var speed_multiplier: float = 1.0
 var enemySpeed: float = 150.0
@@ -14,12 +16,13 @@ func _physics_process(_delta):
 		
 	velocity = direction * enemySpeed * speed_multiplier
 	move_and_slide()
-	if (enemyHealth <= 0):
-		queue_free()
 
 
 func take_damage(damage: float):
 	enemyHealth -= damage
+	if (enemyHealth <= 0):
+		died.emit()
+		queue_free()
 
 func _ready():
 	add_to_group("enemies")

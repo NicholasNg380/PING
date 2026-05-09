@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://bkyxpe1qlg4qj"]
+
+[ext_resource type="PackedScene" uid="uid://crefqb2cbiq7e" path="res://scenes/Stages/stage.tscn" id="1_lhk1f"]
+[ext_resource type="PackedScene" uid="uid://bpbyjy6wsbxg3" path="res://scenes/objects/Player.tscn" id="2_s6ys8"]
+[ext_resource type="PackedScene" uid="uid://cufenlfm85bbc" path="res://scenes/mainScenes/UpgradeScreen.tscn" id="3_q1uet"]
+[ext_resource type="Script" uid="uid://ki1jklkpi6yh" path="res://scripts/controllers/tutorial_controller.gd" id="4_hojdw"]
+[ext_resource type="Script" uid="uid://biidki5jk43ke" path="res://scripts/controllers/tutorial_ui.gd" id="4_xrgy0"]
+
+[node name="Tutorial" type="Node2D" unique_id=65658651]
+
+[node name="Stage" parent="." unique_id=1157750663 instance=ExtResource("1_lhk1f")]
+
+[node name="TutorialUI" type="Control" parent="." unique_id=1839071411]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_xrgy0")
+
+[node name="Label" type="Label" parent="TutorialUI" unique_id=606982711]
+layout_mode = 0
+offset_left = 326.0
+offset_top = -57.0
+offset_right = 578.0
+offset_bottom = 56.0
+
+[node name="Player" parent="." unique_id=250388077 instance=ExtResource("2_s6ys8")]
+collision_mask = 9
+
+[node name="UpgradeUI" parent="." unique_id=511903438 instance=ExtResource("3_q1uet")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TutorialController" type="Control" parent="." unique_id=859479432]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_hojdw")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2125030019]
+
+[connection signal="dashed" from="Player" to="TutorialController" method="_on_player_dashed"]

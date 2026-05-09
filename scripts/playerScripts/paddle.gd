@@ -5,6 +5,8 @@ var hasBall: bool = true
 var canParry: bool = false
 @onready var ball = $"../Ball"
 
+signal parried
+
 func _ready() -> void:
 	ball.global_position = get_parent().global_position
 	ball.has_ball.connect(_on_has_ball)
@@ -33,6 +35,7 @@ func _process(_delta: float) -> void:
 			ball.hit_paddle()
 		elif canParry:
 			print("parry")
+			parried.emit()
 			canParry = false
 			ball.rotation = rotation
 			ball.direction = arrow.global_position.direction_to(get_global_mouse_position())
