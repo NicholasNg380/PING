@@ -35,7 +35,7 @@ func _process(_delta: float) -> void:
 			print("parry")
 			canParry = false
 			ball.rotation = rotation
-			ball.direction = ball.global_position.direction_to(get_global_mouse_position())
+			ball.direction = arrow.global_position.direction_to(get_global_mouse_position())
 			ball.hit_paddle()
 
 func _on_has_ball():

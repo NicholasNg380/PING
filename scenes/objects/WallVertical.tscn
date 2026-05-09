@@ -12,13 +12,14 @@ collision_mask = 3
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1276267672]
 position = Vector2(20, 20.000006)
-scale = Vector2(2, 2)
+scale = Vector2(7.9258957, 2.728018)
 shape = SubResource("RectangleShape2D_t0g5x")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1373177510]
 position = Vector2(20, 20.000004)
-scale = Vector2(2, 2)
+scale = Vector2(8.599998, 2)
 collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1535443634]
+scale = Vector2(0.71888065, 1.182008)
 shape = SubResource("RectangleShape2D_t0g5x")
