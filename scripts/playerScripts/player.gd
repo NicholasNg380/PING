@@ -1,5 +1,8 @@
 class_name Player extends CharacterBody2D
 
+'''
+Player Variables
+'''
 # Movement
 const MAX_SPEED: int = 500
 const ACCELERATION: int = 15
@@ -26,6 +29,18 @@ var knockback_timer: float = 0.0
 const I_FRAME_TIME: float = 0.75
 var i_frame_timer: float = 0.0
 var invulnerable: bool = false 
+
+'''
+Ball Variables
+'''
+var ball_speed: int = 700
+var ball_speed_multi: float = 1
+var ball_return_speed: int = 850
+var ball_return_wall_speed: int = 1000
+var ball_return_speed_multi: float = 1.0
+var ball_damage: float = 1.0
+var ball_damage_multi: float = 1.0
+var ball_return_damage_multi: float = 0.5
 
 func _physics_process(delta):
 	if i_frame_timer > 0.0:
