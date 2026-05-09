@@ -2,6 +2,8 @@ class_name Ball extends Node2D
 
 @onready var player = get_tree().get_first_node_in_group("Player")
 @onready var ball_hit_wall = $BallHitWall
+@onready var game = get_tree().get_first_node_in_group("Game")
+const explosion = preload("res://scenes/objects/Explosion.tscn")
 
 enum State {INACTIVE, HIT_ENEMY, HIT_PADDLE, HIT_WALL}
 var ball_state = State.INACTIVE
@@ -105,6 +107,12 @@ func _on_ball_hit_box_body_entered(body: Node2D) -> void:
 			ball_state = State.HIT_ENEMY
 			update_score.emit(ENEMY_HIT_SCORE)
 			body.take_damage(DAMAGE + DAMAGE_MULTIPLIER)
+			if player.explosion and game.combo >= 3:
+				var explode = explosion.instantiate()
+				explode.global_position = global_position
+				get_tree().current_scene.add_child(explode)
+				await get_tree().create_timer(0.5).timeout
+				explode.queue_free()
 	elif ball_state == State.HIT_ENEMY or ball_state == State.HIT_WALL:
 		if body.is_in_group("Enemy"):
 			body.take_damage(DAMAGE * RETURN_DAMAGE_MULTIPLIER)

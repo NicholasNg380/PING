@@ -50,7 +50,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_ja1hk"]
 radius = 33.06055
 
-[node name="Ball" type="Node2D" unique_id=1471496014]
+[node name="Ball" type="Node2D" unique_id=1471496014 groups=["Ball"]]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_ja1hk")
 
@@ -60,7 +60,7 @@ sprite_frames = SubResource("SpriteFrames_t4y16")
 autoplay = "default"
 frame_progress = 0.28636357
 
-[node name="BallHitBox" type="Area2D" parent="." unique_id=1935173052]
+[node name="BallHitBox" type="Area2D" parent="." unique_id=1935173052 groups=["Ball"]]
 collision_layer = 4
 collision_mask = 27
 
