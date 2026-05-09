@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bqesdtg62tq4b"]
 
 [ext_resource type="PackedScene" uid="uid://bcjbxss7sllsk" path="res://scenes/objects/Enemy.tscn" id="1_78klo"]
+[ext_resource type="Script" uid="uid://b21qjrfgar4of" path="res://scripts/enemyScripts/possum.gd" id="2_1rsi2"]
 [ext_resource type="Texture2D" uid="uid://djvbdfg6g2nj5" path="res://assets/sprites/enemies/possum_enemy-Sheet.png" id="2_ed2sc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ed2sc"]
@@ -75,8 +76,9 @@ animations = [{
 }]
 
 [node name="Possum" unique_id=1863187210 instance=ExtResource("1_78klo")]
+script = ExtResource("2_1rsi2")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2" unique_id=2029666151]
+[node name="PossumWalk" type="AnimatedSprite2D" parent="." index="2" unique_id=2029666151]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_v7uwk")
 autoplay = "default"

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://covg2e50i7vm8"]
 
 [ext_resource type="PackedScene" uid="uid://bcjbxss7sllsk" path="res://scenes/objects/Enemy.tscn" id="1_hvhr7"]
+[ext_resource type="Script" uid="uid://bvdn4qsovwmp4" path="res://scripts/enemyScripts/bird.gd" id="2_barf0"]
 [ext_resource type="Texture2D" uid="uid://dfv50jpn45mi8" path="res://assets/sprites/enemies/bird_enemy-Sheet.png" id="2_jhdc3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_barf0"]
@@ -25,9 +26,10 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Enemy" unique_id=1863187210 instance=ExtResource("1_hvhr7")]
+[node name="Bird" unique_id=1863187210 instance=ExtResource("1_hvhr7")]
+script = ExtResource("2_barf0")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2" unique_id=1086143794]
+[node name="BirdFlap" type="AnimatedSprite2D" parent="." index="2" unique_id=1086143794]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_xqyxo")
 autoplay = "default"

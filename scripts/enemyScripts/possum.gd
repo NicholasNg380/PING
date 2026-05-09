@@ -1,4 +1,4 @@
-extends "res://scripts/enemyScripts/Enemy.gd"
+extends "res://scripts/enemyScripts/enemy.gd"
 
 func _ready():
 	enemySpeed = 250.0

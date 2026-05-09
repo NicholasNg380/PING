@@ -23,10 +23,10 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if ball_state == State.INACTIVE:
-		sprite.visible = false
+		$BallSpin.hide()
 		global_position = player.global_position
 	elif ball_state == State.HIT_PADDLE:
-		sprite.visible = true
+		$BallSpin.show()
 		global_position += direction * SPEED * delta
 	elif ball_state == State.HIT_ENEMY:
 		direction = global_position.direction_to(player.global_position)
