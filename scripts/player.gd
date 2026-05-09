@@ -14,6 +14,9 @@ var dash_dir: Vector2 = Vector2.ZERO
 const DASH_RELOAD_COST: float = 0.5
 var dash_reload_timer: float = 0.0
 
+# Animation
+var facing_right: bool = true
+
 
 
 func _physics_process(delta):
@@ -41,3 +44,20 @@ func _physics_process(delta):
 			can_dash = true
 			
 	move_and_slide()
+	
+	_animations()
+
+#Animation
+func _animations():
+	print(velocity.x)
+	if velocity.x > MAX_SPEED/4:
+		$AnimatedSprite2D.play("WalkRight")
+		facing_right = true
+	elif velocity.x < -MAX_SPEED/4:
+		$AnimatedSprite2D.play("WalkLeft")
+		facing_right = false
+	else:
+		if facing_right:
+			$AnimatedSprite2D.play("IdleRight")
+		else:
+			$AnimatedSprite2D.play("IdleLeft")
