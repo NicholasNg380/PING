@@ -7,6 +7,9 @@ var ball_state = State.INACTIVE
 signal has_ball
 signal can_parry
 signal cannot_parry
+signal update_score(score: int)
+
+const ENEMY_HIT_SCORE = 5
 
 var sprite
 var direction
@@ -86,6 +89,7 @@ func _on_ball_hit_box_body_entered(body: Node2D) -> void:
 	if ball_state == State.HIT_PADDLE:
 		if body.is_in_group("Enemy"):
 			ball_state = State.HIT_ENEMY
+			update_score.emit(ENEMY_HIT_SCORE)
 			body.take_damage(DAMAGE * DAMAGE_MULTIPLIER)
 	if ball_state == State.HIT_ENEMY or ball_state == State.HIT_WALL:
 		if body.is_in_group("Enemy"):
@@ -101,3 +105,6 @@ func _on_ball_hit_box_area_entered(area: Area2D) -> void:
 		can_parry.emit()
 	if area.get_parent().is_in_group("Wall"):
 		ball_state = State.HIT_WALL
+
+func was_hit_off_wall():
+	return ball_state == State.HIT_WALL

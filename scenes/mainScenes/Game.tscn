@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bpbyjy6wsbxg3" path="res://scenes/objects/Player.tscn" id="1_wbfu4"]
 [ext_resource type="PackedScene" uid="uid://biyi27mohykob" path="res://scenes/Stages/stage_1.tscn" id="2_23i5p"]
 [ext_resource type="PackedScene" uid="uid://cufenlfm85bbc" path="res://scenes/mainScenes/UpgradeScreen.tscn" id="3_cpr0p"]
+[ext_resource type="FontFile" uid="uid://bffxar07whxsc" path="res://assets/pixel_operator/PixelOperator-Bold.ttf" id="5_ekv5x"]
 
 [sub_resource type="Curve2D" id="Curve2D_qbsmt"]
 _data = {
@@ -49,4 +50,15 @@ offset_bottom = 540.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Score" type="Label" parent="." unique_id=1073988844]
+offset_left = 696.0
+offset_top = -524.0
+offset_right = 891.0
+offset_bottom = -468.0
+theme_override_fonts/font = ExtResource("5_ekv5x")
+theme_override_font_sizes/font_size = 38
+text = "Score: 0000"
+vertical_alignment = 1
+
+[connection signal="update_score" from="Player" to="." method="_on_player_update_score"]
 [connection signal="timeout" from="GameController/SpawnTimer" to="." method="_on_timer_timeout"]

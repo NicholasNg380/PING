@@ -34,9 +34,12 @@ var levels = {
 	10: {"possum": 99, "bird": 10}
 }
 
+@onready var scoreCard = $Score
+
 var enemy_scenes = {"possum": preload("res://scenes/objects/Possum.tscn"),
 	"bird": preload("res://scenes/objects/Bird.tscn")}
 
+const NEXT_STAGE_SCORE = 30
 
 func spawn_enemy(enemy_scene):
 	var new_enemy = enemy_scene.instantiate()
@@ -77,6 +80,8 @@ func spawn_one_enemy():
 		remaining_birds -= 1
 
 func start_level(level_id):
+	if (level_id != 1):
+		increase_score(NEXT_STAGE_SCORE)
 	current_level = level_id
 	var data = levels[level_id]
 	
@@ -162,3 +167,8 @@ func _input(event):
 
 func increase_score(score: int):
 	current_score += score
+	scoreCard.text = "Score: %s" % [str(current_score)]
+
+
+func _on_player_update_score(score) -> void:
+	increase_score(score)
