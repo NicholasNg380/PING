@@ -37,16 +37,20 @@ var invulnerable: bool = false
 Ball Variables
 '''
 var ball_speed: float = 700.0
-var ball_speed_multi: float = 1
+var ball_speed_multi: float = 1.0
 var ball_return_speed: float = 850.0
 var ball_return_wall_speed: float = 1000.0
 var ball_return_speed_multi: float = 1.0
 var ball_damage: float = 1.0
-var ball_damage_multi: float = 1.0
+var ball_damage_multi: float = 0.0
 var ball_return_damage_multi: float = 0.5
 
 signal update_stats
 signal dashed
+
+signal update_score(score: int)
+signal reset_combo
+signal increase_combo
 
 func _ready() -> void:
 	add_to_group("Player")
@@ -152,15 +156,26 @@ func _on_upgrade_selected(upgrade_entry: Dictionary):
 		max_health += stat
 	if name == "Ball Speed":
 		ball_speed_multi += stat
-		print(ball_speed_multi)
 	if name == "Dash":
 		DASH_RELOAD_COST -= stat
 	if name == "Return Strength":
 		ball_return_damage_multi += stat
+	if name == "Return Speed":
 		ball_return_speed_multi += stat
-	update_stats.emit()	
 	update_stats.emit()
+
 
 
 func _on_player_dashed() -> void:
 	pass # Replace with function body.
+
+func _on_paddle_update_score(score: int) -> void:
+	update_score.emit(score)
+	increase_combo.emit()
+
+func _on_ball_update_score(score: int) -> void:
+	update_score.emit(score)
+
+func _on_paddle_reset_combo() -> void:
+	reset_combo.emit()
+

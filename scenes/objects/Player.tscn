@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://b1q5gmvk43iyp" path="res://scenes/objects/Ball.tscn" id="4_mdl7e"]
 [ext_resource type="Texture2D" uid="uid://cqkhk4qxppu83" path="res://assets/sprites/penguin/penguin_hit_right.png" id="5_6eyey"]
 [ext_resource type="Texture2D" uid="uid://52f0ybdg32ui" path="res://assets/sprites/penguin/penguin_walk_right-Sheet.png" id="5_khinc"]
+[ext_resource type="Texture2D" uid="uid://fl7v77k42uit" path="res://assets/sprites/ui/progress_bar_thing.png" id="10_bnlsx"]
+[ext_resource type="Texture2D" uid="uid://bphh3qdp037g7" path="res://assets/sprites/ui/p_bar_bg.png" id="10_vnarb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cw2d6"]
 atlas = ExtResource("2_qu4a1")
@@ -269,5 +271,21 @@ shape = SubResource("RectangleShape2D_xhfnw")
 
 [node name="Ball" parent="." unique_id=305474800 instance=ExtResource("4_mdl7e")]
 
-[connection signal="dashed" from="." to="." method="_on_player_dashed"]
+
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=1226151906]
+offset_left = -34.0
+offset_top = 48.000015
+offset_right = -2.0
+offset_bottom = 51.333347
+scale = Vector2(2.11, 2.11)
+step = 10.0
+value = 10.0
+texture_under = ExtResource("10_vnarb")
+texture_progress = ExtResource("10_bnlsx")
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="reset_combo" from="Paddle" to="." method="_on_paddle_reset_combo"]
+[connection signal="update_score" from="Paddle" to="." method="_on_paddle_update_score"]
+[connection signal="update_score" from="Ball" to="." method="_on_ball_update_score"]
+[connection signal="dashed" from="." to="." method="_on_player_dashed"]

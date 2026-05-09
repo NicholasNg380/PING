@@ -7,11 +7,11 @@ var player = preload("res://scripts/playerScripts/player.gd")
 
 var upgrades = [{"name": "Speed", "asset_loc": "res://assets/sprites/icon.svg", "description": "Move faster", "stat": 1.5},
 				{"name": "Damage", "asset_loc": "res://assets/sprites/icon.svg", "description": "Do more damage", "stat": 1.0},
-				{"name": "Max Hp", "asset_loc": "res://assets/sprites/icon.svg", "description": "Increase Max Hp", "stat": 1.0},
-				{"name": "Ball Speed", "asset_loc": "res://assets/sprites/icon.svg", "description": "Increase Ball Speed", "stat": 0.5},
+				{"name": "Max Hp", "asset_loc": "res://assets/sprites/icon.svg", "description": "Increase max hp", "stat": 1.0},
+				{"name": "Ball Speed", "asset_loc": "res://assets/sprites/icon.svg", "description": "Increase ball speed", "stat": 0.5},
 				{"name": "Dash", "asset_loc": "res://assets/sprites/icon.svg", "description": "Lower the dash cooldown", "stat": 0.15},
 				{"name": "Return Strength", "asset_loc": "res://assets/sprites/icon.svg", "description": "Do more on return damage", "stat": 0.5},
-				{"name": "Return Speed", "asset_loc": "res://assets/sprites/icon.svg", "description": "Do more damage", "stat": 0.5}]
+				{"name": "Return Speed", "asset_loc": "res://assets/sprites/icon.svg", "description": "Increase ball speed on return", "stat": 0.5}]
 var used_upgrades = []
 var rng = RandomNumberGenerator.new()
 var chosen
@@ -37,6 +37,8 @@ func turn_on() -> void:
 	button1.icon = load(chosen[0]["asset_loc"])
 	button1.get_child(0).text = chosen[0]["description"]
 	
+	print("SEE: ")
+	print(chosen[1])
 	button2.icon = load(chosen[1]["asset_loc"])
 	button2.get_child(0).text = chosen[1]["description"]
 
@@ -57,6 +59,7 @@ func _on_upgrade_1_button_up() -> void:
 
 
 func _on_upgrade_2_button_up() -> void:
+	print(chosen[1])
 	upgrade_selected.emit(chosen[1])
 	upgrades.erase(chosen[1])
 	turn_off()

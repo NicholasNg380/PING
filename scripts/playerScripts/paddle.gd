@@ -5,7 +5,15 @@ var hasBall: bool = true
 var canParry: bool = false
 @onready var ball = $"../Ball"
 
+
 signal parried
+
+const PARRY_SCORE = 10
+
+signal reset_combo
+
+signal update_score(score: int)
+
 
 func _ready() -> void:
 	ball.global_position = get_parent().global_position
@@ -36,12 +44,16 @@ func _process(_delta: float) -> void:
 		elif canParry:
 			print("parry")
 			parried.emit()
+			if (!ball.was_hit_off_wall()):
+				update_score.emit(PARRY_SCORE)
 			canParry = false
 			ball.rotation = rotation
 			ball.direction = arrow.global_position.direction_to(get_global_mouse_position())
 			ball.hit_paddle()
+			
 
 func _on_has_ball():
+	reset_combo.emit()
 	hasBall = true
 
 func _on_can_parry():

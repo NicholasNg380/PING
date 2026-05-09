@@ -1,6 +1,7 @@
 extends "res://scripts/enemyScripts/enemy.gd"
 @onready var anim = $BirdFlap
 
+
 enum State {
 	CHASE,
 	CHARGING,
