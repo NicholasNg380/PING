@@ -28,6 +28,7 @@ Enemy=""
 Player=""
 Parry_Area=""
 Wall=""
+Explosive=""
 
 [input]
 
@@ -80,6 +81,7 @@ spawnEnemy={
 2d_physics/layer_4="Enemy"
 2d_physics/layer_5="Paddle"
 2d_physics/layer_6="Ghost"
+2d_physics/layer_7="Explosion"
 
 [physics]
 
