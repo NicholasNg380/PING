@@ -12,8 +12,7 @@ func set_label(score):
 	$Label.text = "You Died!\n\nYour Score was: %s" % [(str(score))]
 
 func _on_exit_button_pressed() -> void:
-	#restart.emit()
-	pass
+	get_tree().change_scene_to_file("res://scenes/mainScenes/main_menu.tscn")
 
 func _on_retry_button_button_up() -> void:
 	print("d")
