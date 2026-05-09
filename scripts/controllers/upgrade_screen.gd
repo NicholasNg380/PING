@@ -17,6 +17,7 @@ var chosen
 
 @onready var button1 = $Upgrade1
 @onready var bg = $Panel
+
 var turned_off: bool = true
 
 func _ready() -> void:
@@ -54,4 +55,4 @@ func _on_upgrade_3_button_up() -> void:
 
 func _on_confirm_pressed() -> void:
 	upgrade_selected.emit()
-	$Upgrade1.hide()
+	turn_off()
