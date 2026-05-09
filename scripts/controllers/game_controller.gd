@@ -3,6 +3,8 @@ extends Node2D
 var remaining_possums = 0
 var remaining_birds = 0
 
+var enemy_speed_multiplier: float = 1.0
+
 var spawn_timer = 0.0
 var spawn_interval = 1.5
 
@@ -37,6 +39,8 @@ var enemy_scenes = {"possum": preload("res://scenes/objects/Possum.tscn"),
 func spawn_enemy(enemy_scene):
 	var new_enemy = enemy_scene.instantiate()
 	
+	new_enemy.speed_multiplyer = enemy_speed_multiplier
+	
 	%PathFollow2D.progress_ratio = randf()
 	new_enemy.global_position = %PathFollow2D.global_position
 	
@@ -70,17 +74,12 @@ func spawn_one_enemy():
 		spawn_enemy(enemy_scenes["bird"])
 		remaining_birds -= 1
 
-#not functional yet
-func load_level(path):
-	for child in $CurrentLevel.get_children():
-		child.queue_free()
-		
-	var level = load(path).instantiate()
-	$CurrentLevel.add_child(level)
-
 func start_level(level_id):
 	current_level = level_id
 	var data = levels[level_id]
+	
+	enemy_speed_multiplier = 1.0 + (level_id - 1) * 0.12
+	
 	spawn_interval = max(0.4, 1.5 - level_id * 0.1)
 	spawn_wave(data["possum"], data["bird"])
 
