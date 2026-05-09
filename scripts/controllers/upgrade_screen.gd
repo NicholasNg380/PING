@@ -61,6 +61,6 @@ func _on_upgrade_3_button_up() -> void:
 	turn_off()
 
 func _on_confirm_pressed() -> void:
-	upgrade_selected.emit(chosen[0]) #confirm picks first one
-	print(chosen[0])
+	var random_upgrade = chosen.pick_random()
+	upgrade_selected.emit(random_upgrade)
 	turn_off()
