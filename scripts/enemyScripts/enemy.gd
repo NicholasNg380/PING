@@ -23,10 +23,20 @@ func _physics_process(_delta):
 
 
 func take_damage(damage: float):
-	enemyHealth -= damage
 	damage_sound.play()
+	enemyHealth -= damage
+	
 	if (enemyHealth <= 0):
 		died.emit()
+		
+		# hide enemy so it looks dead
+		visible = false
+		set_physics_process(false)
+		$CollisionShape2D.disabled = true
+		
+		# wait for sound to finish
+		await damage_sound.finished
+		
 		queue_free()
 
 func _ready():

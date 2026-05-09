@@ -82,6 +82,7 @@ visible = false
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=147986032]
 process_mode = 3
 stream = ExtResource("8_amdau")
+volume_db = -10.0
 autoplay = true
 bus = &"Music"
 parameters/looping = true
