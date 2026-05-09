@@ -2,8 +2,8 @@ extends CharacterBody2D
 
 @onready var player = get_node("/root/Game/Player")
 
-var enemySpeed = 150.0
-var enemyHealth = 2
+var enemySpeed: float = 150.0
+var enemyHealth: float = 2.0
 
 const KNOCKBACK_POWER: int = 1200
 const KNOCKBACK_TIME: float = 0.06
@@ -15,8 +15,8 @@ func _physics_process(_delta):
 	if (enemyHealth <= 0):
 		queue_free()
 
-func take_damage():
-	enemyHealth -= 1
+func take_damage(damage: float):
+	enemyHealth -= damage
 	
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if not player.invulnerable and body.is_in_group("Player"):
