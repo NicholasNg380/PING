@@ -131,7 +131,7 @@ icon = ExtResource("3_7gdp2")
 icon_alignment = 1
 expand_icon = true
 
-[node name="Tutorial" type="Button" parent="ButtonManager" unique_id=1718411002]
+[node name="Tutorialorig" type="Button" parent="ButtonManager" unique_id=1718411002]
 layout_mode = 0
 offset_left = 872.0
 offset_top = 740.0
@@ -139,6 +139,7 @@ offset_right = 1122.0
 offset_bottom = 837.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ud58m")
 icon = ExtResource("5_f5aaq")
+icon_alignment = 1
 expand_icon = true
 
 [node name="Quit" type="Button" parent="ButtonManager" unique_id=1999158445]
@@ -160,7 +161,7 @@ stream = ExtResource("8_kabec")
 
 [connection signal="mouse_entered" from="ButtonManager/Start" to="." method="_on_start_mouse_entered"]
 [connection signal="pressed" from="ButtonManager/Start" to="." method="_on_start_pressed"]
-[connection signal="mouse_entered" from="ButtonManager/Tutorial" to="." method="_on_tutorial_mouse_entered"]
-[connection signal="pressed" from="ButtonManager/Tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="mouse_entered" from="ButtonManager/Tutorialorig" to="." method="_on_tutorial_mouse_entered"]
+[connection signal="pressed" from="ButtonManager/Tutorialorig" to="." method="_on_tutorial_pressed"]
 [connection signal="mouse_entered" from="ButtonManager/Quit" to="." method="_on_quit_mouse_entered"]
 [connection signal="pressed" from="ButtonManager/Quit" to="." method="_on_quit_pressed"]
