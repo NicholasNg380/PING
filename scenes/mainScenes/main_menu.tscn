@@ -158,12 +158,6 @@ stream = ExtResource("7_nl3u7")
 [node name="HoverSound" type="AudioStreamPlayer" parent="." unique_id=939355745]
 stream = ExtResource("8_kabec")
 
-
-[node name="MenuMusic" type="AudioStreamPlayer" parent="." unique_id=380100889]
-stream = ExtResource("9_ud58m")
-autoplay = true
-bus = &"Music"
-
 [connection signal="mouse_entered" from="ButtonManager/Start" to="." method="_on_start_mouse_entered"]
 [connection signal="pressed" from="ButtonManager/Start" to="." method="_on_start_pressed"]
 [connection signal="mouse_entered" from="ButtonManager/Tutorial" to="." method="_on_tutorial_mouse_entered"]

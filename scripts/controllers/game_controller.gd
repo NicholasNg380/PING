@@ -167,7 +167,6 @@ func _on_upgrade_selected(upgrade):
 func _ready():
 	lowpass.cutoff_hz = 5000
 	music_player.pitch_scale = 1.0
-	#MusicManager.play_music(game_music, 0.8)
 	$UpgradeUI.upgrade_selected.connect(_on_upgrade_selected)
 	start_level(1)
 

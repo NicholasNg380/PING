@@ -6,7 +6,6 @@ var button_type = null
 @onready var hover_sound = $HoverSound
 
 func _ready() -> void:
-	#MusicManager.play_music(menu_music, 0.8)
 	get_tree().paused = false
 	ping_animation.play("idle")
 	pass
