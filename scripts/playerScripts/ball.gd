@@ -109,7 +109,7 @@ func _on_ball_hit_box_body_entered(body: Node2D) -> void:
 			ball_state = State.HIT_ENEMY
 			update_score.emit(ENEMY_HIT_SCORE)
 			body.take_damage(DAMAGE + DAMAGE_MULTIPLIER)
-			if player.explosion and game.combo >= 3:
+ 			if player.explosion and game.combo >= 3:
 				var explode = explosion.instantiate()
 				explode.global_position = global_position
 				get_tree().current_scene.add_child(explode)

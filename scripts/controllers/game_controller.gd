@@ -35,6 +35,7 @@ var levels = {
 
 @onready var scoreCard = $Score
 @onready var comboCard = $Combo
+@onready var levelCard = $Level
 
 @onready var music_bus = AudioServer.get_bus_index("Music")
 @onready var lowpass = AudioServer.get_bus_effect(music_bus, 0)
@@ -91,6 +92,7 @@ func spawn_one_enemy():
 
 func start_level(level_id):
 	if (level_id != 1):
+		levelCard.text = "Level: %s" % [str(level_id)]
 		increase_score(NEXT_STAGE_SCORE)
 	elif (level_id > 10):
 		$WinGameScreen.visible = true
