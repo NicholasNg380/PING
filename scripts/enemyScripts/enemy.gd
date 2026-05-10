@@ -34,7 +34,7 @@ func take_damage(damage: float):
 		# hide enemy so it looks dead
 		visible = false
 		set_physics_process(false)
-		$CollisionShape2D.disabled = true
+		$CollisionShape2D.set_deferred("disabled", true)
 		
 		# wait for sound to finish
 		await damage_sound.finished
