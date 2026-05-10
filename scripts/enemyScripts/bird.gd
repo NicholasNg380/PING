@@ -29,6 +29,14 @@ var cooldown_timer = 0.0
 @onready var dash_sound = $Dash
 
 func _ready():
+	enemySpeed = 0
+	chase_speed = 0
+	cooldown_timer = 1000000
+	anim.play("load")
+	await anim.animation_finished
+	chase_speed = 100.0
+	enemySpeed = 150.0
+	
 	super()
 	enemyHealth = 5
 	anim.play("flap")
