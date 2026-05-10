@@ -70,5 +70,6 @@ shape = SubResource("CircleShape2D_ja1hk")
 [node name="BallHitWall" type="AudioStreamPlayer" parent="." unique_id=95699363]
 stream = ExtResource("3_yuvwk")
 
+[connection signal="exploding" from="." to="." method="_on_exploding"]
 [connection signal="area_entered" from="BallHitBox" to="." method="_on_ball_hit_box_area_entered"]
 [connection signal="body_entered" from="BallHitBox" to="." method="_on_ball_hit_box_body_entered"]
