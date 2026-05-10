@@ -34,6 +34,7 @@ func _ready():
 	cooldown_timer = 1000000
 	anim.play("load")
 	await anim.animation_finished
+
 	chase_speed = 100.0
 	enemySpeed = 150.0
 	

@@ -10,6 +10,8 @@ anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 script = ExtResource("1_nlo6w")
+metadata/_edit_horizontal_guides_ = [133.0, 75.0, 520.0]
+metadata/_edit_vertical_guides_ = [197.0, 624.0]
 
 [node name="Panel" type="Panel" parent="." unique_id=1200668007]
 modulate = Color(0.30588236, 0.17254902, 0.007843138, 0.3137255)
