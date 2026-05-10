@@ -339,6 +339,8 @@ pitch_scale = 1.5
 
 [node name="penguin_death" type="AudioStreamPlayer" parent="." unique_id=1408899760]
 stream = ExtResource("13_ulqmn")
+volume_db = 10.0
+bus = &"Music"
 
 [connection signal="dashed" from="." to="." method="_on_player_dashed"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
