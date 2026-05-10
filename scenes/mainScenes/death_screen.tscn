@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bahcf75l5vwy5"]
+[gd_scene format=3 uid="uid://cqqpda2clh6k7"]
 
 [ext_resource type="FontFile" uid="uid://kunxlfww8xwl" path="res://assets/pixel_operator/PixelOperator8-Bold.ttf" id="1_3l542"]
 [ext_resource type="Script" uid="uid://clbygal1ou1yq" path="res://scenes/mainScenes/death_screen.gd" id="1_16ai1"]
@@ -51,22 +51,24 @@ stretch_mode = 0
 
 [node name="ExitButton" type="Button" parent="." unique_id=114600591]
 layout_mode = 0
-offset_left = 668.0
-offset_top = 751.0
-offset_right = 1181.0
-offset_bottom = 947.0
+offset_left = 710.0
+offset_top = 750.0
+offset_right = 1210.0
+offset_bottom = 950.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_16ai1")
 icon = ExtResource("2_hxhee")
+icon_alignment = 1
 expand_icon = true
 
 [node name="RetryButton" type="Button" parent="." unique_id=884954599]
 layout_mode = 0
-offset_left = 676.0
-offset_top = 451.0
-offset_right = 1187.0
-offset_bottom = 647.0
+offset_left = 710.0
+offset_top = 450.0
+offset_right = 1210.0
+offset_bottom = 650.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_d651b")
 icon = ExtResource("3_r4yk6")
+icon_alignment = 1
 expand_icon = true
 
 [connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
