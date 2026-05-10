@@ -1,5 +1,6 @@
 extends Camera2D
 
+@onready var ball = preload("res://scenes/objects/Ball.tscn")
 @export var randomStrength: float = 30.0
 @export var shakeFade: float = 5
 
@@ -21,4 +22,7 @@ func random_offset() -> Vector2:
 
 
 func _on_player_took_damage() -> void:
+	apply_shake()
+
+func _on_exploding():
 	apply_shake()

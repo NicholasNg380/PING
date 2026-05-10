@@ -3,6 +3,7 @@ extends Node2D
 var remaining_possums = 0
 var remaining_birds = 0
 @onready var death_screen = $DeathScreen
+@onready var ball = preload("res://scenes/objects/Ball.tscn")
 var enemy_speed_multiplier: float = 1.0
 var enemy_hp_multiplier: float = 1.0
 

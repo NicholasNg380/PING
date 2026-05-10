@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bcjbxss7sllsk" path="res://scenes/objects/Enemy.tscn" id="1_hvhr7"]
 [ext_resource type="Script" uid="uid://bvdn4qsovwmp4" path="res://scripts/enemyScripts/bird.gd" id="2_barf0"]
 [ext_resource type="Texture2D" uid="uid://dfv50jpn45mi8" path="res://assets/sprites/enemies/bird_enemy-Sheet.png" id="2_jhdc3"]
+[ext_resource type="Texture2D" uid="uid://gi4m6b35ff" path="res://assets/sprites/enemies/load_in-Sheet.png" id="4_dlkxs"]
 [ext_resource type="AudioStream" uid="uid://5wfjr0n2stqr" path="res://assets/sound/cackoo.wav" id="4_xqyxo"]
 [ext_resource type="AudioStream" uid="uid://pcywptwbnun7" path="res://assets/sound/whoosh.wav" id="5_dlkxs"]
 
@@ -45,6 +46,26 @@ region = Rect2(32, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_jd8vr"]
 atlas = ExtResource("2_jhdc3")
 region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uwbm3"]
+atlas = ExtResource("4_dlkxs")
+region = Rect2(0, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04j3d"]
+atlas = ExtResource("4_dlkxs")
+region = Rect2(10, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yhxy5"]
+atlas = ExtResource("4_dlkxs")
+region = Rect2(20, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c37xm"]
+atlas = ExtResource("4_dlkxs")
+region = Rect2(30, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0mad"]
+atlas = ExtResource("4_dlkxs")
+region = Rect2(40, 0, 10, 10)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xqyxo"]
 animations = [{
@@ -97,6 +118,26 @@ animations = [{
 "loop": false,
 "name": &"hit",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uwbm3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_04j3d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yhxy5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c37xm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0mad")
+}],
+"loop": false,
+"name": &"load",
+"speed": 2.5
 }]
 
 [node name="Bird" unique_id=1863187210 instance=ExtResource("1_hvhr7")]
@@ -105,10 +146,8 @@ script = ExtResource("2_barf0")
 [node name="BirdFlap" type="AnimatedSprite2D" parent="." index="2" unique_id=1086143794]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_xqyxo")
-animation = &"dive"
+animation = &"load"
 autoplay = "flap"
-frame = 4
-frame_progress = 1.0
 
 [node name="Charge" type="AudioStreamPlayer" parent="." index="4" unique_id=1206302634]
 stream = ExtResource("4_xqyxo")

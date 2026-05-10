@@ -12,6 +12,7 @@ signal can_parry
 signal cannot_parry
 signal update_score(score: int)
 signal hit_target
+signal exploding
 
 const ENEMY_HIT_SCORE = 5
 
@@ -74,7 +75,6 @@ func _process(delta: float) -> void:
 	if serve_cooldown > 0.0:
 		catch_cooldown_bar.visible = true
 		serve_cooldown -= delta
-		print("catch_cooldown_bar.visible")
 		catch_cooldown_bar.value = 100*(1-(serve_cooldown/SERVE_DELAY))
 	else:
 		catch_cooldown_bar.visible = false
@@ -109,7 +109,8 @@ func _on_ball_hit_box_body_entered(body: Node2D) -> void:
 			ball_state = State.HIT_ENEMY
 			update_score.emit(ENEMY_HIT_SCORE)
 			body.take_damage(DAMAGE + DAMAGE_MULTIPLIER)
- 			if player.explosion and game.combo >= 3:
+			if player.explosion and game != null and game.combo >= 3:
+				exploding.emit()
 				var explode = explosion.instantiate()
 				explode.global_position = global_position
 				get_tree().current_scene.add_child(explode)

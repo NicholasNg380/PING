@@ -22,6 +22,7 @@ offset_bottom = -500.0
 scale = Vector2(1, 27)
 
 [node name="TopWall" parent="." unique_id=385191328 groups=["Wall"] instance=ExtResource("1_n7d6h")]
+visible = false
 offset_left = 960.0
 offset_top = -540.0
 offset_right = 1000.0
@@ -30,6 +31,7 @@ rotation = 1.5707964
 scale = Vector2(1, 48)
 
 [node name="BottomWall" parent="." unique_id=1606505481 groups=["Wall"] instance=ExtResource("1_n7d6h")]
+visible = false
 offset_left = -959.0
 offset_top = 594.0
 offset_right = -919.0

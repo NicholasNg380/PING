@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bcjbxss7sllsk" path="res://scenes/objects/Enemy.tscn" id="1_78klo"]
 [ext_resource type="Script" uid="uid://b21qjrfgar4of" path="res://scripts/enemyScripts/possum.gd" id="2_1rsi2"]
 [ext_resource type="Texture2D" uid="uid://djvbdfg6g2nj5" path="res://assets/sprites/enemies/possum_enemy-Sheet.png" id="2_ed2sc"]
+[ext_resource type="Texture2D" uid="uid://gi4m6b35ff" path="res://assets/sprites/enemies/load_in-Sheet.png" id="4_d71vr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ed2sc"]
 atlas = ExtResource("2_ed2sc")
@@ -43,6 +44,26 @@ region = Rect2(256, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_v7uwk"]
 atlas = ExtResource("2_ed2sc")
 region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gw6tf"]
+atlas = ExtResource("4_d71vr")
+region = Rect2(0, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kx0m1"]
+atlas = ExtResource("4_d71vr")
+region = Rect2(10, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5oo2t"]
+atlas = ExtResource("4_d71vr")
+region = Rect2(20, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ltvr2"]
+atlas = ExtResource("4_d71vr")
+region = Rect2(30, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64fc1"]
+atlas = ExtResource("4_d71vr")
+region = Rect2(40, 0, 10, 10)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_v7uwk"]
 animations = [{
@@ -85,6 +106,26 @@ animations = [{
 "loop": true,
 "name": &"hit",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gw6tf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kx0m1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5oo2t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ltvr2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64fc1")
+}],
+"loop": false,
+"name": &"load",
+"speed": 2.5
 }]
 
 [node name="Possum" unique_id=1863187210 instance=ExtResource("1_78klo")]
@@ -93,7 +134,7 @@ script = ExtResource("2_1rsi2")
 [node name="PossumWalk" type="AnimatedSprite2D" parent="." index="2" unique_id=2029666151]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_v7uwk")
-animation = &"hit"
+animation = &"load"
 autoplay = "default"
 
 [connection signal="animation_finished" from="PossumWalk" to="." method="_on_possum_walk_animation_finished"]

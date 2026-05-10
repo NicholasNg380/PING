@@ -2,6 +2,10 @@ extends "res://scripts/enemyScripts/enemy.gd"
 @onready var anim = $PossumWalk
 
 func _ready():
+	enemySpeed = 0
+	anim.play("load")
+	await anim.animation_finished
+	
 	super()
 	enemySpeed = 250.0
 	anim.play("default")
