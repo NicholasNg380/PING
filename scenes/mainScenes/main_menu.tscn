@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://18rdga18x7s0" path="res://assets/sprites/ui/tutorial_button.png" id="5_f5aaq"]
 [ext_resource type="AudioStream" uid="uid://b4ahjebm6wl5w" path="res://assets/sound/MenuClick.wav" id="7_nl3u7"]
 [ext_resource type="AudioStream" uid="uid://cq16wik0e57o0" path="res://assets/sound/click.wav" id="8_kabec"]
-[ext_resource type="AudioStream" uid="uid://btpucwnd5s8g1" path="res://assets/sound/menuMusic.wav" id="9_ud58m"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nl3u7"]
 atlas = ExtResource("3_f5aaq")
@@ -158,10 +157,6 @@ stream = ExtResource("7_nl3u7")
 
 [node name="HoverSound" type="AudioStreamPlayer" parent="." unique_id=939355745]
 stream = ExtResource("8_kabec")
-
-[node name="MenuMusic" type="AudioStreamPlayer" parent="." unique_id=380100889]
-stream = ExtResource("9_ud58m")
-bus = &"Music"
 
 [connection signal="mouse_entered" from="ButtonManager/Start" to="." method="_on_start_mouse_entered"]
 [connection signal="pressed" from="ButtonManager/Start" to="." method="_on_start_pressed"]

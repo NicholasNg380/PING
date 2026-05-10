@@ -39,14 +39,13 @@ var levels = {
 @onready var music_bus = AudioServer.get_bus_index("Music")
 @onready var lowpass = AudioServer.get_bus_effect(music_bus, 0)
 @onready var music_player = $BackgroundMusic
-@onready var game_music = preload("res://assets/sound/backmusic.ogg")
 @onready var combo_sound = $ComboSound
 
 var enemy_scenes = {"possum": preload("res://scenes/objects/Possum.tscn"),
 	"bird": preload("res://scenes/objects/Bird.tscn")}
 
 const NEXT_STAGE_SCORE = 30
-const MAX_COMBO_PITCH = 2.5
+
 
 var combo = 1
 var combo_pitch: float = 1.0
@@ -168,7 +167,6 @@ func _on_upgrade_selected(upgrade):
 func _ready():
 	lowpass.cutoff_hz = 5000
 	music_player.pitch_scale = 1.0
-	MusicManager.play_music(game_music, 0.8)
 	$UpgradeUI.upgrade_selected.connect(_on_upgrade_selected)
 	start_level(1)
 
@@ -241,7 +239,6 @@ func _on_player_increase_combo() -> void:
 	update_combo_text()
 	
 	combo_pitch = pow(1.1, combo)
-	combo_pitch = clamp(combo_pitch, 1.0, MAX_COMBO_PITCH)
 	
 	combo_sound.pitch_scale = combo_pitch
 	combo_sound.play()
