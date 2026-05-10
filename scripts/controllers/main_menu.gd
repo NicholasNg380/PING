@@ -8,7 +8,7 @@ var button_type = null
 @onready var game_music = preload("res://assets/sound/backmusic.ogg")
 
 func _ready() -> void:
-	MusicManager.play_music(menu_music, 0.8)
+	#MusicManager.play_music(menu_music, 0.8)
 	get_tree().paused = false
 	ping_animation.play("idle")
 	pass

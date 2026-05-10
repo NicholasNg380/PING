@@ -19,10 +19,6 @@ config/icon="res://assets/sprites/icon.svg"
 
 buses/default_bus_layout="uid://cmfmfrvr3ic0u"
 
-[autoload]
-
-MusicManager="*uid://chplt2sc3vga6"
-
 [display]
 
 window/size/viewport_width=1920
