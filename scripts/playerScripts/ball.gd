@@ -109,7 +109,7 @@ func _on_ball_hit_box_body_entered(body: Node2D) -> void:
 			ball_state = State.HIT_ENEMY
 			update_score.emit(ENEMY_HIT_SCORE)
 			body.take_damage(DAMAGE + DAMAGE_MULTIPLIER)
-			if player.explosion and game.combo >= 3:
+			if player.explosion and game != null and game.combo >= 3:
 				exploding.emit()
 				var explode = explosion.instantiate()
 				explode.global_position = global_position
@@ -134,3 +134,6 @@ func _on_ball_hit_box_area_entered(area: Area2D) -> void:
 
 func was_hit_off_wall():
 	return ball_state == State.HIT_WALL
+
+func _on_exploding() -> void:
+	pass # Replace with function body.

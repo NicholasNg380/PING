@@ -23,6 +23,9 @@ func _physics_process(_delta):
 	velocity = direction * enemySpeed * speed_multiplier
 	move_and_slide()
 
+func _disable_enemy():
+	$CollisionShape2D.set_deferred("disabled", true)
+	set_physics_process(false)
 
 func take_damage(damage: float):
 	damage_sound.play()
@@ -33,8 +36,7 @@ func take_damage(damage: float):
 		
 		# hide enemy so it looks dead
 		visible = false
-		set_physics_process(false)
-		$CollisionShape2D.set_deferred("disabled", true)
+		call_deferred("_disable_enemy")
 		
 		# wait for sound to finish
 		await damage_sound.finished

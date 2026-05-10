@@ -2,6 +2,7 @@ class_name Player extends CharacterBody2D
 
 @onready var upgrade = $"../UpgradeUI"
 @onready var penguin_hit = $penguin_hit
+@onready var penguin_death = $penguin_death
 
 '''
 Player Variables
@@ -108,6 +109,7 @@ func take_player_damage():
 	took_damage.emit()
 	health_bar.update_health(health)
 	if (health <= 0):
+		penguin_death.play()
 		game_over.emit()
 	
 func _movement(delta: float) -> void:
