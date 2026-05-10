@@ -11,6 +11,9 @@ func be_visible():
 func set_label(score):
 	$Label.text = "You Died!\n\nYour Score was: %s" % [(str(score))]
 
+func set_level(level):
+	$Level.text = "Level - %s" % [str(level)]
+
 func _on_exit_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/mainScenes/main_menu.tscn")
 

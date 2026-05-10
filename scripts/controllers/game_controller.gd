@@ -219,6 +219,7 @@ func increase_score(score: int):
 func game_over():
 	death_screen.be_visible()
 	death_screen.set_label(current_score)
+	death_screen.set_level(current_level)
 	spawn_timer = 0.0
 	get_tree().paused = true
 

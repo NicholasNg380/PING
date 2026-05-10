@@ -5,13 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://biyi27mohykob" path="res://scenes/Stages/stage_1.tscn" id="2_23i5p"]
 [ext_resource type="PackedScene" uid="uid://cufenlfm85bbc" path="res://scenes/mainScenes/UpgradeScreen.tscn" id="3_cpr0p"]
 [ext_resource type="FontFile" uid="uid://bffxar07whxsc" path="res://assets/pixel_operator/PixelOperator-Bold.ttf" id="5_ekv5x"]
-[ext_resource type="PackedScene" uid="uid://d0xnt1gn2xwc5" path="res://scenes/objects/health_bar.tscn" id="6_83o3o"]
-[ext_resource type="PackedScene" uid="uid://bahcf75l5vwy5" path="res://scenes/mainScenes/death_screen.tscn" id="7_1mgfw"]
 [ext_resource type="Script" uid="uid://b8kg3iivnanvn" path="res://scenes/mainScenes/camera_2d.gd" id="5_ga1gc"]
 [ext_resource type="PackedScene" path="res://scenes/objects/health_bar.tscn" id="6_83o3o"]
 [ext_resource type="PackedScene" path="res://scenes/mainScenes/death_screen.tscn" id="7_1mgfw"]
 [ext_resource type="AudioStream" uid="uid://dqj2pmxlkf6si" path="res://assets/sound/backmusic.ogg" id="8_amdau"]
-[ext_resource type="PackedScene" uid="uid://b12hk70caua6a" path="res://scenes/mainScenes/win_game_screen.tscn" id="8_awoay"]
+[ext_resource type="PackedScene" path="res://scenes/mainScenes/win_game_screen.tscn" id="8_awoay"]
 [ext_resource type="AudioStream" uid="uid://tde63dduaexo" path="res://assets/sound/combo.ogg" id="10_x2hy4"]
 
 [sub_resource type="Curve2D" id="Curve2D_qbsmt"]
@@ -199,6 +197,15 @@ libraries/ = SubResource("AnimationLibrary_awoay")
 
 [node name="ComboSound" type="AudioStreamPlayer" parent="." unique_id=420644926]
 stream = ExtResource("10_x2hy4")
+
+[node name="Level" type="Label" parent="." unique_id=537641742]
+offset_left = 790.0
+offset_top = -482.0
+offset_right = 888.0
+offset_bottom = -455.0
+theme_override_fonts/font = ExtResource("5_ekv5x")
+theme_override_font_sizes/font_size = 26
+text = "Level - 1"
 
 [connection signal="game_over" from="Player" to="." method="_on_player_game_over"]
 [connection signal="increase_combo" from="Player" to="." method="_on_player_increase_combo"]

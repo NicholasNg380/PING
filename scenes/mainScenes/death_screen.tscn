@@ -1,9 +1,10 @@
-[gd_scene format=3 uid="uid://bahcf75l5vwy5"]
+[gd_scene format=3 uid="uid://cqqpda2clh6k7"]
 
 [ext_resource type="FontFile" uid="uid://kunxlfww8xwl" path="res://assets/pixel_operator/PixelOperator8-Bold.ttf" id="1_3l542"]
-[ext_resource type="Script" uid="uid://clbygal1ou1yq" path="res://scenes/mainScenes/death_screen.gd" id="1_16ai1"]
+[ext_resource type="Script" path="res://scenes/mainScenes/death_screen.gd" id="1_16ai1"]
 [ext_resource type="Texture2D" uid="uid://bqv3jmiwxhxbe" path="res://assets/sprites/ui/exit_button.png" id="2_hxhee"]
 [ext_resource type="Texture2D" uid="uid://drddi47y2i3l3" path="res://assets/sprites/ui/retry_button.png" id="3_r4yk6"]
+[ext_resource type="FontFile" uid="uid://bffxar07whxsc" path="res://assets/pixel_operator/PixelOperator-Bold.ttf" id="5_d651b"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hxhee"]
 bg_color = Color(0, 0, 0, 0.76862746)
@@ -68,6 +69,16 @@ offset_bottom = 647.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_d651b")
 icon = ExtResource("3_r4yk6")
 expand_icon = true
+
+[node name="Level" type="Label" parent="." unique_id=600536829]
+layout_mode = 0
+offset_left = 812.0
+offset_top = 356.0
+offset_right = 1052.0
+offset_bottom = 420.0
+theme_override_fonts/font = ExtResource("5_d651b")
+theme_override_font_sizes/font_size = 64
+text = "Level - 1"
 
 [connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="button_up" from="RetryButton" to="." method="_on_retry_button_button_up"]
