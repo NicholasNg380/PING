@@ -134,3 +134,6 @@ func _on_ball_hit_box_area_entered(area: Area2D) -> void:
 
 func was_hit_off_wall():
 	return ball_state == State.HIT_WALL
+
+func _on_exploding() -> void:
+	pass # Replace with function body.
