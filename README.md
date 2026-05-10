@@ -1,4 +1,7 @@
 # PING
+Instruction to run game:
+DMG - download Ping.dmg and run. If your computer says it may be malicious software, click on the question mark on the error message, click 'Open Privacy & Security settings for me' and click 'Open Anyway'. Enjoy PING.
+EXE - download Ping.exe and run. If windows defender gives a warning, select More Info and run anyway. Enjoy PING pt2.
 
 Sounds Sourced from:
 Wall hit sound - https://freesound.org/people/cj_ascoli/sounds/444372/
