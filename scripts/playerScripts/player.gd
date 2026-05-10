@@ -97,7 +97,8 @@ func _physics_process(delta):
 	else:
 		_movement(delta)
 	move_and_slide()
-
+	if health <= 0:
+		pass
 
 func refersh_health():
 	health = max_health
