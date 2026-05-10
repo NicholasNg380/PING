@@ -247,7 +247,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xhfnw"]
-size = Vector2(41.25, 39.906166)
+size = Vector2(39.92911, 69.15582)
 
 [sub_resource type="Animation" id="Animation_ubpv3"]
 length = 0.001
@@ -298,7 +298,7 @@ sprite_frames = SubResource("SpriteFrames_jfpux")
 animation = &"new_animation"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=435689060]
-position = Vector2(2.25, 7.6432905)
+position = Vector2(-3.195345, -2.35671)
 scale = Vector2(0.4026323, 0.6837686)
 shape = SubResource("RectangleShape2D_xhfnw")
 
@@ -311,7 +311,7 @@ collision_layer = 2
 collision_mask = 11
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1760170888]
-position = Vector2(3.625, 1)
+position = Vector2(2.000001, 1)
 scale = Vector2(1.0017754, 0.5630158)
 shape = SubResource("RectangleShape2D_xhfnw")
 

@@ -35,7 +35,7 @@ var RETURN_DAMAGE_MULTIPLIER: float
 var SCALE_X: float
 var SCALE_Y: float
 
-@onready var catch_cooldown_bar = $"../TextureProgressBar"
+@onready var catch_cooldown_bar =$"../TextureProgressBar"
 var is_inactive = true
 
 func _ready() -> void:
@@ -74,11 +74,13 @@ func _process(delta: float) -> void:
 	if serve_cooldown > 0.0:
 		catch_cooldown_bar.visible = true
 		serve_cooldown -= delta
+		print("catch_cooldown_bar.visible")
 		catch_cooldown_bar.value = 100*(1-(serve_cooldown/SERVE_DELAY))
 	else:
 		catch_cooldown_bar.visible = false
 	if player.global_position.distance_to(global_position) <= 40 and !is_inactive:
 		ball_state = State.INACTIVE
+		serve_cooldown = SERVE_DELAY
 		is_inactive = true
 		has_ball.emit()
 	
