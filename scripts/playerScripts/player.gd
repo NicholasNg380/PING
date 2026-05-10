@@ -48,8 +48,8 @@ var ball_return_damage_multi: float = 0.5
 var ball_scale_x: float = 0.5
 var ball_scale_y: float = 0.5
 
-var explosion: bool = false
-var explosive_dmg: float = 0.0
+var explosion: bool = true
+var explosive_dmg: float = 1
 var explo_scale_x: float = 10.0
 var explo_scale_y: float = 10.0
 
@@ -57,6 +57,7 @@ var explo_scale_y: float = 10.0
 
 signal update_stats
 signal dashed
+signal took_damage
 
 signal game_over
 signal update_score(score: int)
@@ -105,6 +106,7 @@ func refersh_health():
 func take_player_damage():
 	penguin_hit.play()
 	health -= 1
+	took_damage.emit()
 	health_bar.update_health(health)
 	if (health <= 0):
 		game_over.emit()
