@@ -47,17 +47,17 @@ func start_step(step):
 			enable_player(true)
 		
 		Step.ATTACK:
-			ui.show_text("Click to attack")
+			ui.show_text("Press Space or Left Click to attack")
 			spawn_dummy_enemy()
 		
 		Step.PARRY:
-			ui.show_text("Parry the ball back")
+			ui.show_text("Attack right before the ball returns to parry the ball")
 			spawn_dummy_enemy()
 			
 			parry_attempted = false
 		
 		Step.DASH:
-			ui.show_text("Press Shift to dash")
+			ui.show_text("Press Shift while moving to dash in that direction")
 		
 		Step.FINISH:
 			ui.show_text("Tutorial complete!")
@@ -87,7 +87,7 @@ func _respawn_parry_enemy():
 	await get_tree().create_timer(1.0).timeout
 
 	if current_step == Step.PARRY:
-		ui.show_text("Try parrying, not just attacking!")
+		ui.show_text("Try parrying, not just attacking")
 		spawn_dummy_enemy()
 
 func _on_player_parried():

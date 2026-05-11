@@ -22,12 +22,12 @@ script = ExtResource("4_xrgy0")
 
 [node name="Label" type="Label" parent="TutorialUI" unique_id=606982711]
 layout_mode = 0
-offset_left = -400.0
+offset_left = -819.0
 offset_top = -400.0
-offset_right = 400.0
+offset_right = 818.0
 offset_bottom = -124.0
 theme_override_fonts/font = ExtResource("3_4w40p")
-theme_override_font_sizes/font_size = 90
+theme_override_font_sizes/font_size = 60
 horizontal_alignment = 1
 
 [node name="Player" parent="." unique_id=250388077 instance=ExtResource("2_s6ys8")]

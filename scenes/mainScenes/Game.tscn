@@ -7,9 +7,9 @@
 [ext_resource type="FontFile" uid="uid://bffxar07whxsc" path="res://assets/pixel_operator/PixelOperator-Bold.ttf" id="5_ekv5x"]
 [ext_resource type="Script" uid="uid://b8kg3iivnanvn" path="res://scenes/mainScenes/camera_2d.gd" id="5_ga1gc"]
 [ext_resource type="PackedScene" path="res://scenes/objects/health_bar.tscn" id="6_83o3o"]
-[ext_resource type="PackedScene" path="res://scenes/mainScenes/death_screen.tscn" id="7_1mgfw"]
+[ext_resource type="PackedScene" uid="uid://cqqpda2clh6k7" path="res://scenes/mainScenes/death_screen.tscn" id="7_1mgfw"]
 [ext_resource type="AudioStream" uid="uid://dqj2pmxlkf6si" path="res://assets/sound/backmusic.ogg" id="8_amdau"]
-[ext_resource type="PackedScene" path="res://scenes/mainScenes/win_game_screen.tscn" id="8_awoay"]
+[ext_resource type="PackedScene" uid="uid://b12hk70caua6a" path="res://scenes/mainScenes/win_game_screen.tscn" id="8_awoay"]
 [ext_resource type="AudioStream" uid="uid://tde63dduaexo" path="res://assets/sound/combo.ogg" id="10_x2hy4"]
 
 [sub_resource type="Curve2D" id="Curve2D_qbsmt"]
@@ -109,9 +109,6 @@ script = ExtResource("1_cpr0p")
 
 [node name="Stage" parent="CurrentLevel" unique_id=1321113434 instance=ExtResource("2_23i5p")]
 
-[node name="Player" parent="." unique_id=250388077 instance=ExtResource("1_wbfu4")]
-collision_mask = 9
-
 [node name="EnemySpawn" type="Path2D" parent="." unique_id=905543411]
 position = Vector2(5.0000153, 44.50003)
 scale = Vector2(0.75188684, 0.6117188)
@@ -129,6 +126,9 @@ autostart = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1918275279]
 script = ExtResource("5_ga1gc")
+
+[node name="Player" parent="." unique_id=250388077 instance=ExtResource("1_wbfu4")]
+collision_mask = 9
 
 [node name="UpgradeUI" parent="." unique_id=2110234102 instance=ExtResource("3_cpr0p")]
 visible = false
@@ -207,11 +207,11 @@ theme_override_fonts/font = ExtResource("5_ekv5x")
 theme_override_font_sizes/font_size = 26
 text = "Level - 1"
 
+[connection signal="timeout" from="GameController/SpawnTimer" to="." method="_on_timer_timeout"]
 [connection signal="game_over" from="Player" to="." method="_on_player_game_over"]
 [connection signal="increase_combo" from="Player" to="." method="_on_player_increase_combo"]
 [connection signal="reset_combo" from="Player" to="." method="_on_player_reset_combo"]
 [connection signal="took_damage" from="Player" to="Camera2D" method="_on_player_took_damage"]
 [connection signal="update_score" from="Player" to="." method="_on_player_update_score"]
-[connection signal="timeout" from="GameController/SpawnTimer" to="." method="_on_timer_timeout"]
 [connection signal="refresh_health" from="UpgradeUI" to="." method="_on_upgrade_ui_refresh_health"]
 [connection signal="restart" from="DeathScreen" to="." method="_on_death_screen_restart"]

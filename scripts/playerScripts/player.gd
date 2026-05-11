@@ -121,7 +121,7 @@ func _movement(delta: float) -> void:
 	
 	var lerp_weight = delta * (ACCELERATION if input else FRICTION)
 	
-	if can_dash and Input.is_action_just_pressed("shift"):
+	if can_dash and Input.is_action_just_pressed("shift") and input != Vector2.ZERO:
 		dashed.emit()
 		can_dash = false
 		dash_timer = DASH_TIME
