@@ -11,7 +11,7 @@ signal has_ball
 signal can_parry
 signal cannot_parry
 signal update_score(score: int)
-signal hit_target
+#signal hit_target
 signal exploding
 
 const ENEMY_HIT_SCORE = 5
@@ -108,22 +108,27 @@ func _on_ball_hit_box_body_entered(body: Node2D) -> void:
 		if body.is_in_group("Enemy"):
 			ball_state = State.HIT_ENEMY
 			update_score.emit(ENEMY_HIT_SCORE)
-			body.take_damage(DAMAGE + DAMAGE_MULTIPLIER)
+			body.call_deferred("take_damage", DAMAGE + DAMAGE_MULTIPLIER)
 			if player.explosion and game != null and game.combo >= 3:
 				exploding.emit()
-				var explode = explosion.instantiate()
-				explode.global_position = global_position
-				get_tree().current_scene.add_child(explode)
-				await get_tree().create_timer(0.5).timeout
-				explode.queue_free()
+				spawn_explosion_deferred()
 	elif ball_state == State.HIT_ENEMY or ball_state == State.HIT_WALL:
 		if body.is_in_group("Enemy"):
-			body.take_damage(DAMAGE * RETURN_DAMAGE_MULTIPLIER)
+			body.call_deferred("take_damage", DAMAGE * RETURN_DAMAGE_MULTIPLIER)
 		if body.is_in_group("Player"):
 			ball_state = State.INACTIVE
 			has_ball.emit()
 			cannot_parry.emit()
 			serve_cooldown = SERVE_DELAY
+
+func spawn_explosion_deferred():
+	var explode = explosion.instantiate()
+	explode.global_position = global_position
+	get_tree().current_scene.call_deferred("add_child", explode)
+	await get_tree().create_timer(0.5).timeout
+	
+	if is_instance_valid(explode):
+		explode.queue_free()
 
 func _on_ball_hit_box_area_entered(area: Area2D) -> void:
 	if area.get_parent().is_in_group("Parry_Area"):

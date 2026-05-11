@@ -25,8 +25,8 @@ var dash_reload_timer: float = 0.0
 var facing_right: bool = true
 var swinging: bool = false
 
-var max_health: float = 3
-var health: int = 3
+var max_health: float = 3.0
+var health: float = 3.0
 
 var knockback: Vector2 = Vector2.ZERO
 var knockback_timer: float = 0.0
@@ -70,7 +70,7 @@ func _ready() -> void:
 	add_to_group("Player")
 	upgrade.upgrade_selected.connect(_on_upgrade_selected)
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if get_global_mouse_position().x < global_position.x:
 		facing_right = false
 	else:

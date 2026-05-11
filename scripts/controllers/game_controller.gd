@@ -2,6 +2,8 @@ extends Node2D
 
 var remaining_possums = 0
 var remaining_birds = 0
+var enemies_remaining_in_wave = 0
+
 @onready var death_screen = $DeathScreen
 @onready var ball = preload("res://scenes/objects/Ball.tscn")
 var enemy_speed_multiplier: float = 1.0
@@ -52,15 +54,20 @@ const NEXT_STAGE_SCORE = 30
 var combo = 1
 var combo_pitch: float = 1.0
 
+func _on_enemy_died():
+	enemies_remaining_in_wave -= 1
+
 func spawn_enemy(enemy_scene):
 	var new_enemy = enemy_scene.instantiate()
-	
+
 	new_enemy.speed_multiplier = enemy_speed_multiplier
 	new_enemy.hp_multiplier = enemy_hp_multiplier
-	
+
+	new_enemy.died.connect(_on_enemy_died)
+
 	%PathFollow2D.progress_ratio = randf()
 	new_enemy.global_position = %PathFollow2D.global_position
-	
+
 	add_child(new_enemy)
 
 func spawn_possum():
@@ -72,6 +79,9 @@ func spawn_bird():
 func spawn_wave(possum_num, bird_num):
 	remaining_possums = possum_num
 	remaining_birds = bird_num
+
+	enemies_remaining_in_wave = possum_num + bird_num
+
 	spawn_timer = 0.0
 
 func spawn_one_enemy():
@@ -116,7 +126,7 @@ func get_alive_enemies():
 	return get_tree().get_nodes_in_group("enemies").size()
 
 func is_wave_complete():
-	return remaining_possums <= 0 and remaining_birds <= 0 and get_alive_enemies() == 0
+	return enemies_remaining_in_wave <= 0
 
 func show_upgrades():
 	state = GameState.UPGRADES

@@ -1,7 +1,6 @@
 extends Control
 
 signal upgrade_selected(upgrade_entry: Dictionary)
-signal added_upgrade()
 signal refresh_health
 
 var player = preload("res://scripts/playerScripts/player.gd")
