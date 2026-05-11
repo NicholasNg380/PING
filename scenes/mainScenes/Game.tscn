@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dy5t37f1cgmdo" path="res://scripts/controllers/game_controller.gd" id="1_cpr0p"]
 [ext_resource type="PackedScene" uid="uid://bpbyjy6wsbxg3" path="res://scenes/objects/Player.tscn" id="1_wbfu4"]
-[ext_resource type="PackedScene" uid="uid://biyi27mohykob" path="res://scenes/Stages/stage_1.tscn" id="2_23i5p"]
+[ext_resource type="PackedScene" uid="uid://crefqb2cbiq7e" path="res://scenes/Stages/stage.tscn" id="2_ga1gc"]
 [ext_resource type="PackedScene" uid="uid://cufenlfm85bbc" path="res://scenes/mainScenes/UpgradeScreen.tscn" id="3_cpr0p"]
 [ext_resource type="FontFile" uid="uid://bffxar07whxsc" path="res://assets/pixel_operator/PixelOperator-Bold.ttf" id="5_ekv5x"]
 [ext_resource type="Script" uid="uid://b8kg3iivnanvn" path="res://scenes/mainScenes/camera_2d.gd" id="5_ga1gc"]
@@ -107,7 +107,7 @@ script = ExtResource("1_cpr0p")
 
 [node name="CurrentLevel" type="Node2D" parent="." unique_id=232713459]
 
-[node name="Stage" parent="CurrentLevel" unique_id=1321113434 instance=ExtResource("2_23i5p")]
+[node name="Stage" parent="CurrentLevel" unique_id=1157750663 instance=ExtResource("2_ga1gc")]
 
 [node name="EnemySpawn" type="Path2D" parent="." unique_id=905543411]
 position = Vector2(5.0000153, 44.50003)
@@ -132,7 +132,7 @@ collision_mask = 9
 
 [node name="UpgradeUI" parent="." unique_id=2110234102 instance=ExtResource("3_cpr0p")]
 visible = false
-z_index = 2
+z_index = 100
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -146,6 +146,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Score" type="Label" parent="." unique_id=1073988844]
+z_index = 100
 offset_left = 696.0
 offset_top = -524.0
 offset_right = 891.0
@@ -156,6 +157,7 @@ text = "Score: 0000"
 vertical_alignment = 1
 
 [node name="Combo" type="Label" parent="." unique_id=323696222]
+z_index = 100
 offset_left = -151.0
 offset_top = -514.0
 offset_right = 154.0
@@ -166,12 +168,12 @@ theme_override_font_sizes/font_size = 73
 text = "COMBO: 1x"
 
 [node name="HealthBar" parent="." unique_id=711747170 instance=ExtResource("6_83o3o")]
-z_index = 1
+z_index = 100
 offset_bottom = -418.0
 
 [node name="DeathScreen" parent="." unique_id=663415795 instance=ExtResource("7_1mgfw")]
 visible = false
-z_index = 2
+z_index = 200
 offset_left = -958.0
 offset_top = -556.0
 offset_right = 970.0
@@ -180,6 +182,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="WinGameScreen" parent="." unique_id=1968487832 instance=ExtResource("8_awoay")]
 visible = false
+z_index = 200
 offset_left = -966.0
 offset_top = -546.0
 offset_right = -960.0

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://6sgprx4vwf7o"]
 
 [ext_resource type="Script" uid="uid://ceamboyr7i8hl" path="res://scripts/controllers/start_screen.gd" id="1_2187v"]
+[ext_resource type="FontFile" uid="uid://bffxar07whxsc" path="res://assets/pixel_operator/PixelOperator-Bold.ttf" id="2_retk3"]
 
 [node name="StartScreen" type="Node2D" unique_id=982245132]
 script = ExtResource("1_2187v")
@@ -8,20 +9,23 @@ script = ExtResource("1_2187v")
 [node name="Logo" type="Sprite2D" parent="." unique_id=948999381]
 
 [node name="LogoStandin" type="Label" parent="." unique_id=1524730888]
-offset_left = 860.0
-offset_top = 350.0
-offset_right = 917.0
-offset_bottom = 373.0
-scale = Vector2(5, 5)
+offset_left = 760.0
+offset_top = 300.0
+offset_right = 1160.0
+offset_bottom = 400.0
 pivot_offset = Vector2(19, 16.5)
+theme_override_fonts/font = ExtResource("2_retk3")
+theme_override_font_sizes/font_size = 90
 text = "P.I.N.G."
+horizontal_alignment = 1
 
 [node name="AnyKeyToPlay" type="Label" parent="." unique_id=26920320]
-offset_left = 860.0
-offset_top = 675.0
-offset_right = 1040.0
-offset_bottom = 698.0
-scale = Vector2(5, 5)
+offset_left = 460.0
+offset_top = 540.0
+offset_right = 1460.0
+offset_bottom = 640.0
 pivot_offset = Vector2(90, 16.5)
+theme_override_fonts/font = ExtResource("2_retk3")
+theme_override_font_sizes/font_size = 90
 text = "Press any key to start..."
 horizontal_alignment = 1

@@ -90,8 +90,6 @@ animations = [{
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nl3u7"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ud58m"]
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kabec"]
 
 [node name="MainMenu" type="Node2D" unique_id=1255990202]
@@ -132,13 +130,13 @@ icon = ExtResource("3_7gdp2")
 icon_alignment = 1
 expand_icon = true
 
-[node name="Tutorial" type="Button" parent="ButtonManager" unique_id=1718411002]
+[node name="Tutorial" type="Button" parent="ButtonManager" unique_id=551467689]
 layout_mode = 0
 offset_left = 835.0
 offset_top = 740.0
 offset_right = 1085.0
-offset_bottom = 837.0
-theme_override_styles/normal = SubResource("StyleBoxEmpty_ud58m")
+offset_bottom = 840.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_nl3u7")
 icon = ExtResource("5_f5aaq")
 icon_alignment = 1
 expand_icon = true
@@ -146,9 +144,9 @@ expand_icon = true
 [node name="Quit" type="Button" parent="ButtonManager" unique_id=1999158445]
 layout_mode = 0
 offset_left = 835.0
-offset_top = 862.0
+offset_top = 852.0
 offset_right = 1086.0
-offset_bottom = 962.0
+offset_bottom = 952.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_kabec")
 icon = ExtResource("4_f5aaq")
 icon_alignment = 1
