@@ -187,31 +187,6 @@ func _process(delta):
 		spawn_timer = spawn_interval
 		spawn_one_enemy()
 
-#DEBUG
-func _input(event):
-	if event is InputEventKey and event.pressed:
-		match event.keycode:
-			KEY_1:
-				start_level(1)
-			KEY_2:
-				start_level(2)
-			KEY_3:
-				start_level(3)
-			KEY_4:
-				start_level(4)
-			KEY_5:
-				start_level(5)
-			KEY_6:
-				start_level(6)
-			KEY_7:
-				start_level(7)
-			KEY_8:
-				start_level(8)
-			KEY_9:
-				start_level(9)
-			KEY_0:
-				start_level(10)
-
 func increase_score(score: int):
 	current_score += score * combo
 	scoreCard.text = "Score: %s" % [str(current_score)]

@@ -59,7 +59,6 @@ func _on_upgrade_1_button_up() -> void:
 
 
 func _on_upgrade_2_button_up() -> void:
-	print(chosen[1])
 	upgrade_selected.emit(chosen[1])
 	turn_off()
 

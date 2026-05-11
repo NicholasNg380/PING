@@ -48,7 +48,6 @@ func _process(_delta: float) -> void:
 		elif canParry:
 			hit.pitch_scale = randf_range(0.8, 1.3)
 			hit.play()
-			print("parry")
 			parried.emit()
 			if (!ball.was_hit_off_wall()):
 				update_score.emit(PARRY_SCORE)

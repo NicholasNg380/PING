@@ -23,7 +23,6 @@ func _ready():
 	anim.play("default")
 
 func _physics_process(_delta):
-	print(collision_layer)
 	var direction = global_position.direction_to(player.global_position)
 	
 	velocity = direction * enemySpeed * speed_multiplier
