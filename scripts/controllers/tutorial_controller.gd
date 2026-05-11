@@ -122,7 +122,7 @@ func _on_parry_enemy_killed():
 			_respawn_parry_enemy()
 
 func spawn_dummy_enemy():
-	spawn_enemy(enemy_scenes["dummy"])
+	call_deferred("spawn_enemy", enemy_scenes["dummy"])
 
 func enable_player(enabled: bool):
 	player.set_process(enabled)

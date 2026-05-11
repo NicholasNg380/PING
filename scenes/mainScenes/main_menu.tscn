@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://18rdga18x7s0" path="res://assets/sprites/ui/tutorial_button.png" id="5_f5aaq"]
 [ext_resource type="AudioStream" uid="uid://b4ahjebm6wl5w" path="res://assets/sound/MenuClick.wav" id="7_nl3u7"]
 [ext_resource type="AudioStream" uid="uid://cq16wik0e57o0" path="res://assets/sound/click.wav" id="8_kabec"]
+[ext_resource type="AudioStream" uid="uid://dl0y4kgljvqwn" path="res://assets/sound/menuMusic.ogg" id="9_ud58m"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nl3u7"]
 atlas = ExtResource("3_f5aaq")
@@ -109,8 +110,8 @@ offset_bottom = 1104.0
 color = Color(0, 0, 0, 0.4862745)
 
 [node name="PingAnimation" type="AnimatedSprite2D" parent="." unique_id=469212139]
-position = Vector2(964, 290)
-scale = Vector2(3.8648648, 3.8648648)
+position = Vector2(979, 296)
+scale = Vector2(4.120466, 3.8648648)
 sprite_frames = SubResource("SpriteFrames_woau4")
 animation = &"idle"
 
@@ -122,20 +123,20 @@ offset_bottom = 40.0
 
 [node name="Start" type="Button" parent="ButtonManager" unique_id=2024065401]
 layout_mode = 0
-offset_left = 871.0
+offset_left = 835.0
 offset_top = 628.0
-offset_right = 1121.0
+offset_right = 1085.0
 offset_bottom = 728.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_nl3u7")
 icon = ExtResource("3_7gdp2")
 icon_alignment = 1
 expand_icon = true
 
-[node name="Tutorialorig" type="Button" parent="ButtonManager" unique_id=1718411002]
+[node name="Tutorial" type="Button" parent="ButtonManager" unique_id=1718411002]
 layout_mode = 0
-offset_left = 872.0
+offset_left = 835.0
 offset_top = 740.0
-offset_right = 1122.0
+offset_right = 1085.0
 offset_bottom = 837.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ud58m")
 icon = ExtResource("5_f5aaq")
@@ -144,9 +145,9 @@ expand_icon = true
 
 [node name="Quit" type="Button" parent="ButtonManager" unique_id=1999158445]
 layout_mode = 0
-offset_left = 872.0
+offset_left = 835.0
 offset_top = 862.0
-offset_right = 1123.0
+offset_right = 1086.0
 offset_bottom = 962.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_kabec")
 icon = ExtResource("4_f5aaq")
@@ -159,9 +160,14 @@ stream = ExtResource("7_nl3u7")
 [node name="HoverSound" type="AudioStreamPlayer" parent="." unique_id=939355745]
 stream = ExtResource("8_kabec")
 
+[node name="MenuMusic" type="AudioStreamPlayer" parent="." unique_id=1635177776]
+stream = ExtResource("9_ud58m")
+autoplay = true
+parameters/looping = true
+
 [connection signal="mouse_entered" from="ButtonManager/Start" to="." method="_on_start_mouse_entered"]
 [connection signal="pressed" from="ButtonManager/Start" to="." method="_on_start_pressed"]
-[connection signal="mouse_entered" from="ButtonManager/Tutorialorig" to="." method="_on_tutorial_mouse_entered"]
-[connection signal="pressed" from="ButtonManager/Tutorialorig" to="." method="_on_tutorial_pressed"]
+[connection signal="mouse_entered" from="ButtonManager/Tutorial" to="." method="_on_tutorial_mouse_entered"]
+[connection signal="pressed" from="ButtonManager/Tutorial" to="." method="_on_tutorial_pressed"]
 [connection signal="mouse_entered" from="ButtonManager/Quit" to="." method="_on_quit_mouse_entered"]
 [connection signal="pressed" from="ButtonManager/Quit" to="." method="_on_quit_pressed"]

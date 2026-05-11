@@ -2,10 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://crefqb2cbiq7e" path="res://scenes/Stages/stage.tscn" id="1_lhk1f"]
 [ext_resource type="PackedScene" uid="uid://bpbyjy6wsbxg3" path="res://scenes/objects/Player.tscn" id="2_s6ys8"]
+[ext_resource type="FontFile" uid="uid://bffxar07whxsc" path="res://assets/pixel_operator/PixelOperator-Bold.ttf" id="3_4w40p"]
 [ext_resource type="PackedScene" uid="uid://cufenlfm85bbc" path="res://scenes/mainScenes/UpgradeScreen.tscn" id="3_q1uet"]
 [ext_resource type="Script" uid="uid://ki1jklkpi6yh" path="res://scripts/controllers/tutorial_controller.gd" id="4_hojdw"]
 [ext_resource type="Script" uid="uid://biidki5jk43ke" path="res://scripts/controllers/tutorial_ui.gd" id="4_xrgy0"]
-[ext_resource type="PackedScene" uid="uid://d0xnt1gn2xwc5" path="res://scenes/objects/health_bar.tscn" id="6_6wjur"]
+[ext_resource type="PackedScene" path="res://scenes/objects/health_bar.tscn" id="6_6wjur"]
+[ext_resource type="AudioStream" uid="uid://dqj2pmxlkf6si" path="res://assets/sound/backmusic.ogg" id="8_tiypv"]
 
 [node name="Tutorial" type="Node2D" unique_id=65658651]
 
@@ -20,10 +22,13 @@ script = ExtResource("4_xrgy0")
 
 [node name="Label" type="Label" parent="TutorialUI" unique_id=606982711]
 layout_mode = 0
-offset_left = 326.0
-offset_top = -57.0
-offset_right = 578.0
-offset_bottom = 56.0
+offset_left = -400.0
+offset_top = -400.0
+offset_right = 400.0
+offset_bottom = -124.0
+theme_override_fonts/font = ExtResource("3_4w40p")
+theme_override_font_sizes/font_size = 90
+horizontal_alignment = 1
 
 [node name="Player" parent="." unique_id=250388077 instance=ExtResource("2_s6ys8")]
 collision_mask = 9
@@ -51,5 +56,10 @@ script = ExtResource("4_hojdw")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2125030019]
 
 [node name="HealthBar" parent="." unique_id=711747170 instance=ExtResource("6_6wjur")]
+
+[node name="gameMusic" type="AudioStreamPlayer" parent="." unique_id=839228007]
+stream = ExtResource("8_tiypv")
+autoplay = true
+parameters/looping = true
 
 [connection signal="dashed" from="Player" to="TutorialController" method="_on_player_dashed"]
