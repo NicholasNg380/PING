@@ -162,6 +162,7 @@ stream = ExtResource("8_kabec")
 
 [node name="MenuMusic" type="AudioStreamPlayer" parent="." unique_id=1635177776]
 stream = ExtResource("9_ud58m")
+volume_db = -10.0
 autoplay = true
 parameters/looping = true
 
