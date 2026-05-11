@@ -1,10 +1,22 @@
 extends "res://scripts/enemyScripts/enemy.gd"
 @onready var anim = $PossumWalk
+@onready var hurtbox = $Area2D
 
 func _ready():
+	collision_layer = 0
+	collision_mask = 0
+	hurtbox.collision_mask = 0
+	hurtbox.collision_layer = 0
+	
 	enemySpeed = 0
 	anim.play("load")
 	await anim.animation_finished
+	hurtbox.set_collision_layer_value(4, true)
+	hurtbox.set_collision_mask_value(2, true)
+	set_collision_layer_value(4, true)
+	set_collision_mask_value(2, true)
+	hurtbox.set_collision_mask_value(4, true)
+	set_collision_mask_value(4, true)
 
 	super()
 	enemySpeed = 250.0

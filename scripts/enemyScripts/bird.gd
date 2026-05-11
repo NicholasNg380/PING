@@ -27,14 +27,25 @@ var cooldown_timer = 0.0
 
 @onready var charge_sound = $Charge
 @onready var dash_sound = $Dash
+@onready var hurtbox = $Area2D
 
 func _ready():
+	collision_layer = 0
+	collision_mask = 0
+	hurtbox.collision_mask = 0
+	hurtbox.collision_layer = 0
+	
 	enemySpeed = 0
 	chase_speed = 0
 	cooldown_timer = 1000000
 	anim.play("load")
 	await anim.animation_finished
-
+	hurtbox.set_collision_layer_value(4, true)
+	hurtbox.set_collision_mask_value(2, true)
+	set_collision_layer_value(4, true)
+	set_collision_mask_value(2, true)
+	hurtbox.set_collision_mask_value(4, true)
+	set_collision_mask_value(4, true)
 	chase_speed = 100.0
 	enemySpeed = 150.0
 	
