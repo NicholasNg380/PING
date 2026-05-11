@@ -1,8 +1,12 @@
 # PING
 Instruction to run game:  
-DMG - download Ping.dmg and run. If your computer says it may be malicious software, click on the question mark on the error message, click 'Open Privacy & Security settings for me' and click 'Open Anyway'. Enjoy PING.  
-EXE - download Ping.exe and run. If windows defender gives a warning, select More Info and run anyway. Enjoy PING pt2.  
-  
+
+1. Head to releases page
+2. Download either .dmg file for mac or .exe file for windows
+  2.1 Mac/DMG: download Ping.dmg and run. If your computer says it may be malicious software, click on the question mark on the error message, click 'Open Privacy & Security settings for me' and click 'Open Anyway'.
+  2.2 Windows/EXE:download Ping.exe and run. If windows defender gives a warning, select More Info and run anyway.
+3. Enjoy Ping!
+
 Sounds Sourced from:  
 Wall hit sound - https://freesound.org/people/cj_ascoli/sounds/444372/  
 Penguin takes damage - https://opengameart.org/content/penguin-sounds  
