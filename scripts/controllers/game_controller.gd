@@ -113,7 +113,7 @@ func start_level(level_id):
 	var data = levels[level_id]
 	
 	enemy_hp_multiplier = 1.0 + (level_id - 1) * 0.2
-	enemy_speed_multiplier = 1.0 + (level_id - 1) * 0.3
+	enemy_speed_multiplier = 1.0 + (level_id - 1) * 0.04
 	#print("STAGE: ", level_id ," Possum hp: ", 2.0 * enemy_hp_multiplier, " Bird hp: ", 5.0 * enemy_hp_multiplier)
 	
 	spawn_interval = max(0.4, 1.5 - level_id * 0.1)
@@ -245,7 +245,7 @@ func _on_player_game_over() -> void:
 func _on_death_screen_restart() -> void:
 	restart()
 
-"""
+
 # DEBUG LEVEL SELECT
 func _input(event):
 	if event is InputEventKey and event.pressed:
@@ -272,4 +272,3 @@ func _input(event):
 				start_level(10)
 			KEY_U:
 				show_upgrades()
-"""
