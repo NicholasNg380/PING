@@ -15,6 +15,7 @@ func _ready():
 	hurtbox.set_collision_mask_value(2, true)
 	set_collision_layer_value(4, true)
 	set_collision_mask_value(2, true)
+	set_collision_mask_value(1, true)
 	hurtbox.set_collision_mask_value(4, true)
 	set_collision_mask_value(4, true)
 

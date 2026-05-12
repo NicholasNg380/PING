@@ -44,6 +44,7 @@ func _ready():
 	hurtbox.set_collision_mask_value(2, true)
 	set_collision_layer_value(4, true)
 	set_collision_mask_value(2, true)
+	set_collision_mask_value(1, true)
 	hurtbox.set_collision_mask_value(4, true)
 	set_collision_mask_value(4, true)
 	chase_speed = 100.0
@@ -77,9 +78,10 @@ func _physics_process(delta):
 		State.DASHING:
 			var direction_to_target = global_position.direction_to(dash_target)
 			velocity = direction_to_target * dash_speed
+			
 			move_and_slide()
 			
-			if global_position.distance_to(dash_target) < 20: 
+			if get_slide_collision_count() or global_position.distance_to(dash_target) < 20: 
 				end_dash()
 
 func chase_player(_delta):
@@ -121,7 +123,7 @@ func start_dash():
 func end_dash():
 	state = State.CHASE
 	
-	# Dnable enemy collision
+	# Enable enemy collision
 	set_collision_mask_value(4, true)
 	
 	cooldown_timer = randf_range(min_dash_cooldown, max_dash_cooldown)

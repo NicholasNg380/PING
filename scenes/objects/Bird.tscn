@@ -141,7 +141,11 @@ animations = [{
 }]
 
 [node name="Bird" unique_id=1863187210 instance=ExtResource("1_hvhr7")]
+collision_mask = 15
 script = ExtResource("2_barf0")
+
+[node name="Area2D" parent="." index="1" unique_id=1268213906]
+collision_mask = 11
 
 [node name="BirdFlap" type="AnimatedSprite2D" parent="." index="2" unique_id=1086143794]
 scale = Vector2(3, 3)
