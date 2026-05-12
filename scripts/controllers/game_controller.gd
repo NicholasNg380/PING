@@ -245,7 +245,7 @@ func _on_player_game_over() -> void:
 func _on_death_screen_restart() -> void:
 	restart()
 
-
+"""
 # DEBUG LEVEL SELECT
 func _input(event):
 	if event is InputEventKey and event.pressed:
@@ -272,3 +272,4 @@ func _input(event):
 				start_level(10)
 			KEY_U:
 				show_upgrades()
+"""
