@@ -113,7 +113,8 @@ func start_level(level_id):
 	var data = levels[level_id]
 	
 	enemy_hp_multiplier = 1.0 + (level_id - 1) * 0.2
-	enemy_speed_multiplier = 1.0 + (level_id - 1) * 0.05
+	enemy_speed_multiplier = 1.0 + (level_id - 1) * 0.3
+	#print("STAGE: ", level_id ," Possum hp: ", 2.0 * enemy_hp_multiplier, " Bird hp: ", 5.0 * enemy_hp_multiplier)
 	
 	spawn_interval = max(0.4, 1.5 - level_id * 0.1)
 	spawn_wave(data["possum"], data["bird"])

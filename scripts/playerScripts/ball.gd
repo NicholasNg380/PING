@@ -118,6 +118,7 @@ func _on_ball_hit_box_body_entered(body: Node2D) -> void:
 			ball_state = State.HIT_ENEMY
 			update_score.emit(ENEMY_HIT_SCORE)
 			body.call_deferred("take_damage", DAMAGE * DAMAGE_MULTIPLIER)
+			#print(DAMAGE * DAMAGE_MULTIPLIER)
 			if player.explosion and game != null and game.combo >= 3:
 				exploding.emit()
 				spawn_explosion_deferred()
