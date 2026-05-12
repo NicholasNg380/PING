@@ -34,7 +34,6 @@ func take_damage(damage: float):
 	
 	if (enemyHealth <= 0):
 		if is_called_already:
-			print("JIOFDSFJIOSDJOIFDSJIO")
 			pass
 		is_called_already = true
 		died.emit()
@@ -54,6 +53,7 @@ func apply_scaling():
 func _ready():
 	add_to_group("enemies")
 	apply_scaling()
+	print(enemyHealth)
 	
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if can_damage_player and not player.invulnerable and body.is_in_group("Player"):

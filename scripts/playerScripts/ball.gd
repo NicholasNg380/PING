@@ -27,12 +27,15 @@ Player Hold Variables
 '''
 var SPEED: int 
 var SPEED_MULTIPLIER: int
+
 var RETURN_SPEED: int
 var WALL_RETURN_SPEED: int
 var RETURN_SPEED_MULTIPLIER: float
+
 var DAMAGE: float
 var DAMAGE_MULTIPLIER: float
 var RETURN_DAMAGE_MULTIPLIER: float
+
 var SCALE_X: float
 var SCALE_Y: float
 
@@ -42,14 +45,17 @@ var is_inactive = true
 func _ready() -> void:
 	player.update_stats.connect(_on_update_stats)
 	catch_cooldown_bar.visible = false
+	
 	SPEED = player.ball_speed
 	SPEED_MULTIPLIER = player.ball_speed_multi
 	RETURN_SPEED = player.ball_return_speed
 	WALL_RETURN_SPEED = player.ball_return_wall_speed
 	RETURN_SPEED_MULTIPLIER = player.ball_return_speed_multi
+	
 	DAMAGE = player.ball_damage
 	DAMAGE_MULTIPLIER = player.ball_damage_multi
 	RETURN_DAMAGE_MULTIPLIER = player.ball_return_damage_multi
+	
 	SCALE_X = player.ball_scale_x
 	SCALE_Y = player.ball_scale_y
 	scale = Vector2(SCALE_X, SCALE_Y)
@@ -61,12 +67,15 @@ func _ready() -> void:
 func _on_update_stats():
 	SPEED = player.ball_speed
 	SPEED_MULTIPLIER = player.ball_speed_multi
+	
 	RETURN_SPEED = player.ball_return_speed
 	WALL_RETURN_SPEED = player.ball_return_wall_speed
 	RETURN_SPEED_MULTIPLIER = player.ball_return_speed_multi
+	
 	DAMAGE = player.ball_damage
 	DAMAGE_MULTIPLIER = player.ball_damage_multi
 	RETURN_DAMAGE_MULTIPLIER = player.ball_return_damage_multi
+	
 	SCALE_X = player.ball_scale_x
 	SCALE_Y = player.ball_scale_y
 	scale = Vector2(SCALE_X, SCALE_Y)
@@ -108,7 +117,7 @@ func _on_ball_hit_box_body_entered(body: Node2D) -> void:
 		if body.is_in_group("Enemy"):
 			ball_state = State.HIT_ENEMY
 			update_score.emit(ENEMY_HIT_SCORE)
-			body.call_deferred("take_damage", DAMAGE + DAMAGE_MULTIPLIER)
+			body.call_deferred("take_damage", DAMAGE * DAMAGE_MULTIPLIER)
 			if player.explosion and game != null and game.combo >= 3:
 				exploding.emit()
 				spawn_explosion_deferred()

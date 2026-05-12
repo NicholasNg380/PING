@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cufenlfm85bbc" path="res://scenes/mainScenes/UpgradeScreen.tscn" id="3_q1uet"]
 [ext_resource type="Script" uid="uid://ki1jklkpi6yh" path="res://scripts/controllers/tutorial_controller.gd" id="4_hojdw"]
 [ext_resource type="Script" uid="uid://biidki5jk43ke" path="res://scripts/controllers/tutorial_ui.gd" id="4_xrgy0"]
-[ext_resource type="PackedScene" path="res://scenes/objects/health_bar.tscn" id="6_6wjur"]
+[ext_resource type="PackedScene" uid="uid://d0xnt1gn2xwc5" path="res://scenes/objects/health_bar.tscn" id="6_6wjur"]
 [ext_resource type="AudioStream" uid="uid://dqj2pmxlkf6si" path="res://assets/sound/backmusic.ogg" id="8_tiypv"]
 
 [node name="Tutorial" type="Node2D" unique_id=65658651]

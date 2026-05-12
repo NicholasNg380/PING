@@ -44,7 +44,7 @@ var ball_return_speed: float = 850.0
 var ball_return_wall_speed: float = 1000.0
 var ball_return_speed_multi: float = 1.0
 var ball_damage: float = 1.0
-var ball_damage_multi: float = 0.0
+var ball_damage_multi: float = 1.0
 var ball_return_damage_multi: float = 0.5
 var ball_scale_x: float = 0.5
 var ball_scale_y: float = 0.5
@@ -213,7 +213,16 @@ func _on_paddle_update_score(score: int) -> void:
 func _on_ball_update_score(score: int) -> void:
 	update_score.emit(score)
 	
-
-
 func _on_paddle_reset_combo() -> void:
 	reset_combo.emit()
+
+"""
+#DEBUG DELETE
+func _input(event):
+	if event is InputEventKey and event.pressed:
+		match event.keycode:
+			KEY_Q:
+				max_health += 1
+				health = max_health
+				health_bar.change_max(max_health)
+"""

@@ -6,7 +6,7 @@ signal refresh_health
 var player = preload("res://scripts/playerScripts/player.gd")
 
 var upgrades = [{"name": "Speed", "asset_loc": "res://assets/sprites/upgrades/speed_upgrade.png", "description": "Move faster", "stat": 1.5},
-				{"name": "Damage", "asset_loc": "res://assets/sprites/upgrades/damage_upgrade.png", "description": "Do more damage", "stat": 1.0},
+				{"name": "Damage", "asset_loc": "res://assets/sprites/upgrades/damage_upgrade.png", "description": "Do more damage", "stat": 1.5},
 				{"name": "Max Hp", "asset_loc": "res://assets/sprites/upgrades/more_health_upgrade.png", "description": "Increase max hp", "stat": 1.0},
 				{"name": "Ball Speed", "asset_loc": "res://assets/sprites/upgrades/move_speed_upgrade.png", "description": "Increase ball speed", "stat": 0.5},
 				{"name": "Dash", "asset_loc": "res://assets/sprites/dash_cooldown_upgrade.png", "description": "Lower the dash cooldown", "stat": 0.15},

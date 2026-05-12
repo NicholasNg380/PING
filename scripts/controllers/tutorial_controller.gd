@@ -104,7 +104,7 @@ func spawn_enemy(enemy_scene):
 		return
 	
 	var new_enemy = enemy_scene.instantiate()
-	new_enemy.global_position = Vector2(1000, 0)
+	new_enemy.global_position = Vector2(750, 0)
 
 	if current_step == Step.PARRY:
 		parry_enemy_exists = true

@@ -34,7 +34,7 @@ func _process(_delta: float) -> void:
 		scale.y = -1
 	else:
 		scale.y = 1
-		
+
 	if Input.is_action_just_pressed("hit") and ball.serve_cooldown <= 0.0:
 		if hasBall:
 			hit.pitch_scale = randf_range(0.8, 1.3)
