@@ -10,6 +10,7 @@ var enemySpeed: float = 150.0
 var enemyHealth: float = 2.0
 var max_health: float = 2.0
 
+var is_called_already: bool = false
 var can_damage_player: bool = true
 
 const KNOCKBACK_POWER: int = 1200
@@ -32,6 +33,10 @@ func take_damage(damage: float):
 	enemyHealth -= damage
 	
 	if (enemyHealth <= 0):
+		if is_called_already:
+			print("JIOFDSFJIOSDJOIFDSJIO")
+			pass
+		is_called_already = true
 		died.emit()
 		
 		# hide enemy so it looks dead
