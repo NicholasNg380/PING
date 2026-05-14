@@ -20,6 +20,7 @@ var dash_timer: float = 0.0
 var dash_dir: Vector2 = Vector2.ZERO
 var DASH_RELOAD_COST: float = 0.5
 var dash_reload_timer: float = 0.0
+const DASH_I_FRAMES: float = 0.15
 
 # Animation
 var facing_right: bool = true
@@ -81,7 +82,6 @@ func _physics_process(delta):
 		$AnimationPlayer.play("flash")
 		i_frame_timer -= delta
 		if i_frame_timer <= 0.0:
-			i_frame_timer = 0.0
 			invulnerable = false
 			$AnimationPlayer.stop()
 			modulate.a = 1.0
@@ -126,7 +126,14 @@ func _movement(delta: float) -> void:
 		can_dash = false
 		dash_timer = DASH_TIME
 		dash_reload_timer = DASH_RELOAD_COST
-				
+		
+		# Dash i-frames
+		i_frame_timer = DASH_I_FRAMES
+		invulnerable = true
+		set_collision_layer_value(2, false)
+		set_collision_layer_value(6, true)
+		set_collision_mask_value(4, false)
+
 		velocity = input * DASH_SPEED
 	else:
 		velocity = lerp(velocity, input * (MAX_SPEED), lerp_weight)
